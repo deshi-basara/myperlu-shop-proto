@@ -1,4 +1,7 @@
 #navigation {
+    position: relative;
+    z-index: 1000;
+    width: 100%;
 
     .container-fluid {
         height: 70px;
@@ -67,6 +70,6 @@
 }
 
 #navigation.navbar-fixed-top {
-    position: static;
+    position: fixed;
     z-index: 1000;
 }
