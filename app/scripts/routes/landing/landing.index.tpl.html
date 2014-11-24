@@ -8,7 +8,7 @@
             <img src="images/trolleys/black.png">
 
             <!-- Lock -->
-            <div class="teaser-item-right lock">
+            <div class="teaser-item teaser-item-right lock" ng-class="{ 'show': ctrl.bullet.lock }">
                 <div class="teaser-indicator">
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -22,7 +22,7 @@
             </div><!-- / Lock -->
 
             <!-- Tracking -->
-            <div class="teaser-item-left tracking">
+            <div class="teaser-item teaser-item-left tracking">
                 <div class="teaser-desc">
                     <h3>Reise-Tracking</h3>
                     Dein Koffer lernt reisen und erkennt an welchen Orten der Welt er sich schon überall befunden hat.
@@ -126,71 +126,11 @@
     <div id="product-section" class="section">
         <h1>Entdecke die Welt der Kuckucksuhren</h1>
 
-        <div class="product-slider" ng-class="{ 'init-animate': ctrl.startAnimation.productSlider === false }">
-            <ul>
-                <li class="product-image" ng-repeat="slide in ctrl.slidesArray" style="left: {{$index * 410}}px" ng-style="ctrl.sliderTranslate({{ $index }})">
-                    <img ng-src="images/watches/classic/{{ slide.name }}">
-                    <div class="product-config">
-                        <p class="price section-box">{{ slide.price }}€</p>
-                        <p class="config section-box">Jetzt nach deinen Wünschen anpassen</p>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="product-slider-control">
-            <input type="range" min="0" max="5" value="0" step="1" list="volsettings" ng-model="ctrl.sliderPos.index" ng-change="ctrl.sliderChange()">
-            <datalist id="volsettings">
-                <option ng-repeat="slide in ctrl.slidesArray">{{ $index }}</option>
-            </datalist>
-        </div>
-        <div class="product-slider-current">{{ ctrl.sliderIndex() }}</div>
     </div><!-- / Section 2 -->
 
     <!-- Section 3 -->
     <div id="configurator-section" class="section">
         <h1>Bringe deine Individualität zum Ausdruck</h1>
-        <p>
-            Lebe das Kind in Dir aus und entdecke die Welt der Kuckucksuhren! Mit unserem Kuckucksuhren-Planer kannst<br>
-            Du selbst zum Schreiner werden und deine Kuckucksuhr nach deinen eigenen Vorstellung anpassen.
-        </p>
-
-        <div class="configuration-teaser" ng-class="{ 'init-animate': ctrl.startAnimation.teaserBoxes === false }">
-            <div class="teaser-item">
-                <div class="teaser-box">
-                    <i class="fa fa-cube"></i>
-                </div>
-                <div class="teaser-desc">Form</div>
-            </div>
-            <div class="teaser-item">
-                <div class="teaser-box">
-                    <i class="glyphicon glyphicon-leaf"></i>
-                </div>
-                <div class="teaser-desc">Material</div>
-            </div>
-            <div class="teaser-item">
-                <div class="teaser-box">
-                    <i class="fa fa-clock-o"></i>
-                </div>
-                <div class="teaser-desc">Ausstattung</div>
-            </div>
-            <div class="teaser-item">
-                <div class="teaser-box">
-                    <i class="glyphicon glyphicon-tint"></i>
-                </div>
-                <div class="teaser-desc">Farbe</div>
-            </div>
-            <div class="teaser-item">
-                <div class="teaser-box">
-                    <i class="fa fa-gift"></i>
-                </div>
-                <div class="teaser-desc">Extras</div>
-            </div>
-        </div>
-        <div class="configuration-start" ng-class="{ 'init-animate': ctrl.startAnimation.teaserBoxes === false }">
-            <button type="button" class="button" ng-click="ctrl.startPlanning()">
-                <i class="fa fa-angle-right"></i> Ich möchte jetzt zum Planer <i class="fa fa-angle-left"></i>
-            </button>
-        </div>
 
 
         <!-- Footer -->

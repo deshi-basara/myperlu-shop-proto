@@ -51,74 +51,66 @@
 
                     // hide the loader
                     $timeout(function() {
-                        $rootScope.$broadcast('loader.hide');
+                        // has to be index = 1 after rendering
+                        checkPillingAnimation(1);
 
-                        // start the video
-                        $('#video-section video').get(0).play();
+                        //$rootScope.$broadcast('loader.hide');
 
                     }, 500);
                 },
             });
         });
 
+
         /**
          * Starts a specified animation, when a certan pagepile enters the viewport
          * @param  {int}    index [Current pagepile]
          */
         function checkPillingAnimation(index) {
+            console.log(index);
+            // Section 1 animation
+            if(index === 1 && !ctrl.startAnimation.teaser) {
+                startTeaserAnimation();
+            }
             // Section 2 aninmation
-            if(index === 2 && !ctrl.startAnimation.productSlider) {
-                $scope.$apply(function() {
-                    ctrl.startAnimation.productSlider = true;
-                });
+            else if(index === 2 && !ctrl.startAnimation.productSlider) {
+
             }
             // Section 3 aninmation
             else if(index === 3 && !ctrl.startAnimation.teaserBoxes) {
-                $scope.$apply(function() {
-                    ctrl.startAnimation.teaserBoxes = true;
-                });
+
             }
         }
 
         /**
-         * Holdes the current sliderIndex and computes it with the length of the
-         * sliderArray.
-         * @return {String} [SliderIndex / SliderLength]
+         * Starts the teaser animation in section 1
          */
-        function sliderIndex() {
-            return (parseInt(ctrl.sliderPos.index) + 1) + ' / ' + ctrl.slidesArray.length;
+        function startTeaserAnimation() {
+            // insert all bullet points, in row
+            var counter = 1;
+            angular.forEach(ctrl.bullet, function(value, key) {
+                $timeout(function() {
+                    ctrl.bullet[key] = true;
+                    console.log(ctrl.bullet[key]);
+                }, 3000 * counter++);
+            });
         }
 
-        /**
-         * Calculates the slider slidingTransition which is returned to the ngStyles of all '.product-image'
-         * @param  {int}     index [ngRepeat-$index of the current '.product-image'-div]
-         * @return {String}        [New translate3d-position of the '.product-image' in our slider]
-         */
-        function sliderTranslate(index) {
-            return {'-webkit-transform': 'translate3d('+ parseInt(ctrl.sliderPos.index) * -410  +'px,0,0)'};
-        }
 
-        /**
-         * Redirects the user to the planner-state
-         */
-        function startPlanning() {
-            $state.go('planner');
-        }
+
 
         //////////////////////
 
         angular.extend(ctrl, {
-            sliderPos: {index: 0},
-            slidesArray: [{name: 'blau.png', price: 100}, {name: 'gelb.png', price: 100}, {name: 'rosa.png', price: 100},{name: 'blau.png', price: 100}, {name: 'gelb.png', price: 100}, {name: 'rosa.png', price: 100}],
-            startAnimation: {
-                teaserBoxes: false,
-                productSlider: false
+            bullet: {
+                lock: false,
+                tracking: false,
+                scale: false,
+                location: false
             },
-
-            sliderIndex: sliderIndex,
-            sliderTranslate: sliderTranslate,
-
-            startPlanning: startPlanning
+            startAnimation: {
+                teaser: false
+            }
         });
     }
 

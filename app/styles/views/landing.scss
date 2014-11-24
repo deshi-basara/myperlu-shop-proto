@@ -14,7 +14,10 @@
             width: 17%;
             left: 40%;
 
-            @include transform(translate3d(65%,0,0));
+            &.move {
+                @include transform(translate3d(65%,0,0));
+                @include transition(transform 0.7s ease-in-out);
+            }
 
             img {
                 width: 100%;
