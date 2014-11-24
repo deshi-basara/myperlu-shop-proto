@@ -1,0 +1,164 @@
+@font-face {
+    font-family: 'manksans-mediumregular';
+    src: url('../fonts/manksans-medium-webfont.eot');
+    src: url('../fonts/manksans-medium-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../fonts/manksans-medium-webfont.woff2') format('woff2'),
+         url('../fonts/manksans-medium-webfont.woff') format('woff'),
+         url('../fonts/manksans-medium-webfont.ttf') format('truetype'),
+         url('../fonts/manksans-medium-webfont.svg#manksans-mediumregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html{
+
+	font-family: 'manksans-mediumregular';
+}
+
+body {
+
+width: 100%;
+
+	height: 100%;
+
+	margin: 0;
+
+	padding: 0;
+}
+
+
+
+footer {
+
+	height: 50px;
+	background-color: #68d2ea;
+}
+
+hr{
+
+	margin-top: 5px;
+margin-bottom: 10px;
+border: 0;
+border-top: 1px solid #f3872f;
+}
+
+
+.nav {
+
+border-bottom: 3px solid #f3872f;
+
+}
+
+.nav li{
+
+	background-color: #68d2ea;
+	text-align: center;
+	padding: 0;
+}
+
+.nav li a{
+
+	background-color: #68d2ea;
+	color: white;
+}
+
+.nav li a.active{
+
+	background-color: #f3872f;
+	color: white;
+
+}
+
+.nav li a:hover{
+
+	background-color: #f3872f;
+	color: white;
+}
+
+.nav li a:active{
+
+	background-color: #f3872f;
+	color: white;
+}
+
+section {
+
+	width: 90%;
+	height: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2%;
+	margin-bottom: 2%;
+}
+
+.item { 
+
+	background-image: url(../img/trolley.jpg);
+	border: 1px solid black;
+	background-size: 100% 100%;
+    background-repeat: no-repeat;
+	margin: 1px;
+	z-index: 99;
+
+ }
+
+ #isotope{
+
+width: 100%;
+	height: 100%;
+
+ }
+
+.short-info {
+
+	display: none;
+	margin: 5%;
+}
+
+.long-info{
+	
+	display: none;
+	margin: 5%;
+
+}
+
+.button-more-infos {
+
+background-color: #68d2ea;
+margin-top: 1%;
+height: 5%;
+width: 40%;
+text-align: center;
+
+}
+
+.button-less-infos {
+
+background-color: #68d2ea;
+margin-top: 1%;
+height: 5%;
+width: 30%;
+text-align: center;
+
+}
+
+.button-more-infos:hover {
+
+background-color: #f3872f;
+margin-top: 1%;
+height: 5%;
+width: 40%;
+text-align: center;
+
+}
+
+.button-less-infos:hover {
+
+background-color: #f3872f;
+margin-top: 1%;
+height: 5%;
+width: 30%;
+text-align: center;
+
+}

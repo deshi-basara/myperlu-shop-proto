@@ -1,0 +1,72 @@
+#navigation {
+
+    .container-fluid {
+        height: 70px;
+
+        .navbar-header {
+            height: 71px;
+
+            i {
+                margin-top: -15px;
+                padding: 18px 35px 18px 35px;
+                margin-left: -15px;
+                margin-right: -15px;
+
+                font-size: em(32);
+
+                @include transition(all 0.7s ease-in-out);
+            }
+
+            i:hover {
+                background-color: $perlu-blue;
+                color: $perlu-white;
+
+                @include transition(all 0.7s ease-in-out);
+            }
+        }
+
+        .collapse {
+            padding-left: 75px;
+            padding-right: 75px;
+            height: 70px !important;
+
+            ul {
+                height: 100%;
+
+                li {
+                    height: 72px;
+                    border-bottom: 0;
+                    width: em(125);
+                    text-align: center;
+
+                    @include transition(border-bottom 0.2s ease-in-out);
+
+                    a {
+                        line-height: 45px;
+
+                        @include transition(all 0.2s ease-in);
+                    }
+                }
+
+                li:hover, li.enabled {
+                    border-bottom: 5px solid $perlu-blue;
+
+                    @include transition(border-bottom 0.2s ease-in-out);
+                }
+
+                li.complete {
+                    background-color: $perlu-blue;
+
+                    a {
+                        color: $perlu-white;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#navigation.navbar-fixed-top {
+    position: static;
+    z-index: 1000;
+}

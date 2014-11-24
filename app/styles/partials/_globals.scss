@@ -1,0 +1,76 @@
+/**
+ * Colors
+ */
+$kuck-green: #5ACA00;
+$kuck-blue: #7BAABE;
+$kuck-bluer: #4BBFC3;
+$kuck-orange: #FFA600;
+
+$kuck-white: #f2f2f2;
+$kuck-black: #333;
+
+$glf-grey: #E6E6E6;
+$glf-dark: #434343;
+$glf-border: #cdcdcd;
+
+
+
+
+
+$perlu-blue: #6AD2EB;
+$perlu-lightblue: #A7DBD9;
+$perlu-brown: #E0E4CD;
+$perlu-lightorange: #F48631;
+$perlu-orange: #FB6A01;
+$perlu-black: #000000;
+$perlu-white: #FFFFFF;
+
+
+
+
+/**
+ * Fonts
+ */
+$font-primary: 'Open Sans', sans-serif;
+$font-secondary: 'Josefin Slab', serif;
+
+/**
+ * Global settings
+ */
+html, body {
+	width: 100%;
+	height: 100%;
+
+	font-family: $font-primary;
+	font-weight: 300;
+}
+
+.main-container {
+    position: relative;
+    top: 40px;
+	height: 100%;
+	width: 100%;
+    z-index: 2;
+}
+
+footer {
+    position: absolute;
+    top: 300%;
+    margin-top: 50px;
+    background-color: white;
+}
+
+/**
+ * Depth
+ */
+.z1 {
+    box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
+}
+
+/**
+ * Ng-cloak flicker fix
+ */
+[ng-cloak]
+{
+  display: none !important;
+}
