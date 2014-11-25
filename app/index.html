@@ -74,9 +74,6 @@
                     <!-- Nav right -->
                     <ul class="nav navbar-nav navbar-right">
                         <li><a href="">Einloggen</a></li>
-                        <li ng-click="main.toggleBag()">
-                            <a href=""><i class="glyphicon glyphicon-shopping-cart"></i></a>
-                        </li>
                     </ul><!-- / Nav right -->
                 </nav><!-- / Nav bar -->
 
@@ -137,9 +134,14 @@
         </div>
 
         <!--
-            Footer
+            Shopping bag button
         -->
-        <footer>Someone famous in <cite title="Source Title">Source Title</cite></footer>
+        <div id="shopping-bag-button" ng-cloak>
+            <div ng-click="main.toggleBag()">
+                <a href=""><i class="glyphicon glyphicon-shopping-cart"></i></a>
+            </div>
+        </div>
+
 
         <!--
             Vendor scripts
