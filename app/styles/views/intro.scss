@@ -148,17 +148,17 @@
 
     .intro-perlu {
         opacity: 0;
-        @include transform(scale(0.5) translate3d(0, 60%, 0));
+        @include transform(scale(1) translate3d(0, 60%, 0));
     }
 
     .intro-collection {
         opacity: 0;
-        @include transform(scale(0.5) translate3d(50%, -40%, 0));
+        @include transform(scale(1) translate3d(50%, -40%, 0));
     }
 
     .intro-config {
         opacity: 0;
-        @include transform(scale(0.5) translate3d(-50%, -40%, 0));
+        @include transform(scale(1) translate3d(-50%, -40%, 0));
     }
 
     .intro-circle {
