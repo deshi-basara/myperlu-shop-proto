@@ -15,7 +15,7 @@
             left: 40%;
 
             &.move {
-                @include transform(translate3d(65%,0,0));
+                @include transform(translate3d(65%,0,0) scale(0.8));
                 @include transition(transform 0.7s ease-in-out);
             }
 
