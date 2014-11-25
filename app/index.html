@@ -57,17 +57,17 @@
                 <!-- Nav bar -->
                 <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                     <ul class="nav navbar-nav">
-                        <li ng-class="{ 'enabled': main.enabled == 1, 'complete': main.complete.gehaeuse }">
-                            <a href="#/planer#1">Perlu</a>
+                        <li ui-sref-active="enabled">
+                            <a ui-sref="landing">Perlu</a>
                         </li>
-                        <li ng-class="{ 'enabled': main.enabled == 2, 'complete': main.complete.material }">
-                            <a href="#/planer#2">Kollektion</a>
+                        <li ui-sref-active="enabled">
+                            <a ui-sref="collection">Kollektion</a>
                         </li>
-                        <li ng-class="{ 'enabled': main.enabled == 3, 'complete': main.complete.ausstattung }">
-                            <a href="#/planer#3">Konfigurator</a>
+                        <li ui-sref-active="enabled">
+                            <a ui-sref="planer">Konfigurator</a>
                         </li>
-                        <li ng-class="{ 'enabled': main.enabled == 4, 'complete': main.complete.farben }">
-                            <a href="#/planer#4">Voting</a>
+                        <li ui-sref-active="enabled">
+                            <a ui-sref="planer">Voting</a>
                         </li>
                     </ul>
 
