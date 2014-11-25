@@ -4,7 +4,7 @@
     <div id="teaser-section" class="section">
 
         <!-- Teaser Image -->
-        <div class="teaser-img">
+        <div class="teaser-img" ng-class="{ 'move': ctrl.moveLeft }">
             <img src="images/trolleys/black.png">
 
             <!-- Lock -->
@@ -22,7 +22,7 @@
             </div><!-- / Lock -->
 
             <!-- Tracking -->
-            <div class="teaser-item teaser-item-left tracking">
+            <div class="teaser-item teaser-item-left tracking" ng-class="{ 'show': ctrl.bullet.tracking }">
                 <div class="teaser-desc">
                     <h3>Reise-Tracking</h3>
                     Dein Koffer lernt reisen und erkennt an welchen Orten der Welt er sich schon überall befunden hat.
@@ -36,7 +36,7 @@
             </div><!-- / Tracking -->
 
             <!-- Scale -->
-            <div class="teaser-item-left scale">
+            <div class="teaser-item teaser-item-left scale" ng-class="{ 'show': ctrl.bullet.scale }">
                 <div class="teaser-desc">
                     <h3>Integrierte Waage</h3>
                     Auf’s Gramm genau - alles muss schnell gehen, du hast viel zu
@@ -51,7 +51,7 @@
             </div><!-- / Scale -->
 
             <!-- Location -->
-            <div class="teaser-item-right location">
+            <div class="teaser-item teaser-item-right location" ng-class="{ 'show': ctrl.bullet.location }">
                 <div class="teaser-indicator">
                     <span class="fa-stack fa-lg">
                         <i class="fa fa-circle fa-stack-2x"></i>
@@ -67,7 +67,7 @@
         </div><!-- / Teaser device -->
 
         <!-- Teaser phone -->
-        <div class="teaser-phone">
+        <div class="teaser-phone" ng-class="{ 'show' : ctrl.moveUp }">
             <div class="os">
                 <i class="fa fa-android"></i>
                 <i class="fa fa-apple"></i>
@@ -100,19 +100,19 @@
         </div>
 
         <!-- Testimonials -->
-        <div class="teaser-quotes">
+        <div class="teaser-quotes" ng-class="{ 'show' : ctrl.moveUp }">
             <div class="quotes">
-                <div class="quote-item">
+                <div class="quote-item" ng-class="{ 'show' : ctrl.testimonial.brandon }">
                     <img src="images/quotes/brandon.jpg" class="img-circle">
                     <div class="quote-text"><i class="fa fa-quote-left"></i>You talkin' to me?<i class="fa fa-quote-right"></i></div>
                     <div class="quote-name">Brandon</div>
                 </div>
-                <div class="quote-item">
+                <div class="quote-item" ng-class="{ 'show' : ctrl.testimonial.svenja }">
                     <img src="images/quotes/svenja.jpg" class="img-circle">
                     <div class="quote-text"><i class="fa fa-quote-left"></i>I love the smell of napalm in the morning<i class="fa fa-quote-right"></i></div>
                     <div class="quote-name">Svenja</div>
                 </div>
-                <div class="quote-item">
+                <div class="quote-item" ng-class="{ 'show' : ctrl.testimonial.ramona }">
                     <img src="images/quotes/ramona.jpg" class="img-circle">
                     <div class="quote-text"><i class="fa fa-quote-left"></i>I'm going to make him an offer he can't refuse<i class="fa fa-quote-right"></i></div>
                     <div class="quote-name">Ramona</div>

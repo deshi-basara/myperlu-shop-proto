@@ -18,48 +18,48 @@
          * Initiate pagepilling when the dom is ready
          */
         angular.element(document).ready(function () {
-            $('#landing').pagepiling({
-                menu: null,
-                direction: 'vertical',
-                verticalCentered: true,
-                sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
-                anchors: [],
-                scrollingSpeed: 700,
-                easing: 'swing',
-                loopBottom: false,
-                loopTop: false,
-                css3: true,
-                navigation: false/*{
-                    'textColor': '#FFA600',
-                    'bulletsColor': '#f2f2f2',
-                    'position': 'left',
-                    'tooltips': ['Start', 'Fertige Produkte', 'Zum Konfigurator']
-                }*/,
-                normalScrollElements: null,
-                normalScrollElementTouchThreshold: 5,
-                touchSensitivity: 5,
-                keyboardScrolling: true,
-                sectionSelector: '.section',
-                animateAnchor: false,
 
-                //events
-                onLeave: function(index, nextIndex, direction) {},
-                afterLoad: function(anchorLink, index){
-                    checkPillingAnimation(index);
-                },
-                afterRender: function(){
+            setTimeout(function() {
+                $('#landing').pagepiling({
+                    menu: null,
+                    direction: 'vertical',
+                    verticalCentered: true,
+                    sectionsColor: ['#E0E4CD', '#6AD2EB', '#F48631'],
+                    anchors: [],
+                    scrollingSpeed: 700,
+                    easing: 'swing',
+                    loopBottom: false,
+                    loopTop: false,
+                    css3: true,
+                    navigation: false,
+                    normalScrollElements: null,
+                    normalScrollElementTouchThreshold: 5,
+                    touchSensitivity: 5,
+                    keyboardScrolling: true,
+                    sectionSelector: '.section',
+                    animateAnchor: false,
 
-                    // hide the loader
-                    $timeout(function() {
-                        // has to be index = 1 after rendering
-                        checkPillingAnimation(1);
+                    //events
+                    onLeave: function(index, nextIndex, direction) {},
+                    afterLoad: function(anchorLink, index){
+                        checkPillingAnimation(index);
+                    },
+                    afterRender: function(){
 
-                        //$rootScope.$broadcast('loader.hide');
+                        // hide the loader
+                        $timeout(function() {
+                            // has to be index = 1 after rendering
+                            checkPillingAnimation(1);
 
-                    }, 500);
-                },
-            });
+                            //$rootScope.$broadcast('loader.hide');
+
+                        }, 500);
+                    }
+                });
+
+            }, 10);
         });
+
 
 
         /**
@@ -87,13 +87,29 @@
          */
         function startTeaserAnimation() {
             // insert all bullet points, in row
-            var counter = 1;
+            var counter = 0;
             angular.forEach(ctrl.bullet, function(value, key) {
                 $timeout(function() {
-                    ctrl.bullet[key] = true;
-                    console.log(ctrl.bullet[key]);
-                }, 3000 * counter++);
+                    $scope.$apply(function() {
+                        ctrl.bullet[key] = true;
+                    });
+                }, 2100 * counter++);
             });
+
+            // move the bag to the left & move the phones up
+            $timeout(function() {
+                ctrl.moveLeft = true;
+                ctrl.moveUp = true;
+            }, 2300 * counter++);
+
+            // move the testimonials in
+            $timeout(function() {
+                angular.forEach(ctrl.testimonial, function(value, key) {
+                    ctrl.testimonial[key] = true;
+                });
+            }, 2100 * counter++);
+
+            ctrl.startAnimation.teaser = true;
         }
 
 
@@ -104,12 +120,18 @@
         angular.extend(ctrl, {
             bullet: {
                 lock: false,
-                tracking: false,
                 scale: false,
+                tracking: false,
                 location: false
             },
+            moveLeft: false,
             startAnimation: {
                 teaser: false
+            },
+            testimonial: {
+                brandon: false,
+                svenja: false,
+                ramona: false
             }
         });
     }

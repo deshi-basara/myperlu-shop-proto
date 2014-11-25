@@ -24,6 +24,17 @@
                 height: auto;
             }
 
+            .teaser-item {
+                opacity: 0;
+                @include transform(rotateX(-50deg) translate3d(0,-40px,0));
+                @include transition(all 0.7s ease-in-out);
+
+                &.show {
+                    opacity: 1;
+                    @include transform(rotateX(0deg) translate3d(0,0,0));
+                }
+            }
+
             .teaser-item-right {
                 position: absolute;
                 width: 470px;
@@ -97,6 +108,14 @@
 
             z-index: 2;
 
+            opacity: 0;
+            @include transform(translate3d(0, 100%, 0));
+            @include transition(all 0.7s ease-in-out);
+            &.show {
+                opacity: 1;
+                @include transform(translate3d(0,0,0));
+            }
+
             .os {
                 position: relative;
                 top: 20px;
@@ -143,6 +162,14 @@
             background-color: #F8F8F8;
             box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.26);
 
+            opacity: 0;
+            @include transform(translate3d(0, 50%, 0));
+            @include transition(all 0.7s ease-in-out);
+            &.show {
+                opacity: 1;
+                @include transform(translate3d(0, 0, 0));
+            }
+
             .quotes {
                 width: 68%;
                 float: right;
@@ -152,6 +179,12 @@
                     @include span-columns(4 of 12);
                     position: relative;
                     text-align: left;
+
+                    @include transform(translate3d(0,150px,0));
+                    @include transition(all 0.7s $ease-in-out-back);
+                    &.show {
+                        @include transform(translate3d(0,0,0));
+                    }
 
                     .img-circle {
                         float: left;
