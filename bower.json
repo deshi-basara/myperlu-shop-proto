@@ -37,6 +37,6 @@
     "normalize-css": "~3.0.1"
   },
   "resolutions": {
-    "angular": "1.3.2"
+    "angular": "1.3.4"
   }
 }
