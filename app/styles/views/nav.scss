@@ -9,11 +9,21 @@
         .navbar-header {
             height: 71px;
 
+            button {
+                position: relative;
+                top: 5px;
+                background-color: none;
+                border-radius: 0;
+                border: 0;
+                color: $perlu-grey;
+            }
+
             i {
                 margin-top: -15px;
                 padding: 18px 35px 18px 35px;
                 margin-left: -15px;
                 margin-right: -15px;
+                color: $perlu-grey;
 
                 font-size: em(32);
 
@@ -28,9 +38,10 @@
             }
         }
 
-        .collapse {
+        .nav-desktop {
             padding-left: 75px;
             padding-right: 75px;
+            margin-top: -10px;
             height: 70px !important;
 
             ul {
@@ -72,4 +83,8 @@
 #navigation.navbar-fixed-top {
     position: fixed;
     z-index: 1000;
+}
+
+.navbar-default .navbar-nav > li > a {
+    color: $perlu-black;
 }

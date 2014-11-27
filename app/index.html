@@ -49,13 +49,21 @@
 
                 <!-- Logo -->
                 <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed">
+                            <i class="fa fa-bars"></i>
+                    </button>
                     <a class="navbar-brand" href="#/">
                         <i class="ionicons ion-bag ion-2x"></i>
                     </a>
                 </div>
 
+                <!-- Nav bar (mobile) -->
+                <nav class="">
+                    <ul></ul>
+                </nav>
+
                 <!-- Nav bar -->
-                <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <nav class="nav-desktop">
                     <ul class="nav navbar-nav">
                         <li ui-sref-active="enabled">
                             <a ui-sref="landing">Perlu</a>
@@ -102,7 +110,7 @@
                 <div class="shopping-empty" ng-class="{ 'feedback': main.showFeedback }" ng-show="!main.bagItems">
                     <i class="fa fa-heart fa-3x"></i>
                     <div class="empty">Dein Waagen ist <span>leer</span>.</div>
-                    <div class="empty-subline">Zeige uns deine kreativste Kuckucksuhr!</div>
+                    <div class="empty-subline">Zeige uns deinen Perlu!</div>
                 </div>
                 <div class="shopping-item-list">
                     <div class="shopping-item" ng-hide="!main.bagItems">
@@ -190,12 +198,12 @@
         <script src="scripts/filters/agsBytes.filter.js"></script>
         <script src="scripts/directives/loader/loader.directive.js"></script>
         <script src="scripts/directives/progress/progress.directive.js"></script>
+        <script src="scripts/services/auth/auth.service.js"></script>
         <script src="scripts/routes/collection/collection.controller.js"></script>
         <script src="scripts/routes/intro/intro.controller.js"></script>
         <script src="scripts/routes/landing/landing.controller.js"></script>
         <script src="scripts/routes/main/main.controller.js"></script>
         <script src="scripts/routes/planner/planner.controller.js"></script>
-        <script src="scripts/services/auth/auth.service.js"></script>
         <!-- endinject -->
         <!-- endbuild -->
 
