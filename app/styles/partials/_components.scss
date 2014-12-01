@@ -43,6 +43,16 @@ label {
     @include transition(box-shadow .28s cubic-bezier(0.4,0,.2,1));
 }
 
+.button-white {
+    background-color: $perlu-white;
+    color: $perlu-black;
+}
+
+.button-orange {
+    background-color: $perlu-orange;
+    color: $perlu-white;
+}
+
 /**
  * Centering
  *

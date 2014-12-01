@@ -24,7 +24,7 @@
                     menu: null,
                     direction: 'vertical',
                     verticalCentered: true,
-                    sectionsColor: ['#EDEFF0', '#5DB0C6', '#F37A5D'],
+                    sectionsColor: ['#EDEFF0', '#5DB0C6', '#F37A5D', '#5DB0C6'],
                     anchors: [],
                     scrollingSpeed: 700,
                     easing: 'swing',
