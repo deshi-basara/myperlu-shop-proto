@@ -41,6 +41,31 @@
             main.bagOpen = (main.bagOpen === false) ? true : false;
         }
 
+        //////////////////////
+
+        angular.extend(main, {
+            bagOpen: false,
+            isLoading: false,
+            showFeedback: false,
+            showNav: false,
+            priceTotal: 0,
+
+            bagItems: null,
+            complete: {
+                gehaeuse: true,
+                material: false,
+                ausstattung: false,
+                farben: false,
+                extras: false
+            },
+
+            checkoutBag: checkoutBag,
+            isActive: isActive,
+            toggleBag: toggleBag
+        });
+
+        /////////////////////
+        
         /**
          * Listen for navigation changes.
          * @param  {object} broadEvent [Angular broadcast object]
@@ -62,34 +87,21 @@
         });
 
         /**
-         * Listens for requests to hide the loader.
+         * Listens for requests to show the nav.
          */
-        $scope.$on('loader.hide', function() {
+        $scope.$on('nav.show', function() {
             $scope.$apply(function() {
-                main.isLoading = false;
+                main.showNav = true;
             });
         });
 
-        //////////////////////
-
-        angular.extend(main, {
-            bagOpen: false,
-            isLoading: false,
-            showFeedback: false,
-            priceTotal: 0,
-
-            bagItems: null,
-            complete: {
-                gehaeuse: true,
-                material: false,
-                ausstattung: false,
-                farben: false,
-                extras: false
-            },
-
-            checkoutBag: checkoutBag,
-            isActive: isActive,
-            toggleBag: toggleBag
+        /**
+         * Listens for requests to hide the nav.
+         */
+        $scope.$on('nav.hide', function() {
+            $scope.$apply(function() {
+                main.showNav = false;
+            });
         });
     }
 

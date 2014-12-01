@@ -60,6 +60,12 @@
 
             goToState: goToState
         });
+
+        //////////////////////
+        
+        /////////////////////
+        
+        $rootScope.$broadcast('nav.hide');
     }
 
 })();

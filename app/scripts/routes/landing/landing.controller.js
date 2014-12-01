@@ -46,6 +46,9 @@
                     },
                     afterRender: function(){
 
+                        // show the navigation
+                        $rootScope.$broadcast('nav.show');
+
                         // hide the loader
                         $timeout(function() {
                             // has to be index = 1 after rendering

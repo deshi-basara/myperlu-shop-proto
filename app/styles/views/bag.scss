@@ -150,6 +150,12 @@
 
     z-index: 9999999;
 
+    opacity: 0;
+    @include transition(opacity 0.5s ease-in-out);
+    &.in {
+        opacity: 1;
+    }
+
     div {
         padding: 15px;
         background-color: $perlu-white;

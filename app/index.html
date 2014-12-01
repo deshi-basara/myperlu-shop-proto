@@ -44,7 +44,7 @@
         <!--
             Navigation
         -->
-        <nav id="navigation" class="navbar navbar-default navbar-fixed-top2" role="navigation">
+        <nav id="navigation" class="navbar navbar-default navbar-fixed-top2" role="navigation" ng-class="{ 'in': main.showNav }">
             <div class="container-fluid">
 
                 <!-- Logo -->
@@ -68,11 +68,11 @@
                         <li ui-sref-active="enabled">
                             <a ui-sref="landing">Perlu</a>
                         </li>
-                        <li ui-sref-active="enabled">
-                            <a ui-sref="collection">Kollektion</a>
+                        <li>
+                            <a>Kollektion</a>
                         </li>
-                        <li ui-sref-active="enabled">
-                            <a ui-sref="planer">Konfigurator</a>
+                        <li>
+                            <a>Konfigurator</a>
                         </li>
                         <li ui-sref-active="enabled">
                             <a ui-sref="planer">Voting</a>
@@ -144,7 +144,7 @@
         <!--
             Shopping bag button
         -->
-        <div id="shopping-bag-button" ng-cloak>
+        <div id="shopping-bag-button" ng-class="{ 'in': main.showNav }" ng-cloak>
             <div ng-click="main.toggleBag()">
                 <a href=""><i class="glyphicon glyphicon-shopping-cart"></i></a>
             </div>
@@ -198,12 +198,12 @@
         <script src="scripts/filters/agsBytes.filter.js"></script>
         <script src="scripts/directives/loader/loader.directive.js"></script>
         <script src="scripts/directives/progress/progress.directive.js"></script>
-        <script src="scripts/services/auth/auth.service.js"></script>
         <script src="scripts/routes/collection/collection.controller.js"></script>
         <script src="scripts/routes/intro/intro.controller.js"></script>
         <script src="scripts/routes/landing/landing.controller.js"></script>
         <script src="scripts/routes/main/main.controller.js"></script>
         <script src="scripts/routes/planner/planner.controller.js"></script>
+        <script src="scripts/services/auth/auth.service.js"></script>
         <!-- endinject -->
         <!-- endbuild -->
 
