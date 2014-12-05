@@ -17,242 +17,227 @@
         /**
          * Initiate isotope when the dom is ready
          */
-        angular.element(document).ready(function () {
+       angular.element(document).ready(function () {
 
-            var ismobile = false;
+var ismobile = false;
 
-            var winWidth = $(window).width();
+  var winWidth = $(window).width();
 
-            if(winWidth <= 450){
-                ismobile = true;
-            }
-            console.log(ismobile);
+  if(winWidth <= 450){
+    ismobile = true;
+  }
+  console.log(ismobile);
 
+  // body...
+  if(ismobile == true){
+    var $container = $('#isotope');
+    var $container2 = $('#isotope2');
 
-        if(ismobile == true){
-            var $container = $('#isotope');
-            var $container2 = $('#isotope2');
+    var height = $container.width();
 
-            var height = $container.width();
+    $('.item').height(height+60);
+    $('.item').width(height);
 
-            $('.item').height(height+70);
-            $('.item').width(height);
 
-            console.log($container);
+// init
+$container.isotope({
+  // options
+  itemSelector: '.item',
+ layoutMode: 'packery',
 
+packery: {
+  gutter: 2
+}
+});
 
-        // init
-        $container.isotope({
-          // options
-          itemSelector: '.item',
-          layoutMode: 'fitRows',
+$container2.isotope({
+  // options
+  itemSelector: '.item',
+  layoutMode: 'packery',
 
-          masonry: {
-            columnWidth: 50
-          }
-        });
+packery: {
+  gutter: 2
+}
+});
 
-        $container2.isotope({
-          // options
-          itemSelector: '.item',
-          layoutMode: 'fitRows',
+$container.on( 'click', '.button-more-infos', function() {
 
-          masonry: {
-            columnWidth: 50
-          }
-        });
+  var $item = $(this).parent().parent();
+  $item.toggleClass('gigante');
+  $item.children('h3').hide();
 
-        $container.on( 'click', '.button-more-infos', function() {
+  $item.children('.short-info').hide();
+  $item.children('.long-info').show(); 
 
-          var $item = $(this).parent().parent();
-          $item.toggleClass('gigante');
+  height = $item.width();
+  $item.height(height*2.7);
 
+  $container.isotope('layout');
+});
 
-          $item.children('.short-info').hide();
-          $item.children('.long-info').show();
+$container.on( 'click', '.button-less-infos', function() {
 
-          height = $item.width();
-          $item.height(height*2.7);
+  var $item = $(this).parent().parent();
+  $item.toggleClass('gigante');
+  $item.children('h3').hide();
+  
+  $item.children('.long-info').hide();
+  $item.children('.short-info').show(); 
 
-          $container.isotope('layout');
-        });
+  height = $item.width();
+  $item.height(height+60);
 
-        $container.on( 'click', '.button-less-infos', function() {
+  $container.isotope('layout');
+});
 
-          var $item = $(this).parent().parent().parent();
-          $item.toggleClass('gigante');
 
-          $item.children('.long-info').hide();
-          $item.children('.short-info').show();
+$container2.on( 'click', '.button-more-infos', function() {
 
-          height = $item.width();
-          $item.height(height+70);
+  var $item = $(this).parent().parent();
+  $item.toggleClass('gigante');
+  
 
-          $container.isotope('layout');
-        });
+  $item.children('.short-info').hide();
+  $item.children('.long-info').show(); 
 
+  height = $item.width();
+  $item.height(height*2.7);
 
-        $container2.on( 'click', '.button-more-infos', function() {
+  $container2.isotope('layout');
+});
 
-          var $item = $(this).parent().parent();
-          $item.toggleClass('gigante');
+$container2.on( 'click', '.button-less-infos', function() {
 
+  var $item = $(this).parent().parent();
+  $item.toggleClass('gigante');
+  
+  $item.children('.long-info').hide();
+  $item.children('.short-info').show(); 
 
-          $item.children('.short-info').hide();
-          $item.children('.long-info').show();
+  height = $item.width();
+  $item.height(height+70);
 
-          height = $item.width();
-          $item.height(height*2.7);
+  $container2.isotope('layout');
+});
+}
 
-          $container2.isotope('layout');
-        });
 
-        $container2.on( 'click', '.button-less-infos', function() {
 
-          var $item = $(this).parent().parent().parent();
-          $item.toggleClass('gigante');
+else if(ismobile == false){
+  var $container = $('#isotope');
+  var $container2 = $('#isotope2');
 
-          $item.children('.long-info').hide();
-          $item.children('.short-info').show();
+// init
+$container.isotope({
+  // options
+  itemSelector: '.item',
+  layoutMode: 'packery',
 
-          height = $item.width();
-          $item.height(height+70);
+packery: {
+  gutter: 10
+}
 
-          $container2.isotope('layout');
-        });
-        }
+});
 
+$container2.isotope({
+  // options
+  itemSelector: '.item',
+  layoutMode: 'packery',
 
+packery: {
+  gutter: 10
+}
 
-        else if(ismobile == false){
-          var $container = $('#isotope');
-          var $container2 = $('#isotope2');
+});
 
-          var height = ($container.width()/4)-2;
-          console.log(height);
+$('.item').hover(function() {
 
-          $('.item').height(height);
-          $('.item').width(height);
+  if (!$(this).hasClass('gigante')){
 
+    $(this).children('.short-info').animate({
+      opacity: 1
+    }, 300); 
+  }
+},  function() {
 
-            // init
-            $container.isotope({
-              // options
-              itemSelector: '.item',
-              layoutMode: 'fitRows',
+ if (!$(this).hasClass('gigante')){
 
-              masonry: {
-                columnWidth: 50
-              }
-            });
+  $(this).children('.short-info').animate({
+    opacity: 0
+  }, 300); 
+}
 
-            $container2.isotope({
-              // options
-              itemSelector: '.item',
-              layoutMode: 'fitRows',
+});
 
-              masonry: {
-                columnWidth: 50
-              }
-            });
+$container.on( 'click', '.button-more-infos', function() {
 
-            $('.item').hover(function() {
+  var $item = $(this).parent().parent();
+  $item.toggleClass('gigante');
+  $item.children('h3').hide();
+  
 
-              if (!$(this).hasClass('gigante')){
+  $item.children('.short-info').hide();
+  $item.children('.long-info').show(); 
 
-                $(this).children('.short-info').animate({
-                  opacity: 1
-                }, 200);
-              }
-            },  function() {
+  height = $item.width();
+  $item.height(height*2+10);
+  $item.width(height*2+10);
 
-             if (!$(this).hasClass('gigante')){
+  $container.isotope('layout');
+});
 
-              $(this).children('.short-info').animate({
-                opacity: 0
-              }, 200);
-            }
+$container.on( 'click', '.button-less-infos', function() {
 
-            });
+  var $item = $(this).parent().parent();
+  $item.toggleClass('gigante');
+  $item.children('h3').show();
+  
+  $item.children('.long-info').hide();
+  $item.children('.short-info').show(); 
 
-            $container.on( 'click', '.button-more-infos', function() {
+  height = $item.width();
+   $item.height((height/2)-5);
+  $item.width((height/2)-5);
 
-              var $item = $(this).parent().parent();
-              $item.toggleClass('gigante');
+  $container.isotope('layout');
+});
 
 
-              $item.children('.short-info').hide();
-              $item.children('.long-info').show();
+$container2.on( 'click', '.button-more-infos', function() {
 
-              height = $item.width();
-              $item.height(height*2);
-              $item.width(height*2);
+  var $item = $(this).parent().parent();
+  $item.toggleClass('gigante');
+  $item.children('h3').hide();
 
-              $container.isotope('layout');
-            });
+  $item.children('.short-info').hide();
+  $item.children('.long-info').show(); 
 
-            $container.on( 'click', '.button-less-infos', function() {
+  height = $item.width();
+   $item.height((height*2)+10);
+  $item.width((height*2)+10);
 
-              var $item = $(this).parent().parent().parent();
-              $item.toggleClass('gigante');
+  $container2.isotope('layout');
+});
 
-              $item.children('.long-info').hide();
-              $item.children('.short-info').show();
+$container2.on( 'click', '.button-less-infos', function() {
 
-              height = $item.width();
-              $item.height(height/2);
-              $item.width(height/2);
+  var $item = $(this).parent().parent();
+  $item.toggleClass('gigante');
+  $item.children('h3').show();
+  
+  $item.children('.long-info').hide();
+  $item.children('.short-info').show(); 
 
-              $container.isotope('layout');
-            });
+  height = $item.width();
+  $item.height((height/2)-5);
+  $item.width((height/2)-5);
 
+  $container2.isotope('layout');
+});
+}
 
-            $container2.on( 'click', '.button-more-infos', function() {
+});
 
-              var $item = $(this).parent().parent();
-              $item.toggleClass('gigante');
-
-
-              $item.children('.short-info').hide();
-              $item.children('.long-info').show();
-
-              height = $item.width();
-              $item.height(height*2);
-              $item.width(height*2);
-
-              $container2.isotope('layout');
-            });
-
-            $container2.on( 'click', '.button-less-infos', function() {
-
-              var $item = $(this).parent().parent().parent();
-              $item.toggleClass('gigante');
-
-              $item.children('.long-info').hide();
-              $item.children('.short-info').show();
-
-              height = $item.width();
-              $item.height(height/2);
-              $item.width(height/2);
-
-              $container2.isotope('layout');
-            });
-            }
-
-
-
-            // hide the loader after 1000ms
-            $timeout(function() {
-                $rootScope.$broadcast('loader.hide');
-            }, 1000);
-
-        });
-
-        //////////////////////
-
-        angular.extend(ctrl, {
-
-        });
-    }
+}
 
 })();
