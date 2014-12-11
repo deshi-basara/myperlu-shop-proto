@@ -8,6 +8,16 @@
 
     color: $kuck-black;
 
+    @include transform(translate3d(0,0,0));
+    @include transition(all 0.7s ease-in-out);
+    &.is-mobile {
+        @include transform(translate3d(0, 275px, 0));
+
+        &:hover {
+            @include transform(translate3d(0,0,0));
+        }
+    }
+
     .footer-quotes {
         position: relative;
         top: 10px;

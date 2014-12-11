@@ -18,6 +18,7 @@
          * Initiate isotope when the dom is ready
          */
        angular.element(document).ready(function () {
+$timeout(function() {
 
 var ismobile = false;
 
@@ -40,6 +41,7 @@ var ismobile = false;
 
 
 // init
+console.log($container);
 $container.isotope({
   // options
   itemSelector: '.item',
@@ -128,6 +130,7 @@ else if(ismobile == false){
   var $container2 = $('#isotope2');
 
 // init
+console.log($container);
 $container.isotope({
   // options
   itemSelector: '.item',
@@ -237,6 +240,10 @@ $container2.on( 'click', '.button-less-infos', function() {
 }
 
 });
+
+}, 1000);
+
+
 
 }
 
