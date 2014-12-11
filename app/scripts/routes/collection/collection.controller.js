@@ -18,6 +18,8 @@
          * Initiate isotope when the dom is ready
          */
         angular.element(document).ready(function() {
+        $timeout(function() {
+
 
             var ismobile = false;
 
@@ -38,12 +40,19 @@
                 $('.item').height(height + 60);
                 $('.item').width(height);
 
-
                 // init
                 $container.isotope({
                     // options
                     itemSelector: '.item',
                     layoutMode: 'packery',
+
+                // init
+                console.log($container);
+                $container.isotope({
+                  // options
+                  itemSelector: '.item',
+                 layoutMode: 'packery',
+
 
                     packery: {
                         gutter: 2
@@ -123,11 +132,20 @@
                 var $container = $('#isotope');
                 var $container2 = $('#isotope2');
 
+
                 // init
                 $container.isotope({
                     // options
                     itemSelector: '.item',
                     layoutMode: 'packery',
+
+// init
+                console.log($container);
+                $container.isotope({
+                  // options
+                  itemSelector: '.item',
+                  layoutMode: 'packery',
+
 
                     packery: {
                         gutter: 10
@@ -224,6 +242,7 @@
                     $item.children('.long-info').hide();
                     $item.children('.short-info').show();
 
+
                     height = $item.width();
                     $item.height((height / 2) - 5);
                     $item.width((height / 2) - 5);
@@ -235,5 +254,12 @@
         });
 
     }
+
+}, 1000);
+
+
+
+}
+
 
 })();
