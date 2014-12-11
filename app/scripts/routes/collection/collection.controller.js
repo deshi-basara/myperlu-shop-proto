@@ -40,11 +40,6 @@
                 $('.item').height(height + 60);
                 $('.item').width(height);
 
-                // init
-                $container.isotope({
-                    // options
-                    itemSelector: '.item',
-                    layoutMode: 'packery',
 
                 // init
                 console.log($container);
@@ -132,14 +127,8 @@
                 var $container = $('#isotope');
                 var $container2 = $('#isotope2');
 
-
+            
                 // init
-                $container.isotope({
-                    // options
-                    itemSelector: '.item',
-                    layoutMode: 'packery',
-
-// init
                 console.log($container);
                 $container.isotope({
                   // options
@@ -183,23 +172,6 @@
 
                 });
 
-                $container.on('click', '.button-more-infos', function() {
-
-                    var $item = $(this).parent().parent();
-                    $item.toggleClass('gigante');
-                    $item.children('h3').hide();
-
-
-                    $item.children('.short-info').hide();
-                    $item.children('.long-info').show();
-
-                    height = $item.width();
-                    $item.height(height * 2 + 10);
-                    $item.width(height * 2 + 10);
-
-                    $container.isotope('layout');
-                });
-
                 $container.on('click', '.button-less-infos', function() {
 
                     var $item = $(this).parent().parent();
@@ -216,22 +188,6 @@
                     $container.isotope('layout');
                 });
 
-
-                $container2.on('click', '.button-more-infos', function() {
-
-                    var $item = $(this).parent().parent();
-                    $item.toggleClass('gigante');
-                    $item.children('h3').hide();
-
-                    $item.children('.short-info').hide();
-                    $item.children('.long-info').show();
-
-                    height = $item.width();
-                    $item.height((height * 2) + 10);
-                    $item.width((height * 2) + 10);
-
-                    $container2.isotope('layout');
-                });
 
                 $container2.on('click', '.button-less-infos', function() {
 
