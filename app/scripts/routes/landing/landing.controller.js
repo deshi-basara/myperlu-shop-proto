@@ -86,6 +86,14 @@
         }
 
         /**
+         * Redirects to the handed ui-router-state.
+         * @param  {string} stateName [ui-router state identifier]
+         */
+        function goToState(stateName) {
+            $state.go(stateName);
+        }
+
+        /**
          * Starts the teaser animation in section 1
          */
         function startTeaserAnimation() {
@@ -116,8 +124,6 @@
         }
 
 
-
-
         //////////////////////
 
         angular.extend(ctrl, {
@@ -135,7 +141,9 @@
                 brandon: false,
                 svenja: false,
                 ramona: false
-            }
+            },
+
+            goToState: goToState
         });
     }
 
