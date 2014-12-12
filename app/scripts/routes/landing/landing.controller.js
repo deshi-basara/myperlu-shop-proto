@@ -133,6 +133,7 @@
                 tracking: false,
                 location: false
             },
+            isMobile: true,
             moveLeft: false,
             startAnimation: {
                 teaser: false

@@ -8,10 +8,18 @@
 
     color: $kuck-black;
 
+    .fa-angle-down {
+        display: none;
+    }
+
     @include transform(translate3d(0,0,0));
     @include transition(all 0.7s ease-in-out);
     &.is-mobile {
         @include transform(translate3d(0, 275px, 0));
+
+        .fa-angle-down {
+            display: inline-block;
+        }
 
         &:hover {
             @include transform(translate3d(0,0,0));
@@ -83,6 +91,10 @@
                 }
             }
         }
+    }
+
+    .fa-stack {
+        margin-top: -10px;
     }
 
     .footer-content {

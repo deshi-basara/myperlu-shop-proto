@@ -230,7 +230,7 @@
                 Ganze Kollektion ansehen
             </a>
         </div>
-    </div>
+    </div><!-- / Section 3 -->
 
     <!-- Section 4 -->
     <div id="configurator-section" class="section">
@@ -249,7 +249,7 @@
 
 
         <!-- Footer -->
-        <div id="footer" class="section-box is-mobile">
+        <div id="footer" class="section-box" ng-class="{ 'is-mobile': ctrl.isMobile }">
 
             <!-- Testimonials -->
             <div class="footer-quotes" ng-class="{ 'show' : ctrl.moveUp }">
@@ -284,6 +284,12 @@
                 </div>
             </div><!-- / Testimonioals -->
 
+            <!-- Hover indicators -->
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-angle-down fa-stack-1x fa-inverse"></i>
+            </span><!-- / Hover indicators -->
+
             <div class="footer-content">
 
                 <div class="footer-sitemap footer-item">
@@ -304,7 +310,7 @@
                             Annas Perlu<br>
                             178 Votes
                         </p>
-                        <button class="button button-orange">Mitvoten</button>
+                        <button class="button button-orange" ng-click="ctrl.goToState('voting')">Mitvoten</button>
                     </div>
                 </div>
                 <div class="footer-links footer-item">
