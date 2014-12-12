@@ -1,42 +1,31 @@
-<div id="intro" class="animation-default" ng-class="{ 'animation-default': !ctrl.startAnimation }">
+<div id="intro">
 
-    <!-- Top -->
-    <div class="intro-perlu" ng-click="ctrl.goToState('landing')">
-        <div class="intro-item">
-            <div class="intro-content">
-                <h1>Perlu-Reisen 2.0</h1>
+    <div class="intro-wrapper z3">
+        <div class="intro-box hover-orange" ng-click="ctrl.goToState('collection')">
+            <div class="intro-box-content content-left">
+                <img src="images/trolleys/black.png">
+                <h4>Voting Gewinner Dezember 2014</h4>
             </div>
         </div>
-    </div><!-- / Top -->
-
-    <!-- Bottom -->
-    <div class="intro-collection" ng-click="ctrl.goToState('collection')">
-        <div class="intro-item">
-            <div class="intro-content">
-                <h1>Kollektion</h1>
+        <div class="intro-box hover-green" ng-click="ctrl.goToState('landing')">
+            <div class="intro-box-content content-right">
+                Perlu-Reisen 2.0
             </div>
         </div>
-    </div><!-- Whitespace fix --><div class="intro-config" ng-click="ctrl.goToState('config')">
-        <div class="intro-item">
-            <div class="intro-content">
-                <h1>Konfigurator</h1>
+        <div class="intro-box hover-green" ng-click="ctrl.goToState('collection')">
+            <div class="intro-box-content content-left">
+                Kollektion
             </div>
         </div>
-    </div><!-- / Bottom -->
-
-    <!-- Circle -->
-    <div class="intro-circle">
-        <div class="intro-circle-content">
-            <h4>Voting Gewinner</h4>
-            <img src="images/trolleys/black.png">
+        <div class="intro-box hover-orange" ng-click="ctrl.goToState('planner')">
+            <div class="intro-box-content content-right">
+                Konfigurator
+            </div>
         </div>
-        <div round-progress
-        max="100"
-        current="ctrl.loadingProgress"
-        radius="150"
-        color="#FB6A01"
-        bgcolor="rgba(0, 0, 0, 0.15)"
-        stroke="2"
-        semi="false"></div>
+        <div class="intro-fader">
+            <div class="fader-circle circle-orange"></div>
+            <div class="fader-circle circle-white"></div>
+        </div>
     </div>
+
 </div>

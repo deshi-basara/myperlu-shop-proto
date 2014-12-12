@@ -30,7 +30,8 @@
     "isotope": "~2.1.0",
     "ionicons": "~1.5.2",
     "angular-svg-round-progressbar": "~0.1.0",
-    "isotope-packery": "~1.1.0"
+    "isotope-packery": "~1.1.0",
+    "svg-loaders": "~1.0.2"
   },
   "devDependencies": {
     "bourbon": "~4.0.2",
