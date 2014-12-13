@@ -6,83 +6,53 @@
         .module('app')
         .controller('PlannerCtrl', PlannerCtrl);
 
-    PlannerCtrl.$inject = ['$window','$stateParams','$location','$scope', '$rootScope', '$timeout'];
+    PlannerCtrl.$inject = ['$rootScope'];
 
     /**
      * Handles the landing view and all interactions
      */
-    function PlannerCtrl($window, $stateParams, $location, $scope, $rootScope, $timeout) {
+    function PlannerCtrl($rootScope) {
         var ctrl = this;
 
         /**
-         * Initiate pagepilling when the dom is ready
+         * Changes the current slide position.
+         * @param  {int} newPos [New slide position]
          */
-        angular.element(document).ready(function () {
-            $('#planner').pagepiling({
-                menu: null,
-                direction: 'horizontal',
-                verticalCentered: true,
-                sectionsColor: ['#f2f2f2', '#4BBFC3', '#7BAABE', 'whitesmoke', '#000'],
-                anchors: [],
-                scrollingSpeed: 700,
-                easing: 'swing',
-                loopBottom: false,
-                loopTop: false,
-                css3: true,
-                navigation: false,
-                normalScrollElements: null,
-                normalScrollElementTouchThreshold: 5,
-                touchSensitivity: 5,
-                keyboardScrolling: true,
-                sectionSelector: '.section',
-                animateAnchor: false,
-
-                //events
-                onLeave: function(index, nextIndex, direction) {
-                    $rootScope.$broadcast('nav.change', nextIndex);
-                },
-                afterLoad: function(anchorLink, index) {
-
-                },
-                afterRender: function() {
-                    // get the startIndex on the first load
-                    var startIndex = parseInt($location.hash());
-
-                    // fallback, if nothing was set
-                    if(!startIndex) {
-                        startIndex = 1;
-                    }
-
-                    // broadcast index
-                    $rootScope.$broadcast('nav.change', startIndex);
-
-                    // go to the wished index
-                    $.fn.pagepiling.moveTo(startIndex);
-
-                    // hide the loader
-                    $timeout(function() {
-                        $rootScope.$broadcast('loader.hide');
-                    }, 1000);
-                },
-            });
-        });
+        function changeSlidePos(newPos) {
+            ctrl.slidePos = newPos;
+        }
 
         /**
-         * Watch for changes after the last url-hashbang and move to
-         * the specified section.
+         * Calculates the box-item slidingTransition which is returned to the ngStyles of all '.planner-box-box-item'
+         * @param  {int}     index [Index of the current '.planner-box-box-item'-div]
+         * @return {String}        [New translate3d-position of the '.planner-box-box-item' on our box]
          */
-        $($window).bind('hashchange', function () {
-            var newIndex = parseInt($location.hash());
-            // go to the wished index
-            $.fn.pagepiling.moveTo(newIndex);
-        });
-
+        function slideBoxTo() {
+            console.log('-webkit-transform: translate3d('+ parseInt(ctrl.slidePos) * -100  +'%,0,0)');
+            return {'-webkit-transform': 'translate3d('+ parseInt(ctrl.slidePos) * -100  +'%,0,0)'};
+        }
 
         //////////////////////
 
         angular.extend(ctrl, {
+            showDesc: true,
+            slidePos: 1,
 
+            colors: [
+                '#5DF3C0', '#5DB0C6', '#A7DBD9', '#EDEFF0', '#F37A5D', '#555A5C',
+                '#7C8990', '#5ACA00', '#4BBFC3', '#8f88b8', '#ffd1b2', '#c5e5b4'
+            ],
+
+            changeSlidePos: changeSlidePos,
+            slideBoxTo: slideBoxTo
         });
+
+        /////////////////////
+        ///
+        /////////////////////
+
+        $rootScope.$broadcast('nav.show');
+
     }
 
 })();

@@ -1,66 +1,80 @@
 <div id="planner">
 
-    <!-- Section 1: Gehäuse -->
-    <div class="section">
+    <div class="planner-content">
 
-        <div class="row">
-            <!-- Vorschau -->
-            <div class="vorschau col-md-5">
-                <img ng-src="images/watches/classic/blau.png" src="images/watches/classic/blau.png" height="60%" class="center-block">
-            </div><!-- / Vorschau -->
-
-            <!-- Einstellungen -->
-            <div class="einstellungen col-md-6 col-md-offset-1">
-                <div class="auswahlfenster2">
-                    <img src="images/shape/f1.png" class="auswahl">
-                    <img src="images/shape/f2.png" class="auswahl">
-                    <img src="images/shape/f3.png" class="auswahl">
-                    <img src="images/shape/f4.png" class="auswahl">
-                    <img src="images/shape/f5.png" class="auswahl">
-                    <img src="images/shape/f6.png" class="auswahl">
-                    <img src="images/shape/f7.png" class="auswahl">
-                    <img src="images/shape/f1.png" class="auswahl">
-                    <img src="images/shape/f2.png" class="auswahl">
-                    <img src="images/shape/f3.png" class="auswahl">
-                    <img src="images/shape/f4.png" class="auswahl">
-                    <img src="images/shape/f5.png" class="auswahl">
-                </div>
-
-                            <hr>
-
-                <div class="color">
-                    <img src="images/colors/rot.gif" class="color img-circle">
-                    <img src="images/colors/blau.gif" class="color img-circle">
-                    <img src="images/colors/hellblau.gif" class="color img-circle">
-                    <img src="images/colors/gruen.gif" class="color img-circle">
-                    <img src="images/colors/gelb.gif" class="color img-circle">
-                    <img src="images/colors/orange.gif" class="color img-circle">
-                    <img src="images/colors/pink.gif" class="color img-circle">
-                    <img src="images/colors/schwarz.gif" class="color img-circle">
-                </div>
-            </div><!-- / Einstellungen -->
+        <!-- Progress -->
+        <div class="planner-progress z1">
+            <div class="planner-progress-step enabled">
+                Material
+            </div>
+            <div class="planner-progress-step">
+                Einzelteile
+            </div>
+            <div class="planner-progress-step">
+                Extras
+            </div>
         </div>
 
-    </div><!-- / Section 1 -->
+        <!-- Planner -->
+        <div class="planner">
 
-    <!-- Section 2: Material -->
-    <div class="section" data-anchor="material">
-        Material
-    </div><!-- / Section 2 -->
+            <!-- Planner left -->
+            <div class="planner-box planner-left z1">
 
-    <!-- Section 3: Ausstattung -->
-    <div class="section">
-        Ausstattung
-    </div><!-- / Section 3 -->
+                <!-- Box head -->
+                <div class="planner-box-head">
+                    <div class="planner-box-head-item active">Farbe</div>
+                    <div class="planner-box-head-item">Material</div>
+                </div>
 
-    <!-- Section 4: Farben -->
-    <div class="section">
-        Farben
-    </div><!-- / Section 4 -->
+                <!-- Box body -->
+                <div class="planner-box-body">
+                    <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo()">
+                        <h4>Drag & Drop</h4>
+                        <p>Klicken und ziehen Sie eine Farbe auf den Koffer und färben Sie die Einzelteile</p>
+                    </div>
+                    <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo()">
 
-    <!-- Section 5: Extras -->
-    <div class="section">
-        Extras
-    </div><!-- / Section 5 -->
+                        <!-- Color circles -->
+                        <div class="color-circle z1" ng-repeat="color in ctrl.colors" style="background-color: {{ color }}" data-color="{{ color }}"></div>
+
+                    </div>
+                    <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo()">
+                        <h4>Material</h4>
+                    </div>
+                </div>
+
+                <!-- Box footer -->
+                <div class="planner-box-footer" ng-class="{ 'up': !ctrl.showDesc }">
+                    <button class="button button-orange" ng-click="ctrl.changeSlidePos(1)">OK</button>
+                </div>
+            </div>
+
+            <!-- Planner preview -->
+            <div class="planner-preview">
+                <div class="planner-preview-content">
+                    <div class="planner-preview-img" ng-include="'images/trolleys/trolley.svg'"></div>
+                </div>
+            </div>
+
+            <!-- Planner right -->
+            <div class="planner-box planner-right z1">
+
+                <!-- Box head -->
+                <div class="planner-box-head">
+                    Dein Perlu
+                </div>
+
+                <!-- Box body -->
+                <div class="planner-box-body">
+                    <div class="planner-bag-items">
+                        test
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 
 </div>
