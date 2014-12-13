@@ -18,9 +18,6 @@
          * Initiate isotope when the dom is ready
          */
         angular.element(document).ready(function() {
-        $timeout(function() {
-
-
             var ismobile = false;
 
             var winWidth = $(window).width();
@@ -122,7 +119,8 @@
                     $container2.isotope('layout');
                 });
             
-             } else if (winWidth <= 768) {
+            }
+            else if (winWidth <= 768) {
 
                  var $container = $('#isotope');
                 var $container2 = $('#isotope2');
@@ -222,7 +220,8 @@
                 });
 
 
-            } else if (winWidth > 768) {
+            } 
+            else if (winWidth > 768) {
                 var $container = $('#isotope');
                 var $container2 = $('#isotope2');
 
@@ -338,10 +337,6 @@
                     $container2.isotope('layout');
                 });
             }
-
-
-        }, 1000);
-
     });
 
 }
