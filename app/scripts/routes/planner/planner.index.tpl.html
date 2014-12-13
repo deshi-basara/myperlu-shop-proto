@@ -29,17 +29,17 @@
 
                 <!-- Box body -->
                 <div class="planner-box-body">
-                    <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo()">
+                    <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(0)">
                         <h4>Drag & Drop</h4>
                         <p>Klicken und ziehen Sie eine Farbe auf den Koffer und färben Sie die Einzelteile</p>
                     </div>
-                    <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo()">
+                    <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(1)">
 
                         <!-- Color circles -->
-                        <div class="color-circle z1" ng-repeat="color in ctrl.colors" style="background-color: {{ color }}" data-color="{{ color }}"></div>
+                        <div class="color-circle z1" ng-repeat="color in ctrl.colors" style="background-color: {{ color }}" data-color="{{ color }}" data-part="case"></div>
 
                     </div>
-                    <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo()">
+                    <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(2)">
                         <h4>Material</h4>
                     </div>
                 </div>
