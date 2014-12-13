@@ -25,13 +25,11 @@
 
             var winWidth = $(window).width();
 
-            if (winWidth <= 450) {
-                ismobile = true;
-            }
+            
             console.log(ismobile);
 
             // body...
-            if (ismobile == true) {
+            if (winWidth <= 450) {
                 var $container = $('#isotope');
                 var $container2 = $('#isotope2');
 
@@ -119,12 +117,112 @@
                     $item.children('.short-info').show();
 
                     height = $item.width();
-                    $item.height(height + 70);
+                    $item.height(height + 60);
 
                     $container2.isotope('layout');
                 });
-                
-            } else if (ismobile == false) {
+            
+             } else if (winWidth <= 768) {
+
+                 var $container = $('#isotope');
+                var $container2 = $('#isotope2');
+
+            
+                // init
+                console.log($container);
+                $container.isotope({
+                  // options
+                  itemSelector: '.item',
+                  layoutMode: 'packery',
+
+
+                    packery: {
+                        gutter: 10
+                    }
+
+                });
+
+                $container2.isotope({
+                    // options
+                    itemSelector: '.item',
+                    layoutMode: 'packery',
+
+                    packery: {
+                        gutter: 10
+                    }
+
+                });
+
+
+                $container.on('click', '.button-more-infos', function() {
+
+                    var $item = $(this).parent().parent();
+                    $item.toggleClass('gigante');
+                    $item.children('h3').hide();
+
+                    $item.children('.long-info').show();
+                    $item.children('.short-info').hide();
+
+                    height = $item.width();
+                    $item.height((height * 2) + 10);
+                    $item.width((height * 2) + 10);
+
+                    $container.isotope('layout');
+                });
+
+                $container.on('click', '.button-less-infos', function() {
+
+                    var $item = $(this).parent().parent();
+                    $item.toggleClass('gigante');
+                    $item.children('h3').show();
+
+                    $item.children('.long-info').hide();
+                    $item.children('.short-info').show();
+
+                    height = $item.width();
+                    $item.height((height / 2) - 5);
+                    $item.width((height / 2) - 5);
+
+                    $container.isotope('layout');
+                });
+
+                 $container2.on('click', '.button-more-infos', function() {
+
+                    var $item = $(this).parent().parent();
+                    $item.toggleClass('gigante');
+                    $item.children('h3').hide();
+
+                    $item.children('.long-info').show();
+                    $item.children('.short-info').hide();
+
+
+                    height = $item.width();
+                    $item.height((height * 2) + 5);
+                    $item.width((height * 2) + 5);
+
+                    $container2.isotope('layout');
+                });
+
+
+                $container2.on('click', '.button-less-infos', function() {
+
+                    var $item = $(this).parent().parent();
+                    $item.toggleClass('gigante');
+                    $item.children('h3').show();
+
+                    $item.children('.long-info').hide();
+                    $item.children('.short-info').show();
+
+
+                    height = $item.width();
+                    $item.height((height / 2) - 10);
+                    $item.width((height / 2) - 10);
+
+                    $container2.isotope('layout');
+                });
+
+
+            } else if (winWidth > 768) {
                 var $container = $('#isotope');
                 var $container2 = $('#isotope2');
 
@@ -177,14 +275,14 @@
 
                     var $item = $(this).parent().parent();
                     $item.toggleClass('gigante');
-                    $item.children('h3').show();
+                    $item.children('h3').hide();
 
                     $item.children('.long-info').show();
                     $item.children('.short-info').hide();
 
                     height = $item.width();
-                    $item.height((height * 2) + 5);
-                    $item.width((height * 2) + 5);
+                    $item.height((height * 2) + 10);
+                    $item.width((height * 2) + 10);
 
                     $container.isotope('layout');
                 });
@@ -209,7 +307,7 @@
 
                     var $item = $(this).parent().parent();
                     $item.toggleClass('gigante');
-                    $item.children('h3').show();
+                    $item.children('h3').hide();
 
                     $item.children('.long-info').show();
                     $item.children('.short-info').hide();
@@ -234,8 +332,8 @@
 
 
                     height = $item.width();
-                    $item.height((height / 2) - 5);
-                    $item.width((height / 2) - 5);
+                    $item.height((height / 2) - 10);
+                    $item.width((height / 2) - 10);
 
                     $container2.isotope('layout');
                 });
