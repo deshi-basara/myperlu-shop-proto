@@ -90,18 +90,14 @@
          * Listens for requests to show the nav.
          */
         $scope.$on('nav.show', function() {
-            $scope.$apply(function() {
-                main.showNav = true;
-            });
+            main.showNav = true;
         });
 
         /**
          * Listens for requests to hide the nav.
          */
         $scope.$on('nav.hide', function() {
-            $scope.$apply(function() {
-                main.showNav = false;
-            });
+            main.showNav = false;
         });
     }
 
