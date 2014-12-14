@@ -33,47 +33,98 @@
         function initDragUsability() {
             // get all circles
             var $circles = $('.color-circle');
-            console.log($circles);
 
-            // make them draggable
-            var dragCircles = new Draggabilly($circles[0], {
-                containment: '.planner'
+            // make all circles draggable
+            for (var i = 0; i < $circles.length; i++) {
+
+                // attach draggabilly
+                var dragCircles = new Draggabilly($circles[i], {
+                    containment: '.planner'
+                });
+
+                // fired on 'dragMove'
+                dragCircles.on('dragStart', onDragStart);
+
+                // fired on 'dragEnd'
+                dragCircles.on('dragEnd', onDragEnd);
+            };
+        }
+
+        /**
+         * Highlights onDragStart all possible dropAreas for the part & reduces
+         * the opacity of all non-possible dropAreas.
+         * @param  {Draggabilly}      draggieInstance [the Draggabilly instance]
+         * @param  {Event }           event           [the original mousemove or touchmove event]
+         * @param  {MouseEvent/Touch} pointer         [the event object that has .pageX and .pageY]
+         */
+        function onDragStart(draggieInstance, event, pointer) {
+            // get the part, that shoud be highlighted, and highlight it
+            var part = draggieInstance.element.dataset.part;
+
+            // make non drop parts transparent
+            $('.svg-path:not(.svg-'+ part +')').attr('fill-opacity', '0.3');
+            // highlight drop parts
+            $('.svg-'+part).attr({
+                'fill': '#F37A5D',
+                'fill-opacity': '0.7'
             });
+        }
 
-            // fired on 'dragMove'
-            dragCircles.on('dragStart', function(draggieInstance, event, pointer) {
+        /**
+         * Checks if the color was placed on a valid dropArea and changes corrisponding
+         * to this the part color or moves the circle back.
+         * @param  {Draggabilly}      draggieInstance [the Draggabilly instance]
+         * @param  {Event }           event           [the original mousemove or touchmove event]
+         * @param  {MouseEvent/Touch} pointer         [the event object that has .pageX and .pageY]
+         */
+        function onDragEnd(draggieInstance, event, pointer) {
+            console.log(draggieInstance);
+            console.log(event);
 
-                // get the part, that shoud be highlighted
-                var part = draggieInstance.element.dataset.part;
-                console.log(part);
-                console.log('.svg-'+part);
-                $('.svg-'+part).attr('fill', '#E66E4C');
+            // check if the element was placed on the right dropArea
+            var onDropArea = false;
+            var instancePart = draggieInstance.element.dataset.part;
+            var dropAreaPart = event.toElement.dataset.part;
+            if(instancePart === dropAreaPart) {
+                onDropArea = true;
+            }
 
+            // move the circle back, when it is not dropped on the dropArea
+            if(!onDropArea) {
+                // reset translation value & left/top
+                draggieInstance.element.style.transition = 'all 1s ease-in-out';
+                draggieInstance.element.style.transform = 'translate3d(0,0,0)';
+                draggieInstance.element.style.left = 0;
+                draggieInstance.element.style.top = 0;
 
-                // highlight
-                
-                console.log('dragStart');
-                console.log(draggieInstance);
-            });
+                // remove the transition
+                $timeout(function() {
+                    draggieInstance.element.style.transition = '';
+                }, 1000);
+            }
+            else {
+                // change the part's fill-color to the new color
+                var draggedColor = draggieInstance.element.dataset.color;
+                $('.svg-'+instancePart).attr({
+                    'fill': draggedColor,
+                    'fill-opacity': '1'
+                });
 
-            // fired on 'dragEnd'
-            dragCircles.on('dragEnd', function(draggieInstance, event, pointer) {
-                var onDropArea = false;
+                // reset the drop parts transparency
+                $('.svg-path:not(.svg-'+ instancePart +')').attr('fill-opacity', '1');
 
-                // move the circle back, when it is not dropped on the dropArea
-                if(!onDropArea) {
-                    // reset translation value & left/top
-                    draggieInstance.element.style.transition = 'all 1s ease-in-out';
-                    draggieInstance.element.style.transform = 'translate3d(0,0,0)';
+                // hide the circle, move it back and fade it in one more time
+                draggieInstance.element.style.opacity = '0';
+                // reset translation value & left/top, after the previous transition has finished
+                $timeout(function() {
+
                     draggieInstance.element.style.left = 0;
                     draggieInstance.element.style.top = 0;
+                    // fade it back
+                    draggieInstance.element.style.opacity = '1';
 
-                    // remove the transition
-                    $timeout(function() {
-                        draggieInstance.element.style.transition = '';
-                    }, 1000);
-                }
-            });
+                }, 700);
+            }
         }
 
         /**
