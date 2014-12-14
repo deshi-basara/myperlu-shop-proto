@@ -49,7 +49,7 @@
 
                 <!-- Logo -->
                 <div class="navbar-header">
-                    <button type="button" class="navbar-toggle collapsed">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".nav-mobile">
                             <i class="fa fa-bars"></i>
                     </button>
                     <a class="navbar-brand" href="#/">
@@ -58,12 +58,25 @@
                 </div>
 
                 <!-- Nav bar (mobile) -->
-                <nav class="">
-                    <ul></ul>
+                <nav class="nav-mobile collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="z1" ui-sref-active="enabled">
+                            <a ui-sref="landing">Perlu</a>
+                        </li>
+                        <li class="z1">
+                            <a ui-sref="collection">Kollektion</a>
+                        </li>
+                        <li class="z1" ui-sref-active="enabled">
+                            <a ui-sref="planner">Konfigurator</a>
+                        </li>
+                        <li class="z1">
+                            <a>Voting</a>
+                        </li>
+                    </ul>
                 </nav>
 
-                <!-- Nav bar -->
-                <nav class="nav-desktop">
+                <!-- Nav bar (desktop) -->
+                <nav class="nav-desktop collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li ui-sref-active="enabled">
                             <a ui-sref="landing">Perlu</a>

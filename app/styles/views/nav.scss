@@ -44,6 +44,25 @@
             }
         }
 
+        .nav-mobile {
+            width: 100%;
+
+            ul {
+
+                li {
+                    background-color: #F8F8F8;
+                }
+
+
+                li.enabled {
+                    border-bottom: 5px solid $perlu-blue;
+
+                    @include transition(border-bottom 0.2s ease-in-out);
+                }
+
+            }
+        }
+
         .nav-desktop {
             padding-left: 75px;
             padding-right: 75px;
