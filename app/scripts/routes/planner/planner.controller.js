@@ -51,6 +51,17 @@
         }
 
         /**
+         * Checks if the headIndex is active and returns an active-class if active.
+         * @param  {int}     headIndex [Index of the head-item]
+         * @return {string}            [Class-string]
+         */
+        function isHeadActive(headIndex) {
+            if(headIndex === ctrl.slidePos) {
+                return 'active';
+            }
+        }
+
+        /**
          * Highlights onDragStart all possible dropAreas for the part & reduces
          * the opacity of all non-possible dropAreas.
          * @param  {Draggabilly}      draggieInstance [the Draggabilly instance]
@@ -149,14 +160,17 @@
         angular.extend(ctrl, {
             initDrag: false,
             showDesc: true,
-            slidePos: 1,
+            slidePos: 2,
 
             colors: [
                 '#5DF3C0', '#5DB0C6', '#A7DBD9', '#EDEFF0', '#F37A5D', '#555A5C',
                 '#7C8990', '#5ACA00', '#4BBFC3', '#8f88b8', '#ffd1b2', '#c5e5b4'
             ],
+            materials: ['Aluminium', 'Leder', 'Polyester', 'Synthetik', 'Synthetik2', 'Titan'],
+            sizes: ['Handgepäck', 'Mittel', 'Groß', 'Extra-Groß'],
 
             changeSlidePos: changeSlidePos,
+            isHeadActive: isHeadActive,
             slideBoxTo: slideBoxTo
         });
 

@@ -23,8 +23,8 @@
 
                 <!-- Box head -->
                 <div class="planner-box-head">
-                    <div class="planner-box-head-item active">Farbe</div>
-                    <div class="planner-box-head-item">Material</div>
+                    <div class="planner-box-head-item" ng-class="ctrl.isHeadActive(1)" ng-click="ctrl.changeSlidePos(1)">Farbe</div>
+                    <div class="planner-box-head-item" ng-class="ctrl.isHeadActive(2)" ng-click="ctrl.changeSlidePos(2)">Material</div>
                 </div>
 
                 <!-- Box body -->
@@ -40,7 +40,28 @@
 
                     </div>
                     <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(2)">
-                        <h4>Material</h4>
+
+                        <!-- Size -->
+                        <div class="item-wrapper">
+
+                            <h4>Größe</h4>
+                            <div class="size-item" ng-repeat="size in ctrl.sizes">
+                                <img alt="{{ size }}">
+                            </div>
+
+                        </div>
+
+                        <!-- Material -->
+                        <div class="item-wrapper">
+
+                            <h4>Material</h4>
+                            <div class="material-item" ng-repeat="material in ctrl.materials">
+                                <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
+                                <div>{{ material }}</div>
+                            </div>
+
+                        </div>
+
                     </div>
                 </div>
 

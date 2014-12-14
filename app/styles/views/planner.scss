@@ -74,7 +74,7 @@
                 .planner-box-body {
                     position: relative;
                     border-bottom: 3px solid $perlu-blue;
-                    height: 30vh;
+                    height: 37vh;
                     width: 100%;
 
                     .planner-bodx-body-item {
@@ -86,7 +86,7 @@
                         opacity: 1;
 
                         // use opacity as fake: "overflow: hidden"
-                        @include transition(transform 0.3s $ease-in-expo, opacity 0.3s $ease-in-back);
+                        @include transition(transform 0.3s $ease-in-expo, opacity 0.2s $ease-in-back);
 
                         &:first-child {
                             text-align: left;
@@ -98,7 +98,35 @@
                         }
 
                         &:nth-child(3) {
+                            text-align: left;
                             left: 200%;
+                            width: 100%;
+
+                            .size-item {
+                                @include span-columns(6 of 12);
+                                @include omega(3n);
+                                height: 50px;
+                                margin-bottom: 10px;
+
+                                overflow: hidden;
+
+                                img {
+                                    width: 100%;
+                                    height: 50px;
+                                }
+                            }
+
+                            .material-item {
+                                width: 30%;
+                                display: inline-block;
+                                margin-left: 7px;
+                                margin-bottom: 10px;
+                                text-align: center;
+                            }
+                        }
+
+                        .item-wrapper {
+                            width: 100%;
                         }
                     }
                 }
