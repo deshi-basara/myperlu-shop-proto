@@ -90,7 +90,7 @@ gulp.task('jshint', function() {
 		.pipe(reload({stream: true, once: true})) // after a file is written, reload the js
 		.pipe($.jshint())
 		.pipe($.jshint.reporter('jshint-stylish'))
-		.pipe($.if(!browserSync.active, $.jshint.reporter('fail')))
+		//.pipe($.if(!browserSync.active, $.jshint.reporter('fail')))
 		.pipe($.size({title: 'jshint'}));
 });
 
@@ -201,5 +201,5 @@ gulp.task('serve', ['styles'], function() {
  * Build minified and optimized distribution files.
  */
 gulp.task('build', ['clean'], function(cb) {
-	runSequence('styles', ['html', 'images', 'fonts', 'copy']);
+	runSequence('styles', ['html', 'fonts', 'copy']);
 });
