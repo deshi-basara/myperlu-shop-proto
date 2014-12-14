@@ -264,6 +264,10 @@
 
                     text-align: left;
 
+                    h4 {
+                        
+                    }
+
                     @include media($mobile) {
                         @include span-columns(4);
                     }
