@@ -99,7 +99,7 @@
 
                 // fired on 'dragEnd'
                 dragCircles.on('dragEnd', onDragEnd);
-            };
+            }
         }
 
         /**
