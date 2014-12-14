@@ -1,118 +1,5 @@
 <div id="planner">
 
-    <!-- Section 2 -->
-    <div class="section">
-        <div id="planner-section-2" class="planner-content">
-
-            <!-- Progress -->
-            <div class="planner-progress z1">
-                <div class="planner-progress-step enabled">
-                    Gehäuse
-                </div>
-                <div class="planner-progress-step">
-                    Einzelteile
-                </div>
-                <div class="planner-progress-step">
-                    Extras
-                </div>
-            </div>
-
-            <!-- Planner -->
-            <div class="planner">
-
-                <!-- Planner left -->
-                <div class="planner-box planner-left">
-
-                    <!-- Box head -->
-                    <div class="planner-box-head z1">
-                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(0)" ng-click="ctrl.changeSlidePos(1)">Griff</div>
-                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(1)" ng-click="ctrl.changeSlidePos(2)">Verschluss</div>
-                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(2)" ng-click="ctrl.changeSlidePos(2)">Nähte</div>
-                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(3)" ng-click="ctrl.changeSlidePos(2)">Rollen</div>
-                    </div>
-
-                    <!-- Box body -->
-                    <div class="planner-box-body z1">
-                        <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(0)">
-                            <h4>Drag & Drop</h4>
-                            <p>Klicken und ziehen Sie eine Farbe auf den Koffer und färben Sie die Einzelteile</p>
-                        </div>
-                        <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(1)">
-
-                            <!-- Color circles -->
-                            <div class="color-circle z1" ng-repeat="color in ctrl.colors" style="background-color: {{ color }}" data-color="{{ color }}" data-part="case"></div>
-
-                        </div>
-                        <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(2)">
-
-                            <!-- Size -->
-                            <div class="item-wrapper">
-
-                                <h4>Größe</h4>
-                                <div class="size-item" ng-repeat="size in ctrl.sizes">
-                                    <img alt="{{ size }}">
-                                </div>
-
-                            </div>
-
-                            <!-- Material -->
-                            <div class="item-wrapper">
-
-                                <h4>Material</h4>
-                                <div class="material-item" ng-repeat="material in ctrl.materials">
-                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
-                                    <div>{{ material }}</div>
-                                </div>
-
-                            </div>
-
-                        </div>
-                    </div>
-
-                    <!-- Backwards Button -->
-                    <div class="planner-backward">
-                        <button class="button button-white z1" ng-click="ctrl.previousStep()">Zurürck zu Gehäuse</button>
-                    </div>
-                </div>
-
-                <!-- Planner preview -->
-                <div class="planner-preview">
-                    <div class="planner-preview-content">
-                        <div class="planner-preview-img" ng-include="'images/trolleys/trolley.svg'"></div>
-                    </div>
-                </div>
-
-                <!-- Planner right -->
-                <div class="planner-box planner-right">
-
-                    <!-- Box head -->
-                    <div class="planner-box-head z1">
-                        Dein Perlu
-                    </div>
-
-                    <!-- Box body -->
-                    <div class="planner-box-body z1">
-                        <div class="planner-bag-items">
-                            test
-                        </div>
-                    </div>
-
-                    <!-- Price & Buttons right -->
-                    <div class="planner-forward">
-                        <div class="planner-forward-price">
-                            <h4>Gesamt: <span>350€</span></h4>
-                            <div>inkl. MWSt.</div>
-                        </div>
-                        <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Extras</button>
-                        <button class="button button-orange z1">In den Warenkorb</button>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div><!-- / Section 2 -->
-
     <!-- Section 1 -->
     <div class="section">
         <div class="planner-content">
@@ -223,5 +110,118 @@
 
         </div>
     </div><!-- / Section 1 -->
+
+    <!-- Section 2 -->
+    <div class="section">
+        <div id="planner-section-2" class="planner-content">
+
+            <!-- Progress -->
+            <div class="planner-progress z1">
+                <div class="planner-progress-step enabled">
+                    Gehäuse
+                </div>
+                <div class="planner-progress-step enabled">
+                    Einzelteile
+                </div>
+                <div class="planner-progress-step">
+                    Extras
+                </div>
+            </div>
+
+            <!-- Planner -->
+            <div class="planner">
+
+                <!-- Planner left -->
+                <div class="planner-box planner-left">
+
+                    <!-- Box head -->
+                    <div class="planner-box-head z1">
+                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(0)" ng-click="ctrl.changeSlidePos(0)">Griff</div>
+                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(1)" ng-click="ctrl.changeSlidePos(1)">Verschluss</div>
+                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(2)" ng-click="ctrl.changeSlidePos(2)">Nähte</div>
+                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(3)" ng-click="ctrl.changeSlidePos(3)">Rollen</div>
+                    </div>
+
+                    <!-- Box body -->
+                    <div class="planner-box-body z1">
+                        <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(0)">
+                            <h4>Drag & Drop</h4>
+                            <p>Klicken und ziehen Sie eine Farbe auf den Koffer und färben Sie die Einzelteile</p>
+                        </div>
+                        <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(1)">
+
+                            <!-- Color circles -->
+                            <div class="color-circle z1" ng-repeat="color in ctrl.colors" style="background-color: {{ color }}" data-color="{{ color }}" data-part="case"></div>
+
+                        </div>
+                        <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(2)">
+
+                            <!-- Size -->
+                            <div class="item-wrapper">
+
+                                <h4>Größe</h4>
+                                <div class="size-item" ng-repeat="size in ctrl.sizes">
+                                    <img alt="{{ size }}">
+                                </div>
+
+                            </div>
+
+                            <!-- Material -->
+                            <div class="item-wrapper">
+
+                                <h4>Material</h4>
+                                <div class="material-item" ng-repeat="material in ctrl.materials">
+                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
+                                    <div>{{ material }}</div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!-- Backwards Button -->
+                    <div class="planner-backward">
+                        <button class="button button-white z1" ng-click="ctrl.previousStep()">Zurürck zu Gehäuse</button>
+                    </div>
+                </div>
+
+                <!-- Planner preview -->
+                <div class="planner-preview">
+                    <div class="planner-preview-content">
+                        <div class="planner-preview-img" ng-include="'images/trolleys/trolley.svg'"></div>
+                    </div>
+                </div>
+
+                <!-- Planner right -->
+                <div class="planner-box planner-right">
+
+                    <!-- Box head -->
+                    <div class="planner-box-head z1">
+                        Dein Perlu
+                    </div>
+
+                    <!-- Box body -->
+                    <div class="planner-box-body z1">
+                        <div class="planner-bag-items">
+                            test
+                        </div>
+                    </div>
+
+                    <!-- Price & Buttons right -->
+                    <div class="planner-forward">
+                        <div class="planner-forward-price">
+                            <h4>Gesamt: <span>350€</span></h4>
+                            <div>inkl. MWSt.</div>
+                        </div>
+                        <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Extras</button>
+                        <button class="button button-orange z1">In den Warenkorb</button>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div><!-- / Section 2 -->
 
 </div>

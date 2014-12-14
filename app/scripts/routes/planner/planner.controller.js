@@ -198,6 +198,13 @@
         }
 
         /**
+         * Moves the planner to the previous pagepilling step
+         */
+        function previousStep() {
+            $.fn.pagepiling.moveSectionUp();
+        }
+
+        /**
          * Calculates the box-item slidingTransition which is returned to the ngStyles of all '.planner-box-box-item'
          * @param  {int}     index [Index of the current '.planner-box-box-item'-div]
          * @return {String}        [New translate3d-position of the '.planner-box-box-item' on our box]
@@ -231,6 +238,7 @@
             changeSlidePos: changeSlidePos,
             isHeadActive: isHeadActive,
             nextStep: nextStep,
+            previousStep: previousStep,
             slideBoxTo: slideBoxTo
         });
 
