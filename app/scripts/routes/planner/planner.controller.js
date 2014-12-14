@@ -15,6 +15,55 @@
         var ctrl = this;
 
         /**
+         * Initiate pagepilling when the dom is ready
+         */
+        angular.element(document).ready(function () {
+
+            setTimeout(function() {
+                $('#planner').pagepiling({
+                    menu: null,
+                    direction: 'horizontal',
+                    verticalCentered: true,
+                    sectionsColor: ['#EDEFF0', '#EDEFF0', '#EDEFF0'],
+                    anchors: [],
+                    scrollingSpeed: 700,
+                    easing: 'swing',
+                    loopBottom: false,
+                    loopTop: false,
+                    css3: true,
+                    navigation: false,
+                    normalScrollElements: null,
+                    normalScrollElementTouchThreshold: 5,
+                    touchSensitivity: 5,
+                    keyboardScrolling: true,
+                    sectionSelector: '.section',
+                    animateAnchor: false,
+
+                    //events
+                    onLeave: function(index, nextIndex, direction) {},
+                    afterLoad: function(anchorLink, index){
+                        checkPillingAnimation(index);
+                    },
+                    afterRender: function(){
+
+                        // show the navigation
+                        $rootScope.$broadcast('nav.show');
+
+                        // hide the loader
+                        $timeout(function() {
+                            // has to be index = 1 after rendering
+                            checkPillingAnimation(1);
+
+                            //$rootScope.$broadcast('loader.hide');
+
+                        }, 500);
+                    }
+                });
+
+            }, 10);
+        });
+
+        /**
          * Changes the current slide position.
          * @param  {int} newPos [New slide position]
          */
@@ -62,6 +111,13 @@
             if(headIndex === ctrl.slidePos) {
                 return 'active';
             }
+        }
+
+        /**
+         * Moves the planner to the next pagepilling step
+         */
+        function nextStep() {
+            $.fn.pagepiling.moveSectionDown();
         }
 
         /**
@@ -174,6 +230,7 @@
 
             changeSlidePos: changeSlidePos,
             isHeadActive: isHeadActive,
+            nextStep: nextStep,
             slideBoxTo: slideBoxTo
         });
 
