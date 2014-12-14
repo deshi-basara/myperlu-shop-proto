@@ -226,15 +226,20 @@
         h1 {
             margin-bottom: 3%;
             color: $perlu-white;
+            font-size: em(40);
         }
 
         .features {
-            width: 90%;
-            margin-left: 5%;
+
+            @include outer-container();
 
             .feature-item {
                 @include span-columns(4 of 12);
                 @include omega(3n);
+
+                @include media($mobile) {
+                    @include span-columns(4 of 4);
+                }
 
                 height: em(270);
                 margin-bottom: 20px;
@@ -278,15 +283,20 @@
         h1 {
             margin-bottom: 3%;
             color: $perlu-white;
+            font-size: em(40);
         }
 
         .bestseller {
-            width: 90%;
-            margin-left: 5%;
+
+            @include outer-container();
 
             .bestseller-item {
                 @include span-columns(4 of 12);
                 @include omega(3n);
+
+                @include media($mobile) {
+                    @include span-columns(4 of 4);
+                }
 
                 position: relative;
 
@@ -335,27 +345,41 @@
     }
 
     #configurator-section {
-        color: $kuck-white;
 
-        h1 {
-            margin-bottom: 3%;
-        }
+        width: 100%;
 
         .config-teaser {
-            width: 70%;
-            margin-left: 15%;
-            padding-bottom: 35%;
+
+            @include outer-container();
+            color: $perlu-white;
+
+            h1 {
+                margin-bottom: 3%;
+                font-size: em(40);
+            }
 
             .teaser-video {
                 @include span-columns(5 of 12);
-                height: 300px;
+                height: 30vh;
+                position: relative;
 
                 background-color: $perlu-white;
+
+                @include media($mobile) {
+                    @include span-columns(2 of 4);
+                    @include shift(1);
+                    height: 20vh;
+                    margin-bottom: 10px;
+                }
 
                 i {
                     position: relative;
                     color: $perlu-orange;
-                    margin-top: 135px;
+                    margin-top: 13vh;
+
+                    @include media($mobile) {
+                        margin-top: 8vh;
+                    }
                 }
             }
 
@@ -363,52 +387,16 @@
                 @include span-columns(7 of 12);
                 text-align: left;
 
+                @include media($mobile) {
+                    @include span-columns(2 of 4);
+                    @include shift(1);
+                    text-align: center;
+                }
+
                 p {
                     font-size: em(22);
                 }
             }
-        }
-
-        .configuration-teaser.init-animate {
-            .teaser-item:nth-child(1) {
-                opacity: 0;
-                @include transform(translate3d(310px,0,0));
-            }
-            .teaser-item:nth-child(2) {
-                opacity: 0;
-                @include transform(translate3d(160px,0,0));
-            }
-            .teaser-item:nth-child(3) {
-                opacity: 0;
-            }
-            .teaser-item:nth-child(4) {
-                opacity: 0;
-                @include transform(translate3d(-160px,0,0));
-            }
-            .teaser-item:nth-child(5) {
-                opacity: 0;
-                @include transform(translate3d(-310px,0,0));
-            }
-        }
-
-        .configuration-start {
-            margin-bottom: 250px;
-
-            @include transform(scale(1));
-            @include transition(transform 0.7s ease-in-out 1.2s, opacity 0.7s ease-in-out 1.2s);
-
-            button {
-                background-color: $kuck-blue;
-                color: $kuck-white;
-                border: 1px solid $kuck-white;
-
-                font-size: em(38);
-            }
-        }
-
-        .configuration-start.init-animate {
-            opacity: 0;
-            @include transform(scale(0.7));
         }
     }
 }
