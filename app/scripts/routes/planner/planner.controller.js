@@ -6,12 +6,12 @@
         .module('app')
         .controller('PlannerCtrl', PlannerCtrl);
 
-    PlannerCtrl.$inject = ['$rootScope', '$timeout'];
+    PlannerCtrl.$inject = ['$rootScope', '$timeout', 'PlannerService'];
 
     /**
      * Handles the landing view and all interactions
      */
-    function PlannerCtrl($rootScope, $timeout) {
+    function PlannerCtrl($rootScope, $timeout, PlannerService) {
         var ctrl = this;
 
         /**
@@ -19,7 +19,7 @@
          */
         angular.element(document).ready(function () {
 
-            setTimeout(function() {
+            $timeout(function() {
                 $('#planner').pagepiling({
                     menu: null,
                     direction: 'horizontal',
@@ -42,7 +42,7 @@
                     //events
                     onLeave: function(index, nextIndex, direction) {},
                     afterLoad: function(anchorLink, index){
-                        checkPillingAnimation(index);
+                        //checkPillingAnimation(index);
                     },
                     afterRender: function(){
 
@@ -52,7 +52,7 @@
                         // hide the loader
                         $timeout(function() {
                             // has to be index = 1 after rendering
-                            checkPillingAnimation(1);
+                            //checkPillingAnimation(1);
 
                             //$rootScope.$broadcast('loader.hide');
 
@@ -228,12 +228,9 @@
             showDesc: true,
             slidePos: 0,
 
-            colors: [
-                '#5DF3C0', '#5DB0C6', '#A7DBD9', '#EDEFF0', '#F37A5D', '#555A5C',
-                '#7C8990', '#5ACA00', '#4BBFC3', '#8f88b8', '#ffd1b2', '#c5e5b4'
-            ],
-            materials: ['Aluminium', 'Leder', 'Polyester', 'Synthetik', 'Synthetik2', 'Titan'],
-            sizes: ['Handgepäck', 'Mittel', 'Groß', 'Extra-Groß'],
+            colors: PlannerService.getAllColors(),
+            materials: PlannerService.getAllMaterials(),
+            sizes: PlannerService.getAllSizes(),
 
             changeSlidePos: changeSlidePos,
             isHeadActive: isHeadActive,
@@ -246,7 +243,6 @@
         ///
         /////////////////////
 
-        $rootScope.$broadcast('nav.show');
     }
 
 })();
