@@ -70,7 +70,6 @@
          * @param  {int}    index [Current pagepile]
          */
         function checkPillingAnimation(index) {
-            console.log(index);
             // Section 1 animation
             if(index === 1 && !ctrl.startAnimation.teaser) {
                 startTeaserAnimation();
@@ -123,6 +122,14 @@
             ctrl.startAnimation.teaser = true;
         }
 
+        /**
+         * Toggles the footer open state.
+         * @return {boolean}
+         */
+        function toggleOpen() {
+            return ctrl.isOpen = (ctrl.isOpen) ? false : true;
+        }
+
 
         //////////////////////
 
@@ -133,7 +140,7 @@
                 tracking: false,
                 location: false
             },
-            isMobile: true,
+            isOpen: false,
             moveLeft: false,
             startAnimation: {
                 teaser: false
@@ -144,7 +151,8 @@
                 ramona: false
             },
 
-            goToState: goToState
+            goToState: goToState,
+            toggleOpen: toggleOpen
         });
     }
 
