@@ -24,6 +24,9 @@
             // if the drag wasn't initiated yet, initiate it!
             if(!ctrl.initDrag) {
                 initDragUsability();
+
+                // hide the dragOK dialog
+                ctrl.showDesc = false;
             }
         }
 
@@ -160,7 +163,7 @@
         angular.extend(ctrl, {
             initDrag: false,
             showDesc: true,
-            slidePos: 2,
+            slidePos: 0,
 
             colors: [
                 '#5DF3C0', '#5DB0C6', '#A7DBD9', '#EDEFF0', '#F37A5D', '#555A5C',
@@ -179,10 +182,6 @@
         /////////////////////
 
         $rootScope.$broadcast('nav.show');
-
-        setTimeout(function() {
-            initDragUsability();
-        }, 200);
     }
 
 })();
