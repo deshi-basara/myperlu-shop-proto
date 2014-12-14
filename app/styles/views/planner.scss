@@ -1,3 +1,6 @@
+/**
+ * Universal section css: Used in section 1
+ */
 #planner {
     position: relative;
     width: 100%;
@@ -39,6 +42,7 @@
 
             .planner-box {
                 @include span-columns(3 of 12);
+                @include omega(3n);
 
                 height: auto;
 
@@ -162,7 +166,6 @@
                 }
 
                 &.planner-right {
-                    @include omega();
 
                     .planner-box-head {
                         font-size: em(17);
@@ -221,7 +224,39 @@
             }
 
             .planner-forward {
-                @include span-columns(3 of 12);
+                margin-top: 20px;
+                @include span-columns(12 of 12);
+
+                .planner-forward-price {
+                    width: 100%;
+                    margin-bottom: 20px;
+
+                    h4 {
+                        width: 100%;
+
+                        span {
+                            float: right;
+                        }
+                    }
+
+                    div {
+                        margin-left: 20%;
+                        padding-top: 5px;
+                        width: 80%;
+                        text-align: right;
+                        border-top: 1px solid $perlu-grey;
+                    }
+                }
+
+                button {
+                    width: 100%;
+                    margin-bottom: 0px;
+                }
+            }
+
+            .planner-backward {
+                margin-top: 20px;
+                @include span-columns(12 of 12);
 
                 .planner-forward-price {
                     width: 100%;
@@ -289,4 +324,28 @@
 
 .svg-path {
     @include transition(all 1s ease-in-out);
+}
+
+
+/**
+ * Planner section 2: Only make changes to the css from section 1
+ */
+#planner-section-2 {
+
+    .planner-box-head-item-2 {
+        @include span-columns(3 of 12, $display: block-collapse);
+        font-size: em(17);
+        text-align: center;
+        cursor: pointer;
+
+        &.active {
+            background-color: $perlu-blue;
+            color: $perlu-white;
+        }
+
+        &:hover {
+            box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
+            @include transition(box-shadow .28s cubic-bezier(0.4,0,.2,1));
+        }
+    }
 }

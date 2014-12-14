@@ -2,12 +2,12 @@
 
     <!-- Section 2 -->
     <div class="section">
-        <div class="planner-content">
+        <div id="planner-section-2" class="planner-content">
 
             <!-- Progress -->
             <div class="planner-progress z1">
                 <div class="planner-progress-step enabled">
-                    Material
+                    Gehäuse
                 </div>
                 <div class="planner-progress-step">
                     Einzelteile
@@ -25,8 +25,10 @@
 
                     <!-- Box head -->
                     <div class="planner-box-head z1">
-                        <div class="planner-box-head-item" ng-class="ctrl.isHeadActive(1)" ng-click="ctrl.changeSlidePos(1)">Farbe</div>
-                        <div class="planner-box-head-item" ng-class="ctrl.isHeadActive(2)" ng-click="ctrl.changeSlidePos(2)">Material</div>
+                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(0)" ng-click="ctrl.changeSlidePos(1)">Griff</div>
+                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(1)" ng-click="ctrl.changeSlidePos(2)">Verschluss</div>
+                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(2)" ng-click="ctrl.changeSlidePos(2)">Nähte</div>
+                        <div class="planner-box-head-item-2" ng-class="ctrl.isHeadActive(3)" ng-click="ctrl.changeSlidePos(2)">Rollen</div>
                     </div>
 
                     <!-- Box body -->
@@ -67,9 +69,9 @@
                         </div>
                     </div>
 
-                    <!-- Box footer -->
-                    <div class="planner-box-footer z1" ng-class="{ 'up': !ctrl.showDesc }">
-                        <button class="button button-orange" ng-click="ctrl.changeSlidePos(1)">OK</button>
+                    <!-- Backwards Button -->
+                    <div class="planner-backward">
+                        <button class="button button-white z1" ng-click="ctrl.previousStep()">Zurürck zu Gehäuse</button>
                     </div>
                 </div>
 
@@ -81,29 +83,29 @@
                 </div>
 
                 <!-- Planner right -->
-                <div class="planner-box planner-right z1">
+                <div class="planner-box planner-right">
 
                     <!-- Box head -->
-                    <div class="planner-box-head">
+                    <div class="planner-box-head z1">
                         Dein Perlu
                     </div>
 
                     <!-- Box body -->
-                    <div class="planner-box-body">
+                    <div class="planner-box-body z1">
                         <div class="planner-bag-items">
                             test
                         </div>
                     </div>
-                </div>
 
-                <!-- Price & Buttons right -->
-                <div class="planner-forward">
-                    <div class="planner-forward-price">
-                        <h4>Gesamt: <span>350€</span></h4>
-                        <div>inkl. MWSt.</div>
+                    <!-- Price & Buttons right -->
+                    <div class="planner-forward">
+                        <div class="planner-forward-price">
+                            <h4>Gesamt: <span>350€</span></h4>
+                            <div>inkl. MWSt.</div>
+                        </div>
+                        <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Extras</button>
+                        <button class="button button-orange z1">In den Warenkorb</button>
                     </div>
-                    <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Extras</button>
-                    <button class="button button-orange z1">In den Warenkorb</button>
                 </div>
 
             </div>
@@ -118,7 +120,7 @@
             <!-- Progress -->
             <div class="planner-progress z1">
                 <div class="planner-progress-step enabled">
-                    Material
+                    Gehäuse
                 </div>
                 <div class="planner-progress-step">
                     Einzelteile
@@ -192,29 +194,29 @@
                 </div>
 
                 <!-- Planner right -->
-                <div class="planner-box planner-right z1">
+                <div class="planner-box planner-right">
 
                     <!-- Box head -->
-                    <div class="planner-box-head">
+                    <div class="planner-box-head z1">
                         Dein Perlu
                     </div>
 
                     <!-- Box body -->
-                    <div class="planner-box-body">
+                    <div class="planner-box-body z1">
                         <div class="planner-bag-items">
                             test
                         </div>
                     </div>
-                </div>
 
-                <!-- Price & Buttons right -->
-                <div class="planner-forward">
-                    <div class="planner-forward-price">
-                        <h4>Gesamt: <span>350€</span></h4>
-                        <div>inkl. MWSt.</div>
+                    <!-- Price & Buttons right -->
+                    <div class="planner-forward">
+                        <div class="planner-forward-price">
+                            <h4>Gesamt: <span>350€</span></h4>
+                            <div>inkl. MWSt.</div>
+                        </div>
+                        <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Einzelteilen</button>
+                        <button class="button button-orange z1">In den Warenkorb</button>
                     </div>
-                    <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Einzelteilen</button>
-                    <button class="button button-orange z1">In den Warenkorb</button>
                 </div>
 
             </div>
