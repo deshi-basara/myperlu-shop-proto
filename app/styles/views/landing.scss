@@ -238,10 +238,16 @@
                 @include omega(3n);
 
                 @include media($mobile) {
-                    @include span-columns(4 of 4);
+                    @include omega-reset(3n);
+                    @include span-columns(2 of 4);
+                    @include omega(2n);
+
+                    img, &:nth-child(3), &:nth-child(4) {
+                        display: none !important;
+                    }
                 }
 
-                height: em(270);
+                height: em(320);
                 margin-bottom: 20px;
 
 
@@ -257,6 +263,10 @@
                     margin-top: -20px;
 
                     text-align: left;
+
+                    @include media($mobile) {
+                        @include span-columns(4);
+                    }
 
                     .feature-indicator {
                         position: absolute;
@@ -296,14 +306,24 @@
 
                 @include media($mobile) {
                     @include span-columns(4 of 4);
+
+                    &:nth-child(3) {
+                        display: none;
+                    }
+
+                    img {
+                        height: 60% !important;
+                        width: auto;
+                    }
                 }
 
                 position: relative;
 
-                height: em(330);
-                margin-bottom: 20px;
+                height: em(280);
+                margin-bottom: 2%;
 
                 h3 {
+                    font-size: em(20);
                     margin-bottom: 20px;
                 }
 
