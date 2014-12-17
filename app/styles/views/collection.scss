@@ -113,7 +113,6 @@
     }
     .button-less-infos {
         text-decoration: none !important;
-        font-size: 1.6em !important;
         &:hover, &:active, &:focus {
             color: #fff !important;
             background: #F37A5D !important;
@@ -151,7 +150,7 @@
         width: auto;
         color: #F37A5D;
         text-transform: none;
-        font-size: 1.4em;
+        font-size: 1.2em;
         &:hover, &:active, &:focus {
             color: #FA6900;
         }
@@ -196,8 +195,16 @@
             float: left;
             background-image: none;
             margin: 1px;
+
+            h3 {
+          
+            margin: 0;
+            margin-bottom: 10px;
+            color: #4C4C4C;
+        }
         }
         h3 {
+            
             margin: 10px;
             color: #4C4C4C;
         }
@@ -227,17 +234,15 @@
         height: 95%;
         .btn-wrapper {
             position: absolute;
-            bottom: 10px;
             width: 90%;
             left: 5%;
-            position: absolute;
-            width: 90%;
-            left: 5%;
-            bottom: 30px;
+            bottom: 20px;
         }
     }
     .short-info {
-        p! {
+        p {
+
+          font-size: 0.9em;
         }
         h3 {
             margin: 0px 0px 5px 0px;
@@ -292,29 +297,14 @@
         width: 38%;
     }
 
-     @media (max-width:768px) {
 
-      .short-info {
-            opacity: 1;
-            background-color: rgba(0,0,0,0);
-            h3 {
-                display: none;
-            }
-            p {
-                margin: 35px 0px 0px 105px;
-                font-size: 0.9em;
+    @media (max-width:620px) {
+
+         p {      
+                font-size: 2em;
                 color: #4C4C4C;
             }
-        }
-        .item {
-            background-size: auto 60%;
-            background-position: 10px 40px;
-        }
 
-
-     }
-
-    @media (max-width:450px) {
         .desktop-data {
             display: none;
         }
@@ -368,9 +358,21 @@
                 display: none;
             }
             p {
-                margin: 35px 5px 0px 150px;
-                font-size: 0.9em;
+                margin: 40px 20px 0px 215px;
+                font-size: 2em;
                 color: #4C4C4C;
+            }
+
+            .btn-right {
+
+              font-size: 2.4em;              
+
+            }
+
+            .pricetag{
+              
+              font-size: 2.4em;     
+
             }
         }
         .item {
@@ -379,6 +381,8 @@
         }
         .long-info .left-section {
             padding: 10px 0px 0px 0px;
+
+
         }
         .table-row span {
             width: 47%;
@@ -390,11 +394,21 @@
             margin: 0px 0px 5px 0px;
         }
         .long-info {
-            .btn-right {
-                margin: 0px 11px 0px 0px;
-            }
+
             .btn-left {
-                width: 90%;
+                width: 100%;
+            }
+
+            .button-less-infos{
+              
+              font-size: 2em !important;
+
+            }
+
+            .table-row {
+
+              font-size: 2em;
+              margin-bottom: 5px;
             }
         }
         .headline {
