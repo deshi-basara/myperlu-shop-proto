@@ -64,10 +64,22 @@
         });
 
         /**
+         * Is called when a new item is added to MyPerlu-bag within the
+         * planner.
+         * @param {[type]} part     [description]
+         * @param {[type]} material [description]
+         * @param {[type]} color    [description]
+         */
+        function addToPlannerBag(part, material, color) {
+
+        }
+
+        /**
          * Changes the current slide position.
          * @param  {int} newPos [New slide position]
          */
         function changeSlidePos(newPos) {
+            console.log(newPos);
             ctrl.slidePos = newPos;
 
             // if the drag wasn't initiated yet, initiate it!
@@ -210,6 +222,7 @@
          * @return {String}        [New translate3d-position of the '.planner-box-box-item' on our box]
          */
         function slideBoxTo(index) {
+            console.log(ctrl.slidePos+ '===' + index);
             // opacity: 0 only, if the element is not the current element
             if(ctrl.slidePos === index) {
                 return {'-webkit-transform': 'translate3d('+ parseInt(ctrl.slidePos) * -100  +'%,0,0)'};
