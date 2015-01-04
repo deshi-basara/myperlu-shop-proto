@@ -127,26 +127,6 @@
                                     <li class="planner-bag-item-price"><span>350€</span></li>
                                 </ul>
                             </div>
-
-                            <!-- Griff -->
-                            <div class="planner-bag-item">
-                                <div class="planner-bag-item-img" ng-include="'images/trolleys/handle.svg'"></div>
-                                <ul class="planner-bag-item-indicator">
-                                    <li>Aluminium <i class="ionicons ion-edit"></i> </li>
-                                    <li>grau <i class="ionicons ion-edit"></i> </li>
-                                    <li class="planner-bag-item-price"><span>30€</span></li>
-                                </ul>
-                            </div>
-
-                            <!-- Rollen -->
-                            <div class="planner-bag-item">
-                                <div class="planner-bag-item-img" ng-include="'images/trolleys/wheels.svg'"></div>
-                                <ul class="planner-bag-item-indicator">
-                                    <li>Gummi <i class="ionicons ion-edit"></i> </li>
-                                    <li>rot <i class="ionicons ion-edit"></i> </li>
-                                    <li class="planner-bag-item-price"><span>20€</span></li>
-                                </ul>
-                            </div>
                         </div>
                     </div>
 
@@ -157,7 +137,7 @@
                             <div>inkl. MWSt.</div>
                         </div>
                         <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Einzelteilen</button>
-                        <button class="button button-orange z1">In den Warenkorb</button>
+                        <button class="button button-orange z1" ng-click="ctrl.addToShoppingBag()">In den Warenkorb</button>
                     </div>
                 </div>
 
@@ -269,6 +249,32 @@
                 <!-- Planner preview -->
                 <div class="planner-preview">
                     <div class="planner-preview-content">
+                        <!-- Handle, Zip, Stichings,   --
+                        <div class="planner-preview-indicator" ng-class="{'show': ctrl.indicator.caseBox }">
+                            <span class="fa-stack fa-lg" ng-click="ctrl.toggleIndicatorBox('caseBox')">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa fa-pencil fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <div class="planner-preview-indicator-box z1">
+                                <i class="ionicons ion-close" ng-click="ctrl.toggleIndicatorBox('caseBox')"></i>
+                                <div class="picker-item">
+                                    <div class="color-wheel-wrapper">
+                                        <div class="color-wheel"    ng-click="ctrl.fakeColorSelect()"
+                                                                    ng-class="{ 'fake-select': ctrl.fake.select }">
+                                            <span   ng-repeat="color in ctrl.colors | limitTo: 10"
+                                                    class="color-{{ $index }}"
+                                                    style="border-color: {{ color }} transparent transparent transparent"></span>
+                                        </div>
+                                    </div>
+                                    <div class="picker-desc">
+                                        <h5>Farbe</h5>
+                                        <span>{{ ctrl.fake.color }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>-->
+
+                        <!-- Preview -->
                         <div class="planner-preview-img" ng-include="'images/trolleys/trolley.svg'"></div>
                     </div>
                 </div>
@@ -284,7 +290,36 @@
                     <!-- Box body -->
                     <div class="planner-box-body z1">
                         <div class="planner-bag-items">
-                            test
+                            <!-- Material -->
+                            <div class="planner-bag-item" ng-class="{'show': ctrl.indicator.caseBox }">
+                                <div class="planner-bag-item-img" ng-include="'images/trolleys/case.svg'"></div>
+                                <ul class="planner-bag-item-indicator">
+                                    <li>Handgepäck <i class="ionicons ion-edit"></i> </li>
+                                    <li>Aluminium <i class="ionicons ion-edit"></i> </li>
+                                    <li>Milka Lila<i class="ionicons ion-edit"></i> </li>
+                                    <li class="planner-bag-item-price"><span>350€</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Griff -->
+                            <div class="planner-bag-item" ng-class="{'show': ctrl.indicator.handleBox }">
+                                <div class="planner-bag-item-img" ng-include="'images/trolleys/handle.svg'"></div>
+                                <ul class="planner-bag-item-indicator">
+                                    <li>Aluminium <i class="ionicons ion-edit"></i> </li>
+                                    <li>grau <i class="ionicons ion-edit"></i> </li>
+                                    <li class="planner-bag-item-price"><span>30€</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Rollen -->
+                            <div class="planner-bag-item" ng-class="{'show': ctrl.indicator.wheelBox }">
+                                <div class="planner-bag-item-img" ng-include="'images/trolleys/wheels.svg'"></div>
+                                <ul class="planner-bag-item-indicator">
+                                    <li>Gummi <i class="ionicons ion-edit"></i> </li>
+                                    <li>rot <i class="ionicons ion-edit"></i> </li>
+                                    <li class="planner-bag-item-price"><span>20€</span></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -295,7 +330,7 @@
                             <div>inkl. MWSt.</div>
                         </div>
                         <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Extras</button>
-                        <button class="button button-orange z1">In den Warenkorb</button>
+                        <button class="button button-orange z1" ng-click="ctrl.addToShoppingBag()">In den Warenkorb</button>
                     </div>
                 </div>
 

@@ -64,14 +64,11 @@
         });
 
         /**
-         * Is called when a new item is added to MyPerlu-bag within the
-         * planner.
-         * @param {[type]} part     [description]
-         * @param {[type]} material [description]
-         * @param {[type]} color    [description]
+         * Is called when a new MyPerlu clock is added to shopping-bag.
          */
-        function addToPlannerBag(part, material, color) {
-
+        function addToShoppingBag() {
+            console.log('add');
+            $rootScope.$broadcast('bag.add');
         }
 
         /**
@@ -79,7 +76,6 @@
          * @param  {int} newPos [New slide position]
          */
         function changeSlidePos(newPos) {
-            console.log(newPos);
             ctrl.slidePos = newPos;
 
             // if the drag wasn't initiated yet, initiate it!
@@ -301,6 +297,7 @@
             materials: PlannerService.getAllMaterials(),
             sizes: PlannerService.getAllSizes(),
 
+            addToShoppingBag: addToShoppingBag,
             changeSlidePos: changeSlidePos,
             fakeColorSelect: fakeColorSelect,
             isHeadActive: isHeadActive,

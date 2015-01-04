@@ -124,23 +124,24 @@
                     <div class="empty-subline">Zeige uns deinen Perlu!</div>
                 </div>
                 <div class="shopping-item-list">
-                    <div class="shopping-item" ng-hide="!main.bagItems">
+                    <div class="shopping-item" ng-show="main.bagItems">
                         <div class="item-left">
-                            <img src="images/watches/classic/gruen.png">
+                            <div class="item-img" ng-include="'images/trolleys/trolley.svg'"></div>
                             <div class="item-desc">
-                                <h6>Klassik Variation</h6>
-                                <div class="desc">Gehäuse: Rund</div>
-                                <div class="desc">Material: Mahagoni</div>
-                                <div class="desc">Extras: Keine</div>
-                                <div class="desc">Anzahl: 1</div>
+                                <div class="desc">Größe: <span>Mittel</span></div>
+                                <div class="desc">Material: <span>Aluminium</span></div>
+                                <div class="desc">Griff: <span>Aluminium</span></div>
+                                <div class="desc">Nähte: <span>Baumwolle</span></div>
+                                <div class="desc">Rollen: <span>Gummi</span></div>
+                                <div class="desc">Extras: <span>Keine<span></div>
                             </div>
                         </div>
                         <div class="item-right">
                             <div class="item-controls">
-                                <i class="fa fa-times-circle"></i><br>
+                                <i class="fa fa-times"></i><br>
                                 <i class="fa fa-wrench"></i>
                             </div>
-                            <div class="item-price">280 €</div>
+                            <div class="item-price">350 €</div>
                         </div>
                     </div>
                 </div>

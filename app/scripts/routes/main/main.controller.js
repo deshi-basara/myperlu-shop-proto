@@ -52,7 +52,7 @@
             showModal: false,
             priceTotal: 0,
 
-            bagItems: null,
+            bagItems: 0,
             complete: {
                 gehaeuse: true,
                 material: false,
@@ -67,6 +67,15 @@
         });
 
         /////////////////////
+
+        /**
+         * Listens for new shopping bag items.
+         */
+        $scope.$on('bag.add', function() {
+            main.bagOpen = true;
+            main.bagItems++;
+            console.log(main.bagItems);
+        });
 
         /**
          * Listen for navigation changes.
