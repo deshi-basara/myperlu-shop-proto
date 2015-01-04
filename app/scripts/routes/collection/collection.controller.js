@@ -20,6 +20,23 @@
         angular.element(document).ready(function() {
         $timeout(function() {
 
+             $('.btn-5a').hover(function() {
+
+                 
+                }, function() {
+
+                   $(this).removeClass('released');
+                 
+
+                });
+
+
+            $('.btn-5a').mouseup(function(){
+
+            $(this).addClass('released');
+           
+            });
+
 
             var ismobile = false;
 
