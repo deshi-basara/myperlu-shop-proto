@@ -15,7 +15,7 @@
 
         var service = {
             colors: [
-                '#5DF3C0', '#5DB0C6', '#A7DBD9', '#EDEFF0', '#F37A5D', '#555A5C',
+                '#5DF3C0', '#5DB0C6', '#EDEFF0', '#A7DBD9', '#F37A5D', '#555A5C',
                 '#7C8990', '#5ACA00', '#4BBFC3', '#8f88b8', '#ffd1b2', '#c5e5b4'
             ],
             materials: ['Aluminium', 'Leder', 'Polyester', 'Synthetik', 'Synthetik2', 'Titan'],

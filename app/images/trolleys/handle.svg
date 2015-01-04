@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1" class="svg-paths svg-trolley" viewBox="0 0 835 1570" preserveAspectRatio="xMinYMin meet">
+	<path data-part="handle" fill="#020202" class="svg-path svg-handle" d="M655.5,36c-16.841-4.448-33.756-7.074-50.282-8.313c-0.129,0.046-0.253,0.098-0.389,0.134
+		c-8.728,2.357-18.025,1.656-27.069,0.179H559.5c-0.672,0-1.269-0.113-1.801-0.308C491.86,32.437,441.765,55.163,444.5,62
+		c3,63,16.902,65,16.902,65l0.098,134c13,2,28,6,28,6l-1-135c19,0,19-10,19-10l-1-28l95-11c22-3,19,4,19,4l3,19l10,5l4,197
+		c16,3,29,7,29,7l-4-203l23-16C686.5,41,655.5,36,655.5,36z"/>
+</svg>

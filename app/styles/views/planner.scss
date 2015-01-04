@@ -9,30 +9,41 @@
 
     z-index: 1;
 
+    .planner-progress {
+        position: relative;
+        width: 80%;
+        margin-left: 10%;
+        margin-top: 40px;
+        margin-bottom: 10px;
+        height: 50px;
+
+        background-color: $perlu-white;
+        z-index: 140;
+
+        .planner-progress-step {
+            @include span-columns(4 of 12, $display: block-collapse);
+            line-height: 50px;
+            text-align: center;
+            font-size: em(20);
+            cursor: pointer;
+
+            @include transition(all 1s ease-in-out);
+            &.enabled {
+                background-color: $perlu-blue;
+                color: $perlu-white;
+            }
+            &:hover {
+                box-shadow: 0px 17px 50px rgba(0, 0, 0, 0.19);
+            }
+        }
+    }
+
     .planner-content {
         height: 100%;
         width: 80%;
+        margin-top: -130px;
         margin-left: 10%;
         padding-top: 40px;
-
-        .planner-progress {
-            width: 100%;
-            height: 50px;
-
-            background-color: $perlu-white;
-
-            .planner-progress-step {
-                @include span-columns(4 of 12, $display: block-collapse);
-                line-height: 50px;
-                text-align: center;
-                font-size: em(20);
-
-                &.enabled {
-                    background-color: $perlu-blue;
-                    color: $perlu-white;
-                }
-            }
-        }
 
         .planner {
             position: relative;
@@ -188,8 +199,18 @@
                                 width: 100%;
                                 overflow: auto;
 
-                                img {
-                                    width: 20%;
+                                opacity: 0;
+                                @include transform(translate3d(-130px,0,0));
+                                @include transition(all 0.7s ease-in-out 1s);
+                                &.show {
+                                    opacity: 1;
+                                    @include transform(translate3d(0,0,0));
+                                }
+
+                                .planner-bag-item-img {
+                                    width: 15%;
+                                    height: auto;
+                                    margin-left: 20px;
                                     float: left;
                                 }
 
@@ -242,8 +263,144 @@
 
 
                 .planner-preview-content {
+                    position: relative;
                     display: table-cell;
                     vertical-align: middle;
+
+                    .planner-preview-indicator {
+                        position: absolute;
+                        left: 32%;
+                        top: 53%;
+
+                        z-index: 100;
+
+                        &.show {
+
+                            .fa-stack {
+                                &:hover {
+                                    .fa-pencil {
+                                        color: $perlu-white !important;
+                                    }
+                                }
+                                .fa-circle {
+                                    color: $perlu-blue;
+                                }
+                                .fa-pencil {
+                                    color: $perlu-white;
+                                }
+                            }
+
+                            .planner-preview-indicator-box {
+                                opacity: 1;
+                                @include transform(translate3d(0,0,0));
+                            }
+                        }
+
+                        .fa-stack {
+                            cursor: pointer;
+
+                            &:hover {
+                                .fa-pencil {
+                                    color: $perlu-blue;
+
+                                    @include transform(scale(1.05));
+                                }
+                            }
+
+                            .fa-circle {
+                                color: $perlu-white;
+
+                                z-index: 102;
+                            }
+
+                            .fa-pencil {
+                                color: $perlu-grey;
+
+                                z-index: 102;
+
+                                @include transform(scale(0.9));
+                                @include transition(transform 0.2s ease-in-out, color 0.7s ease-in-out);
+                            }
+
+                        }
+
+                        .planner-preview-indicator-box {
+                            position: absolute;
+                            left: 20px;
+                            top: 20px;
+                            width: 330px;
+                            height: 120px;
+                            background-color: $perlu-white;
+
+                            z-index: 101;
+
+                            opacity: 0;
+                            @include transform(translate3d(-20px,0,0));
+                            @include transition(all ease-in-out 0.4s);
+
+                            .ionicons {
+                                position: absolute;
+                                right: 0;
+                                padding: 5px;
+                                cursor: pointer;
+
+                                z-index: 130;
+                            }
+
+
+                            .picker-item {
+                                @include span-columns(12 of 12);
+                                position: relative;
+                                height: 100px;
+
+                                .color-wheel-wrapper {
+                                    @include transform(scale(0.3) rotate(15deg));
+
+                                    .color-wheel {
+                                        top: 130px;
+                                        left: -200px;
+                                        position: absolute;
+
+                                        &.fake-select {
+                                            @include transform(rotate(110deg));
+                                        }
+                                    }
+
+                                }
+
+                                .picker-desc {
+                                    width: 53%;
+                                    float: right;
+                                    margin-top: 15px;
+                                    text-align: left;
+
+                                    span {
+                                        font-weight: bold;
+                                        font-size: em(18);
+
+                                        &::before {
+                                            content: "";
+                                            position: absolute;
+                                            width: 0;
+                                            height: 0;
+                                            margin-top: -5px;
+                                            left: 140px;
+                                            box-sizing: border-box;
+
+                                            border: 0.7em solid $perlu-orange;
+                                            border-color: transparent transparent $perlu-orange $perlu-orange;
+
+                                            transform-origin: 0 0;
+                                            transform: rotate(45deg);
+
+                                            box-shadow: -1px 1px 1px 0 rgba(0, 0, 0, 0.4);
+                                        }
+                                    }
+                                }
+                            }
+
+                        }
+                    }
 
                     .planner-preview-img {
                         display: inline-block;
