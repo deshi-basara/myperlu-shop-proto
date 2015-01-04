@@ -47,7 +47,9 @@
             bagOpen: false,
             isLoading: false,
             showFeedback: false,
+            showLogin: true,
             showNav: false,
+            showModal: false,
             priceTotal: 0,
 
             bagItems: null,
@@ -65,7 +67,7 @@
         });
 
         /////////////////////
-        
+
         /**
          * Listen for navigation changes.
          * @param  {object} broadEvent [Angular broadcast object]
