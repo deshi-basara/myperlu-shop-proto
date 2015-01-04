@@ -23,8 +23,8 @@
         <link rel="stylesheet" href="../bower_components/ng-table/ng-table.css" />
         <link rel="stylesheet" href="../bower_components/sweetalert/lib/sweet-alert.css" />
         <link rel="stylesheet" href="../bower_components/bootstrap/dist/css/bootstrap.css" />
-        <link rel="stylesheet" href="../bower_components/pagepiling.js/jquery.pagepiling.css" />
         <link rel="stylesheet" href="../bower_components/ionicons/css/ionicons.css" />
+        <link rel="stylesheet" href="../bower_components/pagepiling.js/jquery.pagepiling.css" />
         <!-- endbower -->
         <link rel="stylesheet" href="styles/vendor/device-mockups/device-mockups.css">
         <!-- endbuild -->
@@ -93,7 +93,7 @@
 
                     <!-- Nav right -->
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="">Einloggen</a></li>
+                        <li ng-click="main.showModal = !main.showModal"><a href="">Einloggen</a></li>
                     </ul><!-- / Nav right -->
                 </nav><!-- / Nav bar -->
 
@@ -161,6 +161,39 @@
             </div>
         </div>
 
+        <!--
+            Login-Modal
+        -->
+        <div class="custom-modal" ng-hide="!main.showModal" ng-cloak>
+
+            <div class="custom-modal-overlay" ng-click="main.showModal = !main.showModal"></div>
+            <div class="custom-modal-box">
+                <div class="custom-modal-header">
+                    <div class="custom-modal-header-item" ng-class="{ 'active': main.showLogin }">Login</div>
+                    <div class="custom-modal-header-item" ng-class="{ 'active': !main.showLogin }" ng-click="main.notImplemented()">Registrierung</div>
+                </div>
+                <div class="custom-modal-body">
+                    <div>
+                    <i class="ionicons ion-bag"></i>
+
+                    <div class="input-group">
+                        <label>Benutzername</label>
+                        <input type="text" class="form-control" ng-model="main.login.name">
+                    </div>
+                    <div class="input-group">
+                        <label>Passwort</label>
+                        <input type="text" class="form-control" ng-model="main.login.pass">
+                    </div>
+                    <button class="button button-blue" ng-click="main.submitLogin()">Einloggen</button>
+                    </div>
+                </div>
+                <!--<div class="custom-modal-warning">
+                    Warn
+                </div>-->
+            </div>
+
+        </div>
+
 
         <!--
             Vendor scripts
@@ -179,7 +212,6 @@
         <script src="../bower_components/sweetalert/lib/sweet-alert.js"></script>
         <script src="../bower_components/angular-sweetalert/SweetAlert.js"></script>
         <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
-        <script src="../bower_components/pagepiling.js/jquery.pagepiling.min.js"></script>
         <script src="../bower_components/angular-svg-round-progressbar/roundProgress.js"></script>
         <script src="../bower_components/classie/classie.js"></script>
         <script src="../bower_components/eventEmitter/EventEmitter.js"></script>
@@ -192,6 +224,19 @@
         <script src="../bower_components/doc-ready/doc-ready.js"></script>
         <script src="../bower_components/outlayer/item.js"></script>
         <script src="../bower_components/outlayer/outlayer.js"></script>
+        <script src="../bower_components/masonry/masonry.js"></script>
+        <script src="../bower_components/isotope/js/item.js"></script>
+        <script src="../bower_components/isotope/js/layout-mode.js"></script>
+        <script src="../bower_components/isotope/js/isotope.js"></script>
+        <script src="../bower_components/isotope/js/layout-modes/vertical.js"></script>
+        <script src="../bower_components/isotope/js/layout-modes/fit-rows.js"></script>
+        <script src="../bower_components/isotope/js/layout-modes/masonry.js"></script>
+        <script src="../bower_components/packery/js/rect.js"></script>
+        <script src="../bower_components/packery/js/packer.js"></script>
+        <script src="../bower_components/packery/js/item.js"></script>
+        <script src="../bower_components/packery/js/packery.js"></script>
+        <script src="../bower_components/isotope-packery/packery-mode.js"></script>
+        <script src="../bower_components/pagepiling.js/jquery.pagepiling.min.js"></script>
         <!-- endbower -->
         <script src="../bower_components/isotope/dist/isotope.pkgd.js"></script>
         <script src="../bower_components/isotope-packery/packery-mode.pkgd.js"></script>

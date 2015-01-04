@@ -33,8 +33,8 @@
                     css3: true,
                     navigation: false,
                     normalScrollElements: null,
-                    normalScrollElementTouchThreshold: 5,
-                    touchSensitivity: 5,
+                    normalScrollElementTouchThreshold: 150,
+                    touchSensitivity: 150,
                     keyboardScrolling: true,
                     sectionSelector: '.section',
                     animateAnchor: false,
@@ -64,10 +64,22 @@
         });
 
         /**
+         * Is called when a new item is added to MyPerlu-bag within the
+         * planner.
+         * @param {[type]} part     [description]
+         * @param {[type]} material [description]
+         * @param {[type]} color    [description]
+         */
+        function addToPlannerBag(part, material, color) {
+
+        }
+
+        /**
          * Changes the current slide position.
          * @param  {int} newPos [New slide position]
          */
         function changeSlidePos(newPos) {
+            console.log(newPos);
             ctrl.slidePos = newPos;
 
             // if the drag wasn't initiated yet, initiate it!
@@ -77,6 +89,21 @@
                 // hide the dragOK dialog
                 ctrl.showDesc = false;
             }
+        }
+
+        /**
+         * Fakes a color selection on the color wheel.
+         */
+        function fakeColorSelect() {
+            // make the color wheel move
+            ctrl.fake.select = true;
+            ctrl.fake.color = 'Milka Lila';
+
+            // change the bag preview
+            $('.svg-case').attr({
+                'fill': '#8f88b8',
+                'fill-opacity': '1'
+            });
         }
 
         /**
@@ -114,10 +141,22 @@
         }
 
         /**
+         * Checks if the stepIndex is active and returns an enabled-class if active.
+         * @param  {int}     stepIndex [Index of the step-item]
+         * @return {string}            [Class-string]
+         */
+        function isStepActive(stepIndex) {
+            if(stepIndex <= ctrl.stepPos) {
+                return 'enabled';
+            }
+        }
+
+        /**
          * Moves the planner to the next pagepilling step
          */
         function nextStep() {
             $.fn.pagepiling.moveSectionDown();
+            ctrl.stepPos++;
         }
 
         /**
@@ -128,6 +167,11 @@
          * @param  {MouseEvent/Touch} pointer         [the event object that has .pageX and .pageY]
          */
         function onDragStart(draggieInstance, event, pointer) {
+            // close open boxes
+            angular.forEach(ctrl.indicator, function(value, key) {
+                ctrl.indicator[key] = false;
+            });
+
             // get the part, that shoud be highlighted, and highlight it
             var part = draggieInstance.element.dataset.part;
 
@@ -198,10 +242,20 @@
         }
 
         /**
+         * Moves the pagepilling sections to the handed stepIndex.
+         * @param  {int} stepIndex [Step index]
+         */
+        function moveToStep(stepIndex) {
+            $.fn.pagepiling.moveTo(stepIndex);
+            ctrl.stepPos = stepIndex;
+        }
+
+        /**
          * Moves the planner to the previous pagepilling step
          */
         function previousStep() {
             $.fn.pagepiling.moveSectionUp();
+            ctrl.stepPos--;
         }
 
         /**
@@ -218,30 +272,50 @@
                 // fake "overflow: hidden" with opacity
                 return {'-webkit-transform': 'translate3d('+ parseInt(ctrl.slidePos) * -100  +'%,0,0)', 'opacity': 0};
             }
+        }
 
+        /**
+         * Toggles the clicked indicator's box.
+         * @param  {string} partId [Json-key of the part we want to toggle]
+         */
+        function toggleIndicatorBox(partId) {
+            ctrl.indicator[partId] = (ctrl.indicator[partId] === false) ? true : false;
         }
 
         //////////////////////
 
         angular.extend(ctrl, {
+            fake: {
+                select: false,
+                color: 'Leichtes Blaugrau'
+            },
             initDrag: false,
             showDesc: true,
             slidePos: 0,
+            stepPos: 1,
+            indicator: {
+                caseBox: false
+            },
 
             colors: PlannerService.getAllColors(),
             materials: PlannerService.getAllMaterials(),
             sizes: PlannerService.getAllSizes(),
 
             changeSlidePos: changeSlidePos,
+            fakeColorSelect: fakeColorSelect,
             isHeadActive: isHeadActive,
+            isStepActive: isStepActive,
             nextStep: nextStep,
+            moveToStep: moveToStep,
             previousStep: previousStep,
-            slideBoxTo: slideBoxTo
+            slideBoxTo: slideBoxTo,
+            toggleIndicatorBox: toggleIndicatorBox
         });
 
         /////////////////////
         ///
         /////////////////////
+
 
     }
 

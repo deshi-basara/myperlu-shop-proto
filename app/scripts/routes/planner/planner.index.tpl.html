@@ -1,21 +1,21 @@
 <div id="planner">
 
+    <!-- Progress -->
+    <div class="planner-progress z1">
+        <div class="planner-progress-step" ng-class="ctrl.isStepActive(1)" ng-click="ctrl.moveToStep(1)">
+            Gehäuse
+        </div>
+        <div class="planner-progress-step" ng-class="ctrl.isStepActive(2)" ng-click="ctrl.moveToStep(2)">
+            Einzelteile
+        </div>
+        <div class="planner-progress-step" ng-class="ctrl.isStepActive(3)" ng-click="ctrl.moveToStep(3)">
+            Extras
+        </div>
+    </div>
+
     <!-- Section 1 -->
     <div class="section">
         <div class="planner-content">
-
-            <!-- Progress -->
-            <div class="planner-progress z1">
-                <div class="planner-progress-step enabled">
-                    Gehäuse
-                </div>
-                <div class="planner-progress-step">
-                    Einzelteile
-                </div>
-                <div class="planner-progress-step">
-                    Extras
-                </div>
-            </div>
 
             <!-- Planner -->
             <div class="planner">
@@ -76,6 +76,32 @@
                 <!-- Planner preview -->
                 <div class="planner-preview">
                     <div class="planner-preview-content">
+                        <!-- Case -->
+                        <div class="planner-preview-indicator" ng-class="{'show': ctrl.indicator.caseBox }">
+                            <span class="fa-stack fa-lg" ng-click="ctrl.toggleIndicatorBox('caseBox')">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa fa-pencil fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <div class="planner-preview-indicator-box z1">
+                                <i class="ionicons ion-close" ng-click="ctrl.toggleIndicatorBox('caseBox')"></i>
+                                <div class="picker-item">
+                                    <div class="color-wheel-wrapper">
+                                        <div class="color-wheel"    ng-click="ctrl.fakeColorSelect()"
+                                                                    ng-class="{ 'fake-select': ctrl.fake.select }">
+                                            <span   ng-repeat="color in ctrl.colors | limitTo: 10"
+                                                    class="color-{{ $index }}"
+                                                    style="border-color: {{ color }} transparent transparent transparent"></span>
+                                        </div>
+                                    </div>
+                                    <div class="picker-desc">
+                                        <h5>Farbe</h5>
+                                        <span>{{ ctrl.fake.color }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Image -->
                         <div class="planner-preview-img" ng-include="'images/trolleys/trolley.svg'"></div>
                     </div>
                 </div>
@@ -91,7 +117,36 @@
                     <!-- Box body -->
                     <div class="planner-box-body z1">
                         <div class="planner-bag-items">
-                            test
+                            <!-- Material -->
+                            <div class="planner-bag-item" ng-class="{'show': ctrl.indicator.caseBox }">
+                                <div class="planner-bag-item-img" ng-include="'images/trolleys/case.svg'"></div>
+                                <ul class="planner-bag-item-indicator">
+                                    <li>Handgepäck <i class="ionicons ion-edit"></i> </li>
+                                    <li>Aluminium <i class="ionicons ion-edit"></i> </li>
+                                    <li>Milka Lila<i class="ionicons ion-edit"></i> </li>
+                                    <li class="planner-bag-item-price"><span>350€</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Griff -->
+                            <div class="planner-bag-item">
+                                <div class="planner-bag-item-img" ng-include="'images/trolleys/handle.svg'"></div>
+                                <ul class="planner-bag-item-indicator">
+                                    <li>Aluminium <i class="ionicons ion-edit"></i> </li>
+                                    <li>grau <i class="ionicons ion-edit"></i> </li>
+                                    <li class="planner-bag-item-price"><span>30€</span></li>
+                                </ul>
+                            </div>
+
+                            <!-- Rollen -->
+                            <div class="planner-bag-item">
+                                <div class="planner-bag-item-img" ng-include="'images/trolleys/wheels.svg'"></div>
+                                <ul class="planner-bag-item-indicator">
+                                    <li>Gummi <i class="ionicons ion-edit"></i> </li>
+                                    <li>rot <i class="ionicons ion-edit"></i> </li>
+                                    <li class="planner-bag-item-price"><span>20€</span></li>
+                                </ul>
+                            </div>
                         </div>
                     </div>
 
@@ -115,19 +170,6 @@
     <div class="section">
         <div id="planner-section-2" class="planner-content">
 
-            <!-- Progress -->
-            <div class="planner-progress z1">
-                <div class="planner-progress-step enabled">
-                    Gehäuse
-                </div>
-                <div class="planner-progress-step enabled">
-                    Einzelteile
-                </div>
-                <div class="planner-progress-step">
-                    Extras
-                </div>
-            </div>
-
             <!-- Planner -->
             <div class="planner">
 
@@ -145,36 +187,74 @@
                     <!-- Box body -->
                     <div class="planner-box-body z1">
                         <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(0)">
-                            <h4>Drag & Drop</h4>
-                            <p>Klicken und ziehen Sie eine Farbe auf den Koffer und färben Sie die Einzelteile</p>
-                        </div>
-                        <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(1)">
-
-                            <!-- Color circles -->
-                            <div class="color-circle z1" ng-repeat="color in ctrl.colors" style="background-color: {{ color }}" data-color="{{ color }}" data-part="case"></div>
-
-                        </div>
-                        <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(2)">
-
-                            <!-- Size -->
-                            <div class="item-wrapper">
-
-                                <h4>Größe</h4>
-                                <div class="size-item" ng-repeat="size in ctrl.sizes">
-                                    <img alt="{{ size }}">
-                                </div>
-
-                            </div>
 
                             <!-- Material -->
                             <div class="item-wrapper">
-
                                 <h4>Material</h4>
                                 <div class="material-item" ng-repeat="material in ctrl.materials">
                                     <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
                                     <div>{{ material }}</div>
                                 </div>
+                            </div>
 
+                            <!-- Color circles -->
+                            <div class="item-wrapper">
+                                <h4>Farben</h4>
+                                <div class="color-circle color-circle-small z1" ng-repeat="color in ctrl.colors" style="background-color: {{ color }}" data-color="{{ color }}" data-part="case"></div>
+                            </div>
+
+                        </div>
+                        <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(1)">
+
+                            <!-- Material -->
+                            <div class="item-wrapper">
+                                <h4>Material</h4>
+                                <div class="material-item" ng-repeat="material in ctrl.materials">
+                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
+                                    <div>{{ material }}</div>
+                                </div>
+                            </div>
+
+                            <!-- Color circles -->
+                            <div class="item-wrapper">
+                                <h4>Farben</h4>
+                                <div class="color-circle color-circle-small z1" ng-repeat="color in ctrl.colors" style="background-color: {{ color }}" data-color="{{ color }}" data-part="case"></div>
+                            </div>
+
+                        </div>
+                        <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(2)">
+
+                            <!-- Material -->
+                            <div class="item-wrapper">
+                                <h4>Material 3</h4>
+                                <div class="material-item" ng-repeat="material in ctrl.materials">
+                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
+                                    <div>{{ material }}</div>
+                                </div>
+                            </div>
+
+                            <!-- Color circles -->
+                            <div class="item-wrapper">
+                                <h4>Farben</h4>
+                                <div class="color-circle color-circle-small z1" ng-repeat="color in ctrl.colors" style="background-color: {{ color }}" data-color="{{ color }}" data-part="case"></div>
+                            </div>
+
+                        </div>
+                        <div class="planner-bodx-body-item" ng-style="ctrl.slideBoxTo(3)">
+
+                            <!-- Material -->
+                            <div class="item-wrapper">
+                                <h4>Material</h4>
+                                <div class="material-item" ng-repeat="material in ctrl.materials">
+                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
+                                    <div>{{ material }}</div>
+                                </div>
+                            </div>
+
+                            <!-- Color circles -->
+                            <div class="item-wrapper">
+                                <h4>Farben</h4>
+                                <div class="color-circle color-circle-small z1" ng-repeat="color in ctrl.colors" style="background-color: {{ color }}" data-color="{{ color }}" data-part="case"></div>
                             </div>
 
                         </div>

@@ -105,3 +105,195 @@ label {
     font-weight: bold;
     color: $kuck-orange !important;
 }
+
+/**
+ * Color wheels
+ */
+@mixin rotation-deg($deg) {
+    @include transform(rotate($deg + deg));
+}
+@mixin rotation-border($color) {
+    border-color: $color transparent transparent transparent;
+}
+
+.color-wheel {
+    $wheel-items: 10;
+    height: 100px;
+    width: 100px;
+    cursor: pointer;
+    z-index: 119;
+    @include transform-origin(100px 150px);
+    @include user-select(none);
+    @include transition(all 0.5s linear);
+
+    @include animation(intro 3s ease);
+    span {
+        $deg: 360 / $wheel-items;
+        position: absolute;
+        -webkit-transform-origin: 50% 50%;
+        border-style: solid;
+        border-width: 150px 50px;
+        box-sizing: border-box;
+
+        @for $i from 0 through 10 {
+
+            &.color-#{$i} {
+                @include rotation-deg(#{$deg * $i});
+                //@include rotation-border(rgb(random(256)-1, random(256)-1, random(256)-1));
+                //z-index: 120 + $wheel-items - $i;
+            }
+
+        }
+    }
+    &:before {
+        content: "";
+        width: 318px;
+        height: 318px;
+        overflow: hidden;
+        position: absolute;
+        top: -10px;
+        left: -60px;
+        border-radius: 100%;
+        border: 10px solid $perlu-white;
+        z-index: 120;
+
+        box-shadow: 0px 17px 50px rgba(0, 0, 0, 0.19);
+
+    }
+    &:after {
+        content: "";
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+        position: absolute;
+        top: 100px;
+        left: 49px;
+        border-radius: 100%;
+        background: $perlu-white;
+
+        z-index: 120;
+    }
+}
+
+@-webkit-keyframes intro {
+    0% {
+        @include rotation-deg(0);
+    }
+    50% {
+        @include rotation-deg(720);
+
+    }
+    100% {
+        @include rotation-deg(10);
+    }
+}
+
+/**
+ * Modals
+ */
+.custom-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    text-align: center;
+
+    @include size(100% 100%);
+
+    z-index: 1031;
+
+    @include transform(translate3d(0,0,0));
+    @include transition(all 0.2s ease-in-out);
+    opacity: 1;
+    &.ng-hide {
+        opacity: 0;
+        @include transform(translate3d(0,-20%,0));
+    }
+
+    .custom-modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+
+        background-color: $kuck-white;
+        opacity: 0.7;
+
+        @include size(100% 200%);
+
+        z-index: 1031;
+    }
+    .custom-modal-box {
+        position: absolute;
+        top: 10%;
+        width: 400px;
+        height: 500px;
+        display: inline-block;
+        margin-left: -200px;
+
+        background-color: $kuck-white;
+        box-shadow: 0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);
+
+        z-index: 1032;
+
+        .custom-modal-header {
+            width: 100%;
+            height: 50px;
+
+            border-bottom: 4px solid $kuck-blue;
+
+            .custom-modal-header-item {
+                @include span-columns(6 of 12, $display: block-collapse);
+                line-height: 50px;
+                text-align: center;
+                cursor: pointer;
+
+                &.active {
+                    background-color: $kuck-blue;
+                    color: $kuck-white;
+                }
+
+                &:hover {
+                    box-shadow: 0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23);
+
+                    @include transition(box-shadow .28s cubic-bezier(0.4,0,.2,1));
+                }
+            }
+        }
+
+        .custom-modal-body {
+            padding: 10px;
+            text-align: center;
+            width: 100%;
+
+            @include span-columns(12 of 12);
+
+            i {
+                position: relative;
+                padding-top: 60px;
+                padding-bottom: 45px;
+                font-size: em(70);
+            }
+
+            .input-group {
+                position: relative;
+                width: 100%;
+                padding: 15px;
+                text-align: left;
+
+                label {
+                    @include span-columns(12 of 12);
+                }
+
+                input {
+                    @include span-columns(12 of 12);
+
+                    border-radius: 0;
+                }
+            }
+        }
+
+        .custom-modal-warning {
+            @include span-columns(12 of 12);
+        }
+    }
+
+}
