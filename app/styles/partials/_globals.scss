@@ -49,10 +49,6 @@ html, body {
 	font-family: $font-primary;
 	font-weight: 300;
     font-size: 1em;
-
-    @include media($mobile) {
-        font-size: 0.7em;
-    }
 }
 
 .main-container {

@@ -2,6 +2,10 @@
     height: 100%;
     width: 100%;
 
+    @include media($mobile) {
+        font-size: 0.7em;
+    }
+
     .section {
         margin-top: -60px;
         text-align: center;
