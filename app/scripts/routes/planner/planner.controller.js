@@ -270,6 +270,15 @@
             }
         }
 
+
+        /**
+         * Toggles the clicked box.
+         * @param  {string} sideId [Json-key of the box we want to toggle]
+         */
+        function toggleBox(sideId) {
+            ctrl.box[sideId] = (ctrl.box[sideId] === false) ? true : false;
+        }
+
         /**
          * Toggles the clicked indicator's box.
          * @param  {string} partId [Json-key of the part we want to toggle]
@@ -281,6 +290,10 @@
         //////////////////////
 
         angular.extend(ctrl, {
+            box: {
+                left: false,
+                right: false
+            },
             fake: {
                 select: false,
                 color: 'Leichtes Blaugrau'
@@ -306,6 +319,7 @@
             moveToStep: moveToStep,
             previousStep: previousStep,
             slideBoxTo: slideBoxTo,
+            toggleBox: toggleBox,
             toggleIndicatorBox: toggleIndicatorBox
         });
 

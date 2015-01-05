@@ -23,7 +23,7 @@
         @include media($mobile) {
             width: 100%;
             margin-left: 0;
-            margin-top: 5px;
+            margin-top: 15px;
         }
 
         .planner-progress-step {
@@ -42,6 +42,10 @@
                 box-shadow: 0px 17px 50px rgba(0, 0, 0, 0.19);
             }
         }
+    }
+
+    .section {
+        overflow: hidden;
     }
 
     .planner-content {
@@ -77,7 +81,7 @@
                 @include media($mobile) {
                     position: absolute;
                     //@include omega-reset(3n);
-                    @include span-columns(4 of 4);
+                    @include span-columns(3 of 4);
                     //@include omega();
                     //
                 }
@@ -200,7 +204,16 @@
                 &.planner-left {
 
                     @include media($mobile) {
-                        @include transform(translate3d(-90%,0,0));
+                        @include transform(translate3d(-95%,0,0));
+                        @include transition(transform 0.7s $ease-in-expo);
+
+                        position: absolute;
+                        margin-top: 25px;
+                        z-index: 100;
+
+                        &.show {
+                            @include transform(translate3d(0,0,0));
+                        }
                     }
 
                     .planner-box-body {
@@ -214,7 +227,16 @@
                 &.planner-right {
 
                     @include media($mobile) {
-                        @include transform(translate3d(90%,0,0));
+                        @include transform(translate3d(131.7%,0,0));
+                        @include transition(transform 0.7s $ease-in-expo);
+
+                        position: absolute;
+                        margin-top: 25px;
+                        z-index: 100;
+
+                        &.show {
+                            @include transform(translate3d(37%,0,0));
+                        }
                     }
 
                     .planner-box-head {
@@ -307,12 +329,58 @@
                     display: table-cell;
                     vertical-align: middle;
 
+                    .fa-stack-left {
+                        position: absolute;
+                        left: 4%;
+                        top: 15%;
+                        padding: 10px;
+                        color: $perlu-orange;
+
+                        visibility: hidden;
+                        @include media($mobile) {
+                            visibility: visible;
+                        }
+
+                        .fa-long-arrow-right {
+                            @include transition(transform 0.5s ease-in-out);
+                        }
+
+                        &.show {
+                            .fa-long-arrow-right {
+                                @include transform(rotate(180deg));
+                            }
+                        }
+                    }
+
+                    .fa-stack-right {
+                        position: absolute;
+                        right: 4%;
+                        top: 15%;
+                        padding: 10px;
+                        color: $perlu-orange;
+
+                        visibility: hidden;
+                        @include media($mobile) {
+                            visibility: visible;
+                        }
+
+                        .fa-long-arrow-left {
+                            @include transition(transform 0.5s ease-in-out);
+                        }
+
+                        &.show {
+                            .fa-long-arrow-left {
+                                @include transform(rotate(180deg));
+                            }
+                        }
+                    }
+
                     .planner-preview-indicator {
                         position: absolute;
                         left: 32%;
                         top: 53%;
 
-                        z-index: 100;
+                        z-index: 104;
 
                         &.show {
 
@@ -472,6 +540,10 @@
                 margin-top: 20px;
                 @include span-columns(12 of 12);
 
+                @include media($mobile) {
+                    display: none;
+                }
+
                 .planner-forward-price {
                     width: 100%;
                     margin-bottom: 20px;
@@ -529,6 +601,38 @@
                     margin-bottom: 0px;
                 }
             }
+        }
+    }
+
+    .planner-forward-mobile {
+        position: fixed;
+        bottom: 75px;
+        left: 4px;
+
+        .planner-forward-price {
+            width: 100%;
+            margin-bottom: 5px;
+
+            h4 {
+                width: 100%;
+
+                span {
+                    float: right;
+                }
+            }
+
+            div {
+                margin-left: 20%;
+                padding-top: 5px;
+                width: 80%;
+                text-align: right;
+                border-top: 1px solid $perlu-grey;
+            }
+        }
+
+        button {
+            width: 100%;
+            margin-bottom: 0px;
         }
     }
 }
