@@ -124,6 +124,11 @@
 
                     background-color: $perlu-white;
 
+                    @include media($mobile) {
+                        overflow-y: scroll !important;
+                        overflow-x: hidden;
+                    }
+
                     .planner-bodx-body-item {
                         position: absolute;
                         width: 100%;
@@ -445,6 +450,12 @@
                             opacity: 0;
                             @include transform(translate3d(-20px,0,0));
                             @include transition(all ease-in-out 0.4s);
+
+                            @include media($mobile) {
+                                position: fixed;
+                                top: 17%;
+                                left: 14%;
+                            }
 
                             .ionicons {
                                 position: absolute;
