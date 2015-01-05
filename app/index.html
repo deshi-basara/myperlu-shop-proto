@@ -104,7 +104,8 @@
             Custom loader directive
         -->
         <div class="ags-loader" ng-class="{ 'loading': main.isLoading }" ng-show="main.isLoading" ng-cloak>
-            <img ng-src="images/preloaders/Preloader_3/Preloader_3.gif">
+            <div class="spinner"></div>
+            <div class="fader-circle circle-white"></div>
         </div>
 
         <!--
@@ -255,9 +256,9 @@
         <script src="scripts/routes/collection/collection.controller.js"></script>
         <script src="scripts/routes/intro/intro.controller.js"></script>
         <script src="scripts/routes/landing/landing.controller.js"></script>
+        <script src="scripts/routes/main/main.controller.js"></script>
         <script src="scripts/routes/planner/planner.controller.js"></script>
         <script src="scripts/routes/planner/planner.service.js"></script>
-        <script src="scripts/routes/main/main.controller.js"></script>
         <script src="scripts/services/auth/auth.service.js"></script>
         <!-- endinject -->
         <!-- endbuild -->

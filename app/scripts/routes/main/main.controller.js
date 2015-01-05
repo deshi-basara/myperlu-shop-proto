@@ -6,12 +6,12 @@
         .module('app')
         .controller('MainCtrl', MainCtrl);
 
-    MainCtrl.$inject = ['$scope', '$location'];
+    MainCtrl.$inject = ['$scope', '$location', '$rootScope', '$timeout'];
 
     /**
      * Handles the landing view and all interactions
      */
-    function MainCtrl($scope, $location) {
+    function MainCtrl($scope, $location, $rootScope, $timeout) {
         var main = this;
 
         /**
@@ -45,7 +45,7 @@
 
         angular.extend(main, {
             bagOpen: false,
-            isLoading: false,
+            isLoading: true,
             showFeedback: false,
             showLogin: true,
             showNav: false,
@@ -109,6 +109,19 @@
          */
         $scope.$on('nav.hide', function() {
             main.showNav = false;
+        });
+
+
+        /**
+         * Listen for fake loader events.
+         */
+        $rootScope.$on('$locationChangeStart', function() {
+            main.isLoading = true;
+        });
+        $rootScope.$on('$locationChangeSuccess', function() {
+            $timeout(function() {
+                main.isLoading = false;
+            }, 1600);
         });
     }
 
