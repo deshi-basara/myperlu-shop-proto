@@ -1,5 +1,5 @@
 /**
- * Universal section css: Used in section 1
+ * Universal section css: Used in section 1 450x900
  */
 #planner {
     position: relative;
@@ -337,7 +337,7 @@
                     .fa-stack-left {
                         position: absolute;
                         left: 4%;
-                        top: 15%;
+                        top: 13%;
                         padding: 10px;
                         color: $perlu-orange;
 
@@ -360,7 +360,7 @@
                     .fa-stack-right {
                         position: absolute;
                         right: 4%;
-                        top: 15%;
+                        top: 13%;
                         padding: 10px;
                         color: $perlu-orange;
 
@@ -586,30 +586,8 @@
                 margin-top: 20px;
                 @include span-columns(12 of 12);
 
-                .planner-forward-price {
-                    width: 100%;
-                    margin-bottom: 20px;
-
-                    h4 {
-                        width: 100%;
-
-                        span {
-                            float: right;
-                        }
-                    }
-
-                    div {
-                        margin-left: 20%;
-                        padding-top: 5px;
-                        width: 80%;
-                        text-align: right;
-                        border-top: 1px solid $perlu-grey;
-                    }
-                }
-
-                button {
-                    width: 100%;
-                    margin-bottom: 0px;
+                @include media($mobile) {
+                    display: none;
                 }
             }
         }
@@ -617,8 +595,16 @@
 
     .planner-forward-mobile {
         position: fixed;
-        bottom: 75px;
+        bottom: 85px;
         left: 4px;
+        padding-right: 40px;
+        padding-left: 40px;
+
+        z-index: 100000;
+        display: none;
+        @include media($mobile) {
+            display: block;
+        }
 
         .planner-forward-price {
             width: 100%;
@@ -718,7 +704,7 @@
 
         &.handle {
             left: 52% !important;
-            top: 28% !important;
+            top: 31% !important;
         }
 
         &.zip {
@@ -728,7 +714,7 @@
 
         &.wheels {
             left: 35% !important;
-            top: 68% !important;
+            top: 65% !important;
         }
     }
 }

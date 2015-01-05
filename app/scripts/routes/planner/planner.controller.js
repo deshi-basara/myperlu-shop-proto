@@ -305,6 +305,8 @@
             indicator: {
                 caseBox: false,
                 handleBox: false,
+                zipBox: false,
+                wheelsBox: false
             },
 
             colors: PlannerService.getAllColors(),
