@@ -279,14 +279,63 @@
                             <i class="fa fa-long-arrow-left fa-stack-1x fa-inverse"></i>
                         </span>
 
-                        <!-- Handle, Zip, Stichings, Wheels -->
-                        <div class="planner-preview-indicator" ng-class="{'show': ctrl.indicator.caseBox }">
-                            <span class="fa-stack fa-lg" ng-click="ctrl.toggleIndicatorBox('caseBox')">
+                        <!-- Handle -->
+                        <div class="planner-preview-indicator handle" ng-class="{'show': ctrl.indicator.handleBox }">
+                            <span class="fa-stack fa-lg" ng-click="ctrl.toggleIndicatorBox('handleBox')">
                                 <i class="fa fa-circle fa-stack-2x"></i>
                                 <i class="fa fa fa-pencil fa-stack-1x fa-inverse"></i>
                             </span>
                             <div class="planner-preview-indicator-box z1">
-                                <i class="ionicons ion-close" ng-click="ctrl.toggleIndicatorBox('caseBox')"></i>
+                                <i class="ionicons ion-close" ng-click="ctrl.toggleIndicatorBox('handleBox')"></i>
+                                <div class="picker-item">
+                                    <div class="color-wheel-wrapper">
+                                        <div class="color-wheel"    ng-click="ctrl.fakeColorSelect()"
+                                                                    ng-class="{ 'fake-select': ctrl.fake.select }">
+                                            <span   ng-repeat="color in ctrl.colors | limitTo: 10"
+                                                    class="color-{{ $index }}"
+                                                    style="border-color: {{ color }} transparent transparent transparent"></span>
+                                        </div>
+                                    </div>
+                                    <div class="picker-desc">
+                                        <h5>Farbe</h5>
+                                        <span>{{ ctrl.fake.color }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Zip -->
+                        <div class="planner-preview-indicator zip" ng-class="{'show': ctrl.indicator.zipBox }">
+                            <span class="fa-stack fa-lg" ng-click="ctrl.toggleIndicatorBox('zipBox')">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa fa-pencil fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <div class="planner-preview-indicator-box z1">
+                                <i class="ionicons ion-close" ng-click="ctrl.toggleIndicatorBox('zipBox')"></i>
+                                <div class="picker-item">
+                                    <div class="color-wheel-wrapper">
+                                        <div class="color-wheel"    ng-click="ctrl.fakeColorSelect()"
+                                                                    ng-class="{ 'fake-select': ctrl.fake.select }">
+                                            <span   ng-repeat="color in ctrl.colors | limitTo: 10"
+                                                    class="color-{{ $index }}"
+                                                    style="border-color: {{ color }} transparent transparent transparent"></span>
+                                        </div>
+                                    </div>
+                                    <div class="picker-desc">
+                                        <h5>Farbe</h5>
+                                        <span>{{ ctrl.fake.color }}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Wheels -->
+                        <div class="planner-preview-indicator wheels" ng-class="{'show': ctrl.indicator.wheelsBox }">
+                            <span class="fa-stack fa-lg" ng-click="ctrl.toggleIndicatorBox('wheelsBox')">
+                                <i class="fa fa-circle fa-stack-2x"></i>
+                                <i class="fa fa fa-pencil fa-stack-1x fa-inverse"></i>
+                            </span>
+                            <div class="planner-preview-indicator-box z1">
+                                <i class="ionicons ion-close" ng-click="ctrl.toggleIndicatorBox('wheelsBox')"></i>
                                 <div class="picker-item">
                                     <div class="color-wheel-wrapper">
                                         <div class="color-wheel"    ng-click="ctrl.fakeColorSelect()"

@@ -702,4 +702,22 @@
             @include transition(box-shadow .28s cubic-bezier(0.4,0,.2,1));
         }
     }
+
+    .planner-preview-indicator {
+
+        &.handle {
+            left: 52% !important;
+            top: 28% !important;
+        }
+
+        &.zip {
+            left: 58% !important;
+            top: 43% !important;
+        }
+
+        &.wheels {
+            left: 35% !important;
+            top: 68% !important;
+        }
+    }
 }

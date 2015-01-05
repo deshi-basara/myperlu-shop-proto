@@ -303,7 +303,8 @@
             slidePos: 0,
             stepPos: 1,
             indicator: {
-                caseBox: false
+                caseBox: false,
+                handleBox: false,
             },
 
             colors: PlannerService.getAllColors(),
