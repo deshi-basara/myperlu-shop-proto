@@ -2,6 +2,10 @@
     height: 100%;
     width: 100%;
 
+    @include media($mobile) {
+        font-size: 0.7em;
+    }
+
     .section {
         margin-top: -60px;
         text-align: center;
@@ -247,26 +251,16 @@
                     }
                 }
 
-                height: em(320);
+                height: em(240);
                 margin-bottom: 20px;
 
-
-                img {
-                    @include span-columns(5 of 12);
-                    height: 100%;
-                }
-
                 .feature-text {
-                    @include span-columns(7 of 12);
+                    @include span-columns(12 of 12);
                     position: relative;
                     padding: 10px;
                     margin-top: -20px;
 
                     text-align: left;
-
-                    h4 {
-                        
-                    }
 
                     @include media($mobile) {
                         @include span-columns(4);

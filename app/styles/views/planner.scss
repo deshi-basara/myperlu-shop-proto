@@ -1,5 +1,5 @@
 /**
- * Universal section css: Used in section 1
+ * Universal section css: Used in section 1 450x900
  */
 #planner {
     position: relative;
@@ -20,6 +20,12 @@
         background-color: $perlu-white;
         z-index: 140;
 
+        @include media($mobile) {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 15px;
+        }
+
         .planner-progress-step {
             @include span-columns(4 of 12, $display: block-collapse);
             line-height: 50px;
@@ -38,6 +44,10 @@
         }
     }
 
+    .section {
+        overflow: hidden;
+    }
+
     .planner-content {
         height: 100%;
         width: 80%;
@@ -45,17 +55,36 @@
         margin-left: 10%;
         padding-top: 40px;
 
+        @include media($mobile) {
+            width: 100%;
+            margin-left: 0;
+            margin-top: 0;
+            padding-top: 0;
+        }
+
         .planner {
             position: relative;
             width: 100%;
             height: 80%;
             margin-top: 35px;
 
+            @include media($mobile) {
+                height: 100%;
+            }
+
             .planner-box {
                 @include span-columns(3 of 12);
                 @include omega(3n);
 
                 height: auto;
+
+                @include media($mobile) {
+                    position: absolute;
+                    //@include omega-reset(3n);
+                    @include span-columns(3 of 4);
+                    //@include omega();
+                    //
+                }
 
                 .planner-box-head, .planner-box-footer {
                     width: 100%;
@@ -94,6 +123,11 @@
                     width: 100%;
 
                     background-color: $perlu-white;
+
+                    @include media($mobile) {
+                        overflow-y: scroll !important;
+                        overflow-x: hidden;
+                    }
 
                     .planner-bodx-body-item {
                         position: absolute;
@@ -173,6 +207,20 @@
                 }
 
                 &.planner-left {
+
+                    @include media($mobile) {
+                        @include transform(translate3d(-95%,0,0));
+                        @include transition(transform 0.7s $ease-in-expo);
+
+                        position: absolute;
+                        margin-top: 25px;
+                        z-index: 100;
+
+                        &.show {
+                            @include transform(translate3d(0,0,0));
+                        }
+                    }
+
                     .planner-box-body {
                         text-align: center;
                         min-height: 240px;
@@ -182,6 +230,19 @@
                 }
 
                 &.planner-right {
+
+                    @include media($mobile) {
+                        @include transform(translate3d(131.7%,0,0));
+                        @include transition(transform 0.7s $ease-in-expo);
+
+                        position: absolute;
+                        margin-top: 25px;
+                        z-index: 100;
+
+                        &.show {
+                            @include transform(translate3d(37%,0,0));
+                        }
+                    }
 
                     .planner-box-head {
                         font-size: em(17);
@@ -261,18 +322,70 @@
 
                 z-index: 99;
 
+                @include media($mobile) {
+                    @include span-columns(4 of 4);
+                    display: table;
+                    top: -140px;
+                }
+
 
                 .planner-preview-content {
                     position: relative;
                     display: table-cell;
                     vertical-align: middle;
 
+                    .fa-stack-left {
+                        position: absolute;
+                        left: 4%;
+                        top: 13%;
+                        padding: 10px;
+                        color: $perlu-orange;
+
+                        visibility: hidden;
+                        @include media($mobile) {
+                            visibility: visible;
+                        }
+
+                        .fa-long-arrow-right {
+                            @include transition(transform 0.5s ease-in-out);
+                        }
+
+                        &.show {
+                            .fa-long-arrow-right {
+                                @include transform(rotate(180deg));
+                            }
+                        }
+                    }
+
+                    .fa-stack-right {
+                        position: absolute;
+                        right: 4%;
+                        top: 13%;
+                        padding: 10px;
+                        color: $perlu-orange;
+
+                        visibility: hidden;
+                        @include media($mobile) {
+                            visibility: visible;
+                        }
+
+                        .fa-long-arrow-left {
+                            @include transition(transform 0.5s ease-in-out);
+                        }
+
+                        &.show {
+                            .fa-long-arrow-left {
+                                @include transform(rotate(180deg));
+                            }
+                        }
+                    }
+
                     .planner-preview-indicator {
                         position: absolute;
                         left: 32%;
                         top: 53%;
 
-                        z-index: 100;
+                        z-index: 104;
 
                         &.show {
 
@@ -337,6 +450,12 @@
                             opacity: 0;
                             @include transform(translate3d(-20px,0,0));
                             @include transition(all ease-in-out 0.4s);
+
+                            @include media($mobile) {
+                                position: fixed;
+                                top: 17%;
+                                left: 14%;
+                            }
 
                             .ionicons {
                                 position: absolute;
@@ -432,6 +551,10 @@
                 margin-top: 20px;
                 @include span-columns(12 of 12);
 
+                @include media($mobile) {
+                    display: none;
+                }
+
                 .planner-forward-price {
                     width: 100%;
                     margin-bottom: 20px;
@@ -463,32 +586,50 @@
                 margin-top: 20px;
                 @include span-columns(12 of 12);
 
-                .planner-forward-price {
-                    width: 100%;
-                    margin-bottom: 20px;
-
-                    h4 {
-                        width: 100%;
-
-                        span {
-                            float: right;
-                        }
-                    }
-
-                    div {
-                        margin-left: 20%;
-                        padding-top: 5px;
-                        width: 80%;
-                        text-align: right;
-                        border-top: 1px solid $perlu-grey;
-                    }
-                }
-
-                button {
-                    width: 100%;
-                    margin-bottom: 0px;
+                @include media($mobile) {
+                    display: none;
                 }
             }
+        }
+    }
+
+    .planner-forward-mobile {
+        position: fixed;
+        bottom: 85px;
+        left: 4px;
+        padding-right: 40px;
+        padding-left: 40px;
+
+        z-index: 100000;
+        display: none;
+        @include media($mobile) {
+            display: block;
+        }
+
+        .planner-forward-price {
+            width: 100%;
+            margin-bottom: 5px;
+
+            h4 {
+                width: 100%;
+
+                span {
+                    float: right;
+                }
+            }
+
+            div {
+                margin-left: 20%;
+                padding-top: 5px;
+                width: 80%;
+                text-align: right;
+                border-top: 1px solid $perlu-grey;
+            }
+        }
+
+        button {
+            width: 100%;
+            margin-bottom: 0px;
         }
     }
 }
@@ -556,6 +697,24 @@
         &:hover {
             box-shadow: 0px 8px 17px rgba(0, 0, 0, 0.2);
             @include transition(box-shadow .28s cubic-bezier(0.4,0,.2,1));
+        }
+    }
+
+    .planner-preview-indicator {
+
+        &.handle {
+            left: 52% !important;
+            top: 31% !important;
+        }
+
+        &.zip {
+            left: 58% !important;
+            top: 43% !important;
+        }
+
+        &.wheels {
+            left: 35% !important;
+            top: 65% !important;
         }
     }
 }

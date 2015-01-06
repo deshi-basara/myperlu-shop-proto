@@ -13,6 +13,10 @@
 
     background-color: $perlu-blue;
 
+    @include media($mobile) {
+        font-size: 0.3em;
+    }
+
     .intro-wrapper {
         position: relative;
         width: 44vw;

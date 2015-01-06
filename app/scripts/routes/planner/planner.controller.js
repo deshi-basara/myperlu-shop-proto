@@ -64,14 +64,11 @@
         });
 
         /**
-         * Is called when a new item is added to MyPerlu-bag within the
-         * planner.
-         * @param {[type]} part     [description]
-         * @param {[type]} material [description]
-         * @param {[type]} color    [description]
+         * Is called when a new MyPerlu clock is added to shopping-bag.
          */
-        function addToPlannerBag(part, material, color) {
-
+        function addToShoppingBag() {
+            console.log('add');
+            $rootScope.$broadcast('bag.add');
         }
 
         /**
@@ -79,7 +76,6 @@
          * @param  {int} newPos [New slide position]
          */
         function changeSlidePos(newPos) {
-            console.log(newPos);
             ctrl.slidePos = newPos;
 
             // if the drag wasn't initiated yet, initiate it!
@@ -274,6 +270,15 @@
             }
         }
 
+
+        /**
+         * Toggles the clicked box.
+         * @param  {string} sideId [Json-key of the box we want to toggle]
+         */
+        function toggleBox(sideId) {
+            ctrl.box[sideId] = (ctrl.box[sideId] === false) ? true : false;
+        }
+
         /**
          * Toggles the clicked indicator's box.
          * @param  {string} partId [Json-key of the part we want to toggle]
@@ -285,6 +290,10 @@
         //////////////////////
 
         angular.extend(ctrl, {
+            box: {
+                left: false,
+                right: false
+            },
             fake: {
                 select: false,
                 color: 'Leichtes Blaugrau'
@@ -294,13 +303,17 @@
             slidePos: 0,
             stepPos: 1,
             indicator: {
-                caseBox: false
+                caseBox: false,
+                handleBox: false,
+                zipBox: false,
+                wheelsBox: false
             },
 
             colors: PlannerService.getAllColors(),
             materials: PlannerService.getAllMaterials(),
             sizes: PlannerService.getAllSizes(),
 
+            addToShoppingBag: addToShoppingBag,
             changeSlidePos: changeSlidePos,
             fakeColorSelect: fakeColorSelect,
             isHeadActive: isHeadActive,
@@ -309,6 +322,7 @@
             moveToStep: moveToStep,
             previousStep: previousStep,
             slideBoxTo: slideBoxTo,
+            toggleBox: toggleBox,
             toggleIndicatorBox: toggleIndicatorBox
         });
 
