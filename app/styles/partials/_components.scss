@@ -53,6 +53,218 @@ label {
     color: $perlu-white;
 }
 
+ .btn {
+    border-radius: 0px;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 1% 0;
+    display: inline-block;
+    text-transform: uppercase;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    z-index: 0;
+    -webkit-font-smoothing: auto;
+    -webkit-box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
+        -moz-box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
+        box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
+        &:hover{
+    
+       -webkit-box-shadow: 0px 8px 17px rgba(0,0,0,0.2);
+            -moz-box-shadow: 0px 8px 17px rgba(0,0,0,0.2);
+            box-shadow: 0px 8px 17px rgba(0,0,0,0.2);
+
+     }
+}
+
+
+    .btn:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+
+    .btn:before{
+
+        font-family: 'FontAwesome';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        position: relative;
+        -webkit-font-smoothing: antialiased;
+
+    }
+
+
+/* Button special */
+    .btn-special {
+        border: 2px solid $perlu-black;
+        background: #fff;
+        color: $perlu-black;
+        font-size: 16px;
+        overflow: hidden;
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        backface-visibility: hidden;
+    
+    & span {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        -webkit-transition: all 0.3s;
+        -webkit-backface-visibility: hidden;
+        -moz-transition: all 0.3s;
+        -moz-backface-visibility: hidden;
+        transition: all 0.3s;
+        backface-visibility: hidden;
+    }
+
+    }
+
+    .btn-special:before {
+        position: absolute;
+        background: $perlu-lightorange;
+        height: 100%;
+        width: 300%;
+        margin-left: -100%;
+        line-height: 1.3;
+        font-size: 150%;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+/* Button special */
+
+/* Button cart */
+    .btn-special-cart:hover span {
+        -webkit-transform: translateY(300%);
+        -moz-transform: translateY(300%);
+        -ms-transform: translateY(300%);
+        transform: translateY(300%);
+    }
+
+    .btn-special-cart:before {
+        left: 0;
+        top: -100%;
+
+    }
+
+    .btn-special-cart:hover:before {
+        top: 0;
+    }
+
+    .btn-special-cart:active:before {
+        -webkit-transform: translateX(-14%);
+        -moz-transform: translateX(-14%);
+        -ms-transform: translateX(-14%);
+        transform: translateX(-14%);
+    }
+
+
+    .btn-special-cart.released:before{
+
+     -webkit-transform: translateX(14%);
+        -moz-transform: translateX(14%);
+        -ms-transform: translateX(14%);
+        transform: translateX(14%);
+
+          -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+
+         content: "\f00c";
+
+    } 
+
+/* Button cart */
+
+/* Button checkout */
+    .btn-special-checkout:hover span {
+        -webkit-transform: translateY(300%);
+        -moz-transform: translateY(300%);
+        -ms-transform: translateY(300%);
+        transform: translateY(300%);
+    }
+
+    .btn-special-checkout:before {
+        left: 0;
+        top: -100%;
+
+    }
+
+    .btn-special-checkout:hover:before {
+        top: 0;
+    }
+
+    .btn-special-checkout:active:before {
+        -webkit-transform: translateX(14%);
+        -moz-transform: translateX(14%);
+        -ms-transform: translateX(14%);
+        transform: translateX(14%);
+    }
+
+    .btn-special-checkout.released:before{
+
+     -webkit-transform: translateX(-14%);
+        -moz-transform: translateX(-14%);
+        -ms-transform: translateX(-14%);
+        transform: translateX(-14%);
+
+          -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+
+         content: "\f00c";
+
+    } 
+
+/* Button checkout */
+
+/* Button main */
+
+    .btn-main {
+       border: 2px solid $perlu-black;
+        background: #fff;
+        color: $perlu-black;
+    }
+
+
+    .btn-main:after {
+        width: 100%;
+        height: 0;
+        top: 0;
+        left: 0;
+        background: $perlu-lightorange;
+    }
+
+    .btn-main:hover,
+    .btn-main:active {
+        color: $perlu-white;
+    }
+
+    .btn-main:hover:after,
+    .btn-main:active:after {
+        height: 100%;
+    }
+
+.btn-full-width {
+        width: 100%;
+    }
+
 /**
  * Centering
  *

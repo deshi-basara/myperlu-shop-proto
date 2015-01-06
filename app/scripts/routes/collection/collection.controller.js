@@ -20,24 +20,6 @@
         angular.element(document).ready(function() {
         $timeout(function() {
 
-             $('.btn-5a').hover(function() {
-
-                 
-                }, function() {
-
-                   $(this).removeClass('released');
-                 
-
-                });
-
-
-            $('.btn-5a').mouseup(function(){
-
-            $(this).addClass('released');
-           
-            });
-
-
             var ismobile = false;
 
             var winWidth = $(window).width();
@@ -49,12 +31,14 @@
 
             // body...
             if (ismobile == true) {
+
+
                 var $container = $('#isotope');
                 var $container2 = $('#isotope2');
 
                 var height = $container.width();
 
-                $('.item').height(height + 60);
+                $('.item').height(height);
                 $('.item').width(height);
 
 
@@ -106,7 +90,7 @@
                     $item.children('.short-info').show();
 
                     height = $item.width();
-                    $item.height(height + 60);
+                    $item.height(height);
 
                     $container.isotope('layout');
                 });
@@ -142,6 +126,24 @@
                 });
                 
             } else if (ismobile == false) {
+
+                  $('.btn-special-cart, .btn-special-checkout').hover(function() {
+
+                 
+                }, function() {
+
+                   $(this).removeClass('released');
+                 
+
+                });
+
+
+            $('.btn-special-cart, .btn-special-checkout').mouseup(function(){
+
+            $(this).addClass('released');
+           
+            });
+            
                 var $container = $('#isotope');
                 var $container2 = $('#isotope2');
 
