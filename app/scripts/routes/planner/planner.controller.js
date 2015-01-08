@@ -188,9 +188,6 @@
          * @param  {MouseEvent/Touch} pointer         [the event object that has .pageX and .pageY]
          */
         function onDragEnd(draggieInstance, event, pointer) {
-            console.log(draggieInstance);
-            console.log(event);
-
             // check if the element was placed on the right dropArea
             var onDropArea = false;
             var instancePart = draggieInstance.element.dataset.part;
@@ -211,6 +208,12 @@
                 $timeout(function() {
                     draggieInstance.element.style.transition = '';
                 }, 1000);
+
+                // remove the color
+                $('.svg-'+instancePart).attr({
+                    'fill': '#D3D3D3',
+                    'fill-opacity': '1'
+                });
             }
             else {
                 // change the part's fill-color to the new color
