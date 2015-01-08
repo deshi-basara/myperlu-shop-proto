@@ -46,6 +46,17 @@
     
         }
 
+    .btn-main, .btn-orange {
+       border: 2px solid $perlu-black;
+        background: $perlu-white;
+        color: $perlu-black;
+    }
+
+    .btn-main:hover,
+    .btn-main:active {
+        color: $perlu-white;
+    }
+
     .btn-custom {
         border-radius: 0px;
         box-shadow: none;
