@@ -92,8 +92,8 @@
                     </ul>
 
                     <!-- Nav right -->
-                    <ul class="nav navbar-nav navbar-right">
-                        <li ng-click="main.showModal = !main.showModal"><a href="">Einloggen</a></li>
+                    <ul class="nav navbar-nav navbar-right" ng-cloak>
+                        <li ng-click="main.showModal = !main.showModal"><a href="" ng-hide="main.loggedIn">Einloggen</a><a href="" ng-hide="!main.loggedIn">Hallo <span>Anna</span></a></li>
                     </ul><!-- / Nav right -->
                 </nav><!-- / Nav bar -->
 
@@ -184,9 +184,9 @@
                     </div>
                     <div class="input-group">
                         <label>Passwort</label>
-                        <input type="text" class="form-control" ng-model="main.login.pass">
+                        <input type="password" class="form-control" ng-model="main.login.pass">
                     </div>
-                    <button class="button button-blue" ng-click="main.submitLogin()">Einloggen</button>
+                    <button class="btn-2 btn-main z1" ng-click="main.submitLogin()">Einloggen</button>
                     </div>
                 </div>
                 <!--<div class="custom-modal-warning">

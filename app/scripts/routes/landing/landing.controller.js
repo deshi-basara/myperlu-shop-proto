@@ -57,7 +57,7 @@
 
                             //$rootScope.$broadcast('loader.hide');
 
-                        }, 500);
+                        }, 1700);
                     }
                 });
 

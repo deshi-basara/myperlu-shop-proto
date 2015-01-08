@@ -102,6 +102,13 @@
                 }
             }
         }
+
+        .navbar-right {
+            span {
+                font-weight: bold;
+                color: $perlu-blue;
+            }
+        }
     }
 }
 

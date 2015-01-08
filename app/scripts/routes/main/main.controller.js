@@ -35,6 +35,14 @@
         }
 
         /**
+         * Fakes a login in our modal.
+         */
+        function submitLogin() {
+            main.showModal = false;
+            main.loggedIn = true;
+        }
+
+        /**
          * Toggles the shopping car open state.
          */
         function toggleBag() {
@@ -46,6 +54,7 @@
         angular.extend(main, {
             bagOpen: false,
             isLoading: true,
+            loggedIn: false,
             showFeedback: false,
             showLogin: true,
             showNav: false,
@@ -63,7 +72,8 @@
 
             checkoutBag: checkoutBag,
             isActive: isActive,
-            toggleBag: toggleBag
+            submitLogin: submitLogin,
+            toggleBag: toggleBag,
         });
 
         /////////////////////
@@ -74,7 +84,6 @@
         $scope.$on('bag.add', function() {
             main.bagOpen = true;
             main.bagItems++;
-            console.log(main.bagItems);
         });
 
         /**

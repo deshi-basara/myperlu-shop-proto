@@ -88,16 +88,37 @@
         }
 
         /**
-         * Fakes a color selection on the color wheel.
+         * Fakes a color selection on the color wheel (case).
          */
         function fakeColorSelect() {
             // make the color wheel move
             ctrl.fake.select = true;
             ctrl.fake.color = 'Milka Lila';
+            ctrl.fake.price = '350';
+            ctrl.fake.caseBag = true;
 
             // change the bag preview
             $('.svg-case').attr({
                 'fill': '#8f88b8',
+                'fill-opacity': '1'
+            });
+        }
+
+
+        /**
+         * Fakes a color selection on the color wheel (zip).
+         */
+        function fakeColorSelectTwo() {
+            console.log('two');
+            // make the color wheel move
+            ctrl.fake.selectTwo = true;
+            ctrl.fake.colorTwo = 'Perlu Blau';
+            ctrl.fake.price = '380';
+            ctrl.fake.zipBag = true;
+
+            // change the bag preview
+            $('.svg-stiching').attr({
+                'fill': '#5DB0C6',
                 'fill-opacity': '1'
             });
         }
@@ -188,9 +209,6 @@
          * @param  {MouseEvent/Touch} pointer         [the event object that has .pageX and .pageY]
          */
         function onDragEnd(draggieInstance, event, pointer) {
-            console.log(draggieInstance);
-            console.log(event);
-
             // check if the element was placed on the right dropArea
             var onDropArea = false;
             var instancePart = draggieInstance.element.dataset.part;
@@ -211,6 +229,12 @@
                 $timeout(function() {
                     draggieInstance.element.style.transition = '';
                 }, 1000);
+
+                // remove the color
+                $('.svg-'+instancePart).attr({
+                    'fill': '#D3D3D3',
+                    'fill-opacity': '1'
+                });
             }
             else {
                 // change the part's fill-color to the new color
@@ -296,7 +320,12 @@
             },
             fake: {
                 select: false,
-                color: 'Leichtes Blaugrau'
+                selectTwo: false,
+                color: 'Leichtes Blaugrau',
+                colorTwo: 'Leichtes Blaugrau',
+                price: 0,
+                caseBag: false,
+                zipBag: false
             },
             initDrag: false,
             showDesc: true,
@@ -316,6 +345,7 @@
             addToShoppingBag: addToShoppingBag,
             changeSlidePos: changeSlidePos,
             fakeColorSelect: fakeColorSelect,
+            fakeColorSelectTwo: fakeColorSelectTwo,
             isHeadActive: isHeadActive,
             isStepActive: isStepActive,
             nextStep: nextStep,

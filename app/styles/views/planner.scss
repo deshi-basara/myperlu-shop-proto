@@ -119,7 +119,7 @@
                 .planner-box-body {
                     position: relative;
                     border-bottom: 3px solid $perlu-blue;
-                    height: 37vh;
+                    height: 40vh;
                     width: 100%;
 
                     background-color: $perlu-white;
@@ -159,8 +159,17 @@
                                 @include omega(3n);
                                 height: 50px;
                                 margin-bottom: 10px;
-
+                                border: 2px solid $perlu-white;
                                 overflow: hidden;
+                                cursor: pointer;
+                                text-align: center;
+                                padding: 10px;
+
+                                @include transition(border 0.7s ease-in-out);
+
+                                &:hover, &.active {
+                                    border: 2px solid $perlu-orange;
+                                }
 
                                 img {
                                     width: 100%;
@@ -183,6 +192,18 @@
                                 margin-left: 7px;
                                 margin-bottom: 10px;
                                 text-align: center;
+
+                                img {
+                                    border: 2px solid $perlu-white;
+                                    cursor: pointer;
+                                    margin-bottom: 10px;
+
+                                    @include transition(border 0.7s ease-in-out);
+
+                                    &:hover, &.active {
+                                        border: 2px solid $perlu-orange;
+                                    }
+                                }
                             }
                         }
                     }
@@ -223,7 +244,7 @@
 
                     .planner-box-body {
                         text-align: center;
-                        min-height: 240px;
+                        min-height: 300px !important;
 
                         z-index: 2;
                     }
@@ -291,6 +312,10 @@
                                             margin-right: 10px;
                                             float: right;
                                             cursor: pointer;
+
+                                            &:hover {
+                                                color: $perlu-orange;
+                                            }
                                         }
                                     }
 
@@ -442,7 +467,7 @@
                             left: 20px;
                             top: 20px;
                             width: 330px;
-                            height: 120px;
+                            height: 220px;
                             background-color: $perlu-white;
 
                             z-index: 101;
@@ -464,13 +489,18 @@
                                 cursor: pointer;
 
                                 z-index: 130;
+
+                                &:hover {
+                                    color: $perlu-orange;
+                                }
                             }
 
 
-                            .picker-item {
+                            .picker-item, .picker-item-2 {
                                 @include span-columns(12 of 12);
                                 position: relative;
                                 height: 100px;
+                                background-color: $perlu-white;
 
                                 .color-wheel-wrapper {
                                     @include transform(scale(0.3) rotate(15deg));
@@ -483,8 +513,11 @@
                                         &.fake-select {
                                             @include transform(rotate(110deg));
                                         }
-                                    }
 
+                                        &.fake-select-two {
+                                            @include transform(rotate(145deg));
+                                        }
+                                    }
                                 }
 
                                 .picker-desc {
@@ -513,6 +546,58 @@
                                             transform: rotate(45deg);
 
                                             box-shadow: -1px 1px 1px 0 rgba(0, 0, 0, 0.4);
+                                        }
+                                    }
+                                }
+                            }
+
+                            .picker-item-2 {
+                                top: 40px;
+                                width: 100%;
+
+                                .ionicons {
+                                    font-size: em(27);
+                                    color: $perlu-orange;
+                                    cursor: pointer;
+                                    margin-top: -5px;
+                                }
+
+                                .ion-arrow-left-b {
+                                    position: absolute;
+                                    left: -0px;
+                                    width: 14%;
+                                    display: inline-block;
+                                }
+
+                                .ion-arrow-right-b {
+                                    width: 14%;
+                                    display: inline-block;
+                                }
+
+                                .picker-material-wrapper {
+                                    width: 70%;
+                                    //margin-left: 15%;
+                                    display: inline-block;
+
+                                    .picker-material-item {
+                                        @include span-columns(2 of 12);
+                                        @include omega(6n);
+
+                                        img {
+                                            height: 30px;
+                                            width: 30px;
+                                            border: 2px solid $perlu-white;
+
+                                            @include transition(border 0.2s ease-in-out);
+
+                                            &:hover {
+                                                cursor: pointer;
+                                                border: 2px solid $perlu-orange;
+                                            }
+
+                                            &.active {
+                                                border: 2px solid $perlu-orange;
+                                            }
                                         }
                                     }
                                 }
@@ -585,6 +670,10 @@
             .planner-backward {
                 margin-top: 20px;
                 @include span-columns(12 of 12);
+
+                button {
+                    width: 100%;
+                }
 
                 @include media($mobile) {
                     display: none;
@@ -704,7 +793,7 @@
 
         &.handle {
             left: 52% !important;
-            top: 31% !important;
+            top: 20% !important;
         }
 
         &.zip {
@@ -714,7 +803,7 @@
 
         &.wheels {
             left: 35% !important;
-            top: 65% !important;
+            top: 80% !important;
         }
     }
 }

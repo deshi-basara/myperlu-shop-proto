@@ -47,8 +47,8 @@
                             <div class="item-wrapper">
 
                                 <h4>Größe</h4>
-                                <div class="size-item" ng-repeat="size in ctrl.sizes">
-                                    <img alt="{{ size }}">
+                                <div class="size-item z1" ng-repeat="size in ctrl.sizes" ng-class="{ 'active': $index == 0 }">
+                                    {{ size }}
                                 </div>
 
                             </div>
@@ -58,7 +58,7 @@
 
                                 <h4>Material</h4>
                                 <div class="material-item" ng-repeat="material in ctrl.materials">
-                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
+                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg" class="z1" ng-class="{'active': $index == 5 }">
                                     <div>{{ material }}</div>
                                 </div>
 
@@ -69,7 +69,7 @@
 
                     <!-- Box footer -->
                     <div class="planner-box-footer z1" ng-class="{ 'up': !ctrl.showDesc }">
-                        <button class="button button-orange" ng-click="ctrl.changeSlidePos(1)">OK</button>
+                        <button class="btn-2 btn-orange" ng-click="ctrl.changeSlidePos(1)">OK</button>
                     </div>
                 </div>
 
@@ -94,6 +94,15 @@
                             </span>
                             <div class="planner-preview-indicator-box z1">
                                 <i class="ionicons ion-close" ng-click="ctrl.toggleIndicatorBox('caseBox')"></i>
+                                <div class="picker-item-2">
+                                    <div class="ionicons ion-arrow-left-b"></div>
+                                    <div class="picker-material-wrapper">
+                                        <div class="picker-material-item" ng-repeat="material in ctrl.materials">
+                                            <img ng-src="images/planner/material/{{ material | lowercase }}.jpg" class="z1" ng-class="{ 'active': $index === 5 }">
+                                        </div>
+                                    </div>
+                                    <div class="ionicons ion-arrow-right-b"></div>
+                                </div>
                                 <div class="picker-item">
                                     <div class="color-wheel-wrapper">
                                         <div class="color-wheel"    ng-click="ctrl.fakeColorSelect()"
@@ -128,11 +137,11 @@
                     <div class="planner-box-body z1">
                         <div class="planner-bag-items">
                             <!-- Material -->
-                            <div class="planner-bag-item" ng-class="{'show': ctrl.indicator.caseBox }">
+                            <div class="planner-bag-item" ng-class="{'show': ctrl.fake.caseBag }">
                                 <div class="planner-bag-item-img" ng-include="'images/trolleys/case.svg'"></div>
                                 <ul class="planner-bag-item-indicator">
                                     <li>Handgepäck <i class="ionicons ion-edit"></i> </li>
-                                    <li>Aluminium <i class="ionicons ion-edit"></i> </li>
+                                    <li>Titan <i class="ionicons ion-edit"></i> </li>
                                     <li>Milka Lila<i class="ionicons ion-edit"></i> </li>
                                     <li class="planner-bag-item-price"><span>350€</span></li>
                                 </ul>
@@ -143,22 +152,22 @@
                     <!-- Price & Buttons right -->
                     <div class="planner-forward">
                         <div class="planner-forward-price">
-                            <h4>Gesamt: <span>350€</span></h4>
+                            <h4>Gesamt: <span>{{ ctrl.fake.price }}€</span></h4>
                             <div>inkl. MWSt.</div>
                         </div>
-                        <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Einzelteilen</button>
-                        <button class="button button-orange z1" ng-click="ctrl.addToShoppingBag()">In den Warenkorb</button>
+                        <button class="btn-2 btn-main z1" ng-click="ctrl.nextStep()">Weiter zu den Einzelteilen</button>
+                        <button class="btn-2 btn-orange z1" ng-click="ctrl.addToShoppingBag()">In den Warenkorb</button>
                     </div>
                 </div>
 
                 <!-- Price & Buttons mobile -->
                 <div class="planner-forward-mobile">
                     <div class="planner-forward-price">
-                        <h4>Gesamt: <span>350€</span></h4>
+                        <h4>Gesamt: <span>{{ ctrl.fake.price }}€</span></h4>
                         <div>inkl. MWSt.</div>
                     </div>
-                    <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Einzelteilen</button>
-                    <button class="button button-orange z1" ng-click="ctrl.addToShoppingBag()">In den Warenkorb</button>
+                    <button class="btn-2 btn-main z1" ng-click="ctrl.nextStep()">Weiter zu den Einzelteilen</button>
+                    <button class="btn-2 btn-orange z1" ng-click="ctrl.addToShoppingBag()">In den Warenkorb</button>
                 </div>
 
             </div>
@@ -192,7 +201,7 @@
                             <div class="item-wrapper">
                                 <h4>Material</h4>
                                 <div class="material-item" ng-repeat="material in ctrl.materials">
-                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
+                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg" class="z1" ng-class="{'active': $index == 0 }">
                                     <div>{{ material }}</div>
                                 </div>
                             </div>
@@ -210,7 +219,7 @@
                             <div class="item-wrapper">
                                 <h4>Material</h4>
                                 <div class="material-item" ng-repeat="material in ctrl.materials">
-                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
+                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg" class="z1" ng-class="{'active': $index == 5 }">
                                     <div>{{ material }}</div>
                                 </div>
                             </div>
@@ -228,7 +237,7 @@
                             <div class="item-wrapper">
                                 <h4>Material 3</h4>
                                 <div class="material-item" ng-repeat="material in ctrl.materials">
-                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
+                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg" class="z1" ng-class="{'active': $index == 5 }">
                                     <div>{{ material }}</div>
                                 </div>
                             </div>
@@ -246,7 +255,7 @@
                             <div class="item-wrapper">
                                 <h4>Material</h4>
                                 <div class="material-item" ng-repeat="material in ctrl.materials">
-                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg">
+                                    <img ng-src="images/planner/material/{{ material | lowercase }}.jpg" class="z1" ng-class="{'active': $index == 4 }">
                                     <div>{{ material }}</div>
                                 </div>
                             </div>
@@ -262,7 +271,7 @@
 
                     <!-- Backwards Button -->
                     <div class="planner-backward">
-                        <button class="button button-white z1" ng-click="ctrl.previousStep()">Zurück zu Gehäuse</button>
+                        <button class="btn-2 btn-main z1" ng-click="ctrl.previousStep()">Zurück zu Gehäuse</button>
                     </div>
                 </div>
 
@@ -287,6 +296,15 @@
                             </span>
                             <div class="planner-preview-indicator-box z1">
                                 <i class="ionicons ion-close" ng-click="ctrl.toggleIndicatorBox('handleBox')"></i>
+                                <div class="picker-item-2">
+                                    <div class="ionicons ion-arrow-left-b"></div>
+                                    <div class="picker-material-wrapper">
+                                        <div class="picker-material-item" ng-repeat="material in ctrl.materials">
+                                            <img ng-src="images/planner/material/{{ material | lowercase }}.jpg" class="z1" ng-class="{ 'active': $index === 5 }">
+                                        </div>
+                                    </div>
+                                    <div class="ionicons ion-arrow-right-b"></div>
+                                </div>
                                 <div class="picker-item">
                                     <div class="color-wheel-wrapper">
                                         <div class="color-wheel"    ng-click="ctrl.fakeColorSelect()"
@@ -311,10 +329,19 @@
                             </span>
                             <div class="planner-preview-indicator-box z1">
                                 <i class="ionicons ion-close" ng-click="ctrl.toggleIndicatorBox('zipBox')"></i>
+                                <div class="picker-item-2">
+                                    <div class="ionicons ion-arrow-left-b"></div>
+                                    <div class="picker-material-wrapper">
+                                        <div class="picker-material-item" ng-repeat="material in ctrl.materials">
+                                            <img ng-src="images/planner/material/{{ material | lowercase }}.jpg" class="z1" ng-class="{ 'active': $index === 5 }">
+                                        </div>
+                                    </div>
+                                    <div class="ionicons ion-arrow-right-b"></div>
+                                </div>
                                 <div class="picker-item">
                                     <div class="color-wheel-wrapper">
-                                        <div class="color-wheel"    ng-click="ctrl.fakeColorSelect()"
-                                                                    ng-class="{ 'fake-select': ctrl.fake.select }">
+                                        <div class="color-wheel"    ng-click="ctrl.fakeColorSelectTwo()"
+                                                                    ng-class="{ 'fake-select-two': ctrl.fake.selectTwo }">
                                             <span   ng-repeat="color in ctrl.colors | limitTo: 10"
                                                     class="color-{{ $index }}"
                                                     style="border-color: {{ color }} transparent transparent transparent"></span>
@@ -322,7 +349,7 @@
                                     </div>
                                     <div class="picker-desc">
                                         <h5>Farbe</h5>
-                                        <span>{{ ctrl.fake.color }}</span>
+                                        <span>{{ ctrl.fake.colorTwo }}</span>
                                     </div>
                                 </div>
                             </div>
@@ -336,6 +363,15 @@
                             </span>
                             <div class="planner-preview-indicator-box z1">
                                 <i class="ionicons ion-close" ng-click="ctrl.toggleIndicatorBox('wheelsBox')"></i>
+                                <div class="picker-item-2">
+                                    <div class="ionicons ion-arrow-left-b"></div>
+                                    <div class="picker-material-wrapper">
+                                        <div class="picker-material-item" ng-repeat="material in ctrl.materials">
+                                            <img ng-src="images/planner/material/{{ material | lowercase }}.jpg" class="z1" ng-class="{ 'active': $index === 5 }">
+                                        </div>
+                                    </div>
+                                    <div class="ionicons ion-arrow-right-b"></div>
+                                </div>
                                 <div class="picker-item">
                                     <div class="color-wheel-wrapper">
                                         <div class="color-wheel"    ng-click="ctrl.fakeColorSelect()"
@@ -370,31 +406,31 @@
                     <div class="planner-box-body z1">
                         <div class="planner-bag-items">
                             <!-- Material -->
-                            <div class="planner-bag-item" ng-class="{'show': ctrl.indicator.caseBox }">
+                            <div class="planner-bag-item" ng-class="{'show': ctrl.fake.caseBag }">
                                 <div class="planner-bag-item-img" ng-include="'images/trolleys/case.svg'"></div>
                                 <ul class="planner-bag-item-indicator">
                                     <li>Handgepäck <i class="ionicons ion-edit"></i> </li>
-                                    <li>Aluminium <i class="ionicons ion-edit"></i> </li>
+                                    <li>Titan <i class="ionicons ion-edit"></i> </li>
                                     <li>Milka Lila<i class="ionicons ion-edit"></i> </li>
                                     <li class="planner-bag-item-price"><span>350€</span></li>
                                 </ul>
                             </div>
 
-                            <!-- Griff -->
-                            <div class="planner-bag-item" ng-class="{'show': ctrl.indicator.handleBox }">
-                                <div class="planner-bag-item-img" ng-include="'images/trolleys/handle.svg'"></div>
+                            <!-- Stiching -->
+                            <div class="planner-bag-item" ng-class="{'show': ctrl.fake.zipBag }">
+                                <div class="planner-bag-item-img" ng-include="'images/trolleys/zip.svg'"></div>
                                 <ul class="planner-bag-item-indicator">
                                     <li>Aluminium <i class="ionicons ion-edit"></i> </li>
-                                    <li>grau <i class="ionicons ion-edit"></i> </li>
+                                    <li>Perlu Blau <i class="ionicons ion-edit"></i> </li>
                                     <li class="planner-bag-item-price"><span>30€</span></li>
                                 </ul>
                             </div>
 
                             <!-- Rollen -->
-                            <div class="planner-bag-item" ng-class="{'show': ctrl.indicator.wheelBox }">
+                            <div class="planner-bag-item" ng-class="{'show': ctrl.fake.wheelsBox }">
                                 <div class="planner-bag-item-img" ng-include="'images/trolleys/wheels.svg'"></div>
                                 <ul class="planner-bag-item-indicator">
-                                    <li>Gummi <i class="ionicons ion-edit"></i> </li>
+                                    <li>Synthetik 2 <i class="ionicons ion-edit"></i> </li>
                                     <li>rot <i class="ionicons ion-edit"></i> </li>
                                     <li class="planner-bag-item-price"><span>20€</span></li>
                                 </ul>
@@ -405,11 +441,11 @@
                     <!-- Price & Buttons right -->
                     <div class="planner-forward">
                         <div class="planner-forward-price">
-                            <h4>Gesamt: <span>350€</span></h4>
+                            <h4>Gesamt: <span>{{ ctrl.fake.price }}€</span></h4>
                             <div>inkl. MWSt.</div>
                         </div>
-                        <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Extras</button>
-                        <button class="button button-orange z1" ng-click="ctrl.addToShoppingBag()">In den Warenkorb</button>
+                        <button class="btn-2 btn-main z1" ng-click="ctrl.nextStep()">Weiter zu den Extras</button>
+                        <button class="btn-2 btn-orange z1" ng-click="ctrl.addToShoppingBag()">In den Warenkorb</button>
                     </div>
                 </div>
 
@@ -418,12 +454,12 @@
             <!-- Price & Buttons mobile -->
             <div class="planner-forward-mobile">
                 <div class="planner-forward-price">
-                    <h4>Gesamt: <span>350€</span></h4>
+                    <h4>Gesamt: <span>{{ ctrl.fake.price }}€</span></h4>
                     <div>inkl. MWSt.</div>
                 </div>
-                <button class="button button-white z1" ng-click="ctrl.previousStep()">Zurück zu Gehäuse</button>
-                <button class="button button-white z1" ng-click="ctrl.nextStep()">Weiter zu den Einzelteilen</button>
-                <button class="button button-orange z1" ng-click="ctrl.addToShoppingBag()">In den Warenkorb</button>
+                <button class="btn-2 btn-main z1" ng-click="ctrl.previousStep()">Zurück zu Gehäuse</button>
+                <button class="btn-2 btn-main z1" ng-click="ctrl.nextStep()">Weiter zu den Einzelteilen</button>
+                <button class="btn-2 btn-orange z1" ng-click="ctrl.addToShoppingBag()">In den Warenkorb</button>
             </div>
 
         </div>
