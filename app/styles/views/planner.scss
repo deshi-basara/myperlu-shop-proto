@@ -671,6 +671,10 @@
                 margin-top: 20px;
                 @include span-columns(12 of 12);
 
+                button {
+                    width: 100%;
+                }
+
                 @include media($mobile) {
                     display: none;
                 }
