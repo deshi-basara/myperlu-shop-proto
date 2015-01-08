@@ -513,6 +513,10 @@
                                         &.fake-select {
                                             @include transform(rotate(110deg));
                                         }
+
+                                        &.fake-select-two {
+                                            @include transform(rotate(145deg));
+                                        }
                                     }
                                 }
 
