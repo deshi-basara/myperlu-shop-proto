@@ -75,14 +75,13 @@ label {
         -moz-box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
         box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
         &:hover{
-    
+
        -webkit-box-shadow: 0px 8px 17px rgba(0,0,0,0.2);
             -moz-box-shadow: 0px 8px 17px rgba(0,0,0,0.2);
             box-shadow: 0px 8px 17px rgba(0,0,0,0.2);
 
      }
 }
-
 
     .btn:after {
         content: '';
@@ -108,6 +107,57 @@ label {
 
     }
 
+.btn-2 {
+    border-radius: 0px;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 8px 30px;
+    margin: 10px 1px;
+    display: inline-block;
+    text-transform: uppercase;
+    outline: none;
+    position: relative;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    z-index: 0;
+    -webkit-font-smoothing: auto;
+    -webkit-box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
+    -moz-box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
+    box-shadow: 0px 2px 5px 0 rgba(0,0,0,0.26);
+    border: 1px solid transparent;
+
+    &:hover{
+        -webkit-box-shadow: 0px 8px 17px rgba(0,0,0,0.2);
+        -moz-box-shadow: 0px 8px 17px rgba(0,0,0,0.2);
+        box-shadow: 0px 8px 17px rgba(0,0,0,0.2);
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        -webkit-transition: all 0.3s;
+        -moz-transition: all 0.3s;
+        transition: all 0.3s;
+    }
+
+    &:before {
+        font-family: 'FontAwesome';
+        speak: none;
+        font-style: normal;
+        font-weight: normal;
+        font-variant: normal;
+        text-transform: none;
+        line-height: 1;
+        position: relative;
+        -webkit-font-smoothing: antialiased;
+    }
+}
+
 
 /* Button special */
     .btn-special {
@@ -119,7 +169,7 @@ label {
         -webkit-backface-visibility: hidden;
         -moz-backface-visibility: hidden;
         backface-visibility: hidden;
-    
+
     & span {
         display: inline-block;
         width: 100%;
@@ -188,7 +238,7 @@ label {
 
          content: "\f00c";
 
-    } 
+    }
 
 /* Button cart */
 
@@ -230,20 +280,19 @@ label {
 
          content: "\f00c";
 
-    } 
+    }
 
 /* Button checkout */
 
 /* Button main */
 
-    .btn-main {
-       border: 2px solid $perlu-black;
-        background: #fff;
+    .btn-main, .btn-orange {
+       //border: 2px solid $perlu-black;
+        background: $perlu-white;
         color: $perlu-black;
     }
 
-
-    .btn-main:after {
+    .btn-main:after, .btn-orange:after {
         width: 100%;
         height: 0;
         top: 0;
@@ -257,9 +306,24 @@ label {
     }
 
     .btn-main:hover:after,
-    .btn-main:active:after {
+    .btn-main:active:after,
+    .btn-orange:hover:after,
+    .btn-orange:active:after {
         height: 100%;
     }
+
+.btn-orange {
+    background: $perlu-orange;
+    color: $perlu-white;
+
+    &:after {
+        background: $perlu-white;
+    }
+
+    &:hover, &:active {
+        color: $perlu-orange;
+    }
+}
 
 .btn-full-width {
         width: 100%;
