@@ -50,13 +50,13 @@
 
         .shopping-empty.feedback {
             .fa-heart {
-                color: $kuck-bluer;
+                color: $perlu-blue;
 
                 @include transition(all 0.7s ease-in-out);
             }
 
             .empty span {
-                color: $kuck-bluer;
+                color: $perlu-blue;
 
                 @include transition(all 0.7s ease-in-out);
             }
