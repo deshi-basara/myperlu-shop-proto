@@ -124,6 +124,21 @@
         }
 
         /**
+         * Slides the walkthrough images.
+         * @return {string} [css slide rule]
+         */
+        function slideWalkthroughTo() {
+            // loop back to the start, if user is at the end
+            if(ctrl.walkthroughStep === 5) {
+                ctrl.walkthroughStep = 0;
+                return {'-webkit-transform': 'translate3d('+ parseInt(ctrl.walkthroughStep) * -100  +'%,0,0)'};
+            }
+            else {
+                return {'-webkit-transform': 'translate3d('+ parseInt(ctrl.walkthroughStep) * -100  +'%,0,0)'};
+            }
+        }
+
+        /**
          * Toggles the footer open state.
          * @return {boolean}
          */
@@ -131,6 +146,12 @@
             return ctrl.isOpen = (ctrl.isOpen) ? false : true;
         }
 
+        /**
+         * Go to the next walkthrough step
+         */
+        function walkthrough() {
+            ctrl.walkthroughStep++;
+        }
 
         //////////////////////
 
@@ -151,9 +172,12 @@
                 svenja: false,
                 ramona: false
             },
+            walkthroughStep: 0,
 
             goToState: goToState,
-            toggleOpen: toggleOpen
+            slideWalkthroughTo: slideWalkthroughTo,
+            toggleOpen: toggleOpen,
+            walkthrough: walkthrough
         });
     }
 
