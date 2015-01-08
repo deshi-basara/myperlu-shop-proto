@@ -260,6 +260,11 @@ label {
     .btn-main:active:after {
         height: 100%;
     }
+    
+     .btn-main:active:after{
+        background: $perlu-orange;
+     }
+
 
 .btn-full-width {
         width: 100%;

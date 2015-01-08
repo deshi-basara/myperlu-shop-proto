@@ -28,6 +28,23 @@
         }
     }
 
+      hr {
+        
+        border-top: 1px solid $perlu-black;
+
+      }
+
+      h3 {
+            
+            margin-top: 30px;
+    
+        }
+
+    h2{
+            
+            margin-bottom: 20px;
+    
+        }
 
     .btn-custom {
         border-radius: 0px;
@@ -106,7 +123,7 @@
         > li > a {
             padding: 6px 0px;
             &:hover, &:focus, &:active {
-                background: #555A5c;
+                background: $perlu-lightorange;
                 color: #FFFFFF;
             }
         }
@@ -128,10 +145,23 @@
         height: 100%;
         margin-left: auto;
         margin-right: auto;
+        margin-bottom: 20px;
+        background: $perlu-blue;
+        padding: 1%;
+
+    }
+
+    #isotope2 {
+        width: 100%;
+        height: 100%;
+        margin-left: auto;
+        margin-right: auto;
+        background: $perlu-lightorange;
+        padding: 1%;
     }
     .item {
-        width: 295px;
-        height: 295px;
+        width: 290px;
+        height: 290px;
         float: left;
         background-image: url(../../images/trolleys/black.png);
         background-size: auto  80% ;
@@ -270,14 +300,17 @@
         }
     }
     .pricetag {
-        font-size: 1.4em;
-        display: inline-block;
-        background: #5DB0C6;
-        color: #fff;
-        padding: 1% 2% 1% 2%;
         position: absolute;
-        top: 0;
-        right: 0;
+        top: 0px;
+        right: 15px;
+
+        //padding: 7px 10px 7px 10px;
+        padding-top: 5px;
+        height: em(34);
+        width: em(47);
+        background-color: $perlu-blue;
+        color: $perlu-white;
+        text-align: center;
     }
     .price {
         color: #5DB0C6;
@@ -358,8 +391,7 @@
             }
 
             .pricetag{
-              
-              font-size: 1.4em;     
+               
 
             }
         }

@@ -245,8 +245,8 @@
 
 
                     height = $item.width();
-                    $item.height((height * 2) + 5);
-                    $item.width((height * 2) + 5);
+                    $item.height((height * 2) + 10);
+                    $item.width((height * 2) + 10);
 
                     $container2.isotope('layout');
                 });
@@ -263,8 +263,8 @@
 
 
                     height = $item.width();
-                    $item.height((height / 2) - 10);
-                    $item.width((height / 2) - 10);
+                    $item.height((height / 2) - 5);
+                    $item.width((height / 2) - 5);
 
                     $container2.isotope('layout');
                 });
