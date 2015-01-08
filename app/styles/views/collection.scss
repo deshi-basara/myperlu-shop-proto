@@ -287,31 +287,6 @@
     @media (max-width:620px) {
 
 
-        .btn-special-cart:active span {
-        -webkit-transform: translateY(300%);
-        -moz-transform: translateY(300%);
-        -ms-transform: translateY(300%);
-        transform: translateY(300%);
-    }
-
-    .btn-special-cart:before {
-        left: 0;
-        top: -100%;
-
-    }
-
-    .btn-special-cart:active:before {
-        top: 0;
-    }
-
-    .btn-main:active {
-        color: $perlu-white;
-    }
-
-    .btn-main:active:after {
-        height: 100%;
-    }
-
          p {      
                 font-size: 1.3em;
                 color: #4C4C4C;

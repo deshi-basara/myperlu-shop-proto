@@ -20,6 +20,16 @@
         angular.element(document).ready(function() {
         $timeout(function() {
 
+            iniIsotope();
+
+        }, 1000);
+
+
+
+            
+
+            function iniIsotope(){
+
             var ismobile = false;
 
             var winWidth = $(window).width();
@@ -143,7 +153,7 @@
             $(this).addClass('released');
            
             });
-            
+
                 var $container = $('#isotope');
                 var $container2 = $('#isotope2');
 
@@ -260,8 +270,7 @@
                 });
             }
 
-
-        }, 1000);
+        }
 
     });
 
