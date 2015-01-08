@@ -88,16 +88,37 @@
         }
 
         /**
-         * Fakes a color selection on the color wheel.
+         * Fakes a color selection on the color wheel (case).
          */
         function fakeColorSelect() {
             // make the color wheel move
             ctrl.fake.select = true;
             ctrl.fake.color = 'Milka Lila';
+            ctrl.fake.price = '350';
+            ctrl.fake.caseBag = true;
 
             // change the bag preview
             $('.svg-case').attr({
                 'fill': '#8f88b8',
+                'fill-opacity': '1'
+            });
+        }
+
+
+        /**
+         * Fakes a color selection on the color wheel (zip).
+         */
+        function fakeColorSelectTwo() {
+            console.log('two');
+            // make the color wheel move
+            ctrl.fake.selectTwo = true;
+            ctrl.fake.colorTwo = 'Perlu Blau';
+            ctrl.fake.price = '380';
+            ctrl.fake.zipBag = true;
+
+            // change the bag preview
+            $('.svg-stiching').attr({
+                'fill': '#5DB0C6',
                 'fill-opacity': '1'
             });
         }
@@ -299,7 +320,12 @@
             },
             fake: {
                 select: false,
-                color: 'Leichtes Blaugrau'
+                selectTwo: false,
+                color: 'Leichtes Blaugrau',
+                colorTwo: 'Leichtes Blaugrau',
+                price: 0,
+                caseBag: false,
+                zipBag: false
             },
             initDrag: false,
             showDesc: true,
@@ -319,6 +345,7 @@
             addToShoppingBag: addToShoppingBag,
             changeSlidePos: changeSlidePos,
             fakeColorSelect: fakeColorSelect,
+            fakeColorSelectTwo: fakeColorSelectTwo,
             isHeadActive: isHeadActive,
             isStepActive: isStepActive,
             nextStep: nextStep,
