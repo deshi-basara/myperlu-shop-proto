@@ -1,3 +1,8 @@
+/*!
+* Simon Schuster <simon.schuster@hs-furtwangen.de>
+* Marvin Franz <marvin.franz@hs-furtwangen.de>
+* myperlu-shop-proto v1.0.0 (https://github.com/deshi-basara/myperlu-shop-proto)
+*/
 'use strict';
 
 // angular.module is a global place for creating, registering and retrieving Angular modules.
