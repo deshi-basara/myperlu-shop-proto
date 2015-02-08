@@ -1,7 +1,7 @@
-kuckuck-shop-proto
+myperlu-shop-proto
 ==================
 
-Twitter bootstrap prototype
+Shop prototype
 
 ===================
 ### Dependendencies
@@ -34,4 +34,3 @@ $ gulp serve
 ========
 ### Todo
 
-* Product konfigurator concept & design
